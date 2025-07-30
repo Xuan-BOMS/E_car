@@ -1,41 +1,50 @@
-## Example Summary
+# MSPM0G3507 云台控制项目
 
-Empty project using DriverLib.
-This example shows a basic empty project using DriverLib with just main file
-and SysConfig initialization.
+## 项目简介
 
-## Peripherals & Pin Assignments
+本项目基于 TI MSPM0G3507 微控制器开发的车车系统。
 
-| Peripheral | Pin | Function |
-| --- | --- | --- |
-| SYSCTL |  |  |
-| DEBUGSS | PA20 | Debug Clock |
-| DEBUGSS | PA19 | Debug Data In Out |
+## 硬件平台
 
-## BoosterPacks, Board Resources & Jumper Settings
+- **主控芯片**: TI MSPM0G3507
+- **开发环境**: Keil MDK-ARM v6
+- **SDK版本**: MSPM0 SDK 2.05.01.00
 
-Visit [LP_MSPM0G3507](https://www.ti.com/tool/LP-MSPM0G3507) for LaunchPad information, including user guide and hardware files.
+## 功能特性
 
-| Pin | Peripheral | Function | LaunchPad Pin | LaunchPad Settings |
-| --- | --- | --- | --- | --- |
-| PA20 | DEBUGSS | SWCLK | N/A | <ul><li>PA20 is used by SWD during debugging<br><ul><li>`J101 15:16 ON` Connect to XDS-110 SWCLK while debugging<br><li>`J101 15:16 OFF` Disconnect from XDS-110 SWCLK if using pin in application</ul></ul> |
-| PA19 | DEBUGSS | SWDIO | N/A | <ul><li>PA19 is used by SWD during debugging<br><ul><li>`J101 13:14 ON` Connect to XDS-110 SWDIO while debugging<br><li>`J101 13:14 OFF` Disconnect from XDS-110 SWDIO if using pin in application</ul></ul> |
+- 跑车
+- 双轴云台控制（俯仰/偏航）
+- 视觉串口通信支持
+- 屏幕显示
+- 模式切换
 
-### Device Migration Recommendations
-This project was developed for a superset device included in the LP_MSPM0G3507 LaunchPad. Please
-visit the [CCS User's Guide](https://software-dl.ti.com/msp430/esd/MSPM0-SDK/latest/docs/english/tools/ccs_ide_guide/doc_guide/doc_guide-srcs/ccs_ide_guide.html#sysconfig-project-migration)
-for information about migrating to other MSPM0 devices.
 
-### Low-Power Recommendations
-TI recommends to terminate unused pins by setting the corresponding functions to
-GPIO and configure the pins to output low or input with internal
-pullup/pulldown resistor.
+### 视觉模块通讯
+| 单片机->k230 |  | k230->单片机 |  |
+|--------|------|------|------|
+| 开启识别 | AA AA BB | 差值返回 | AA (16位x偏移值)(16位y偏移值)  BB |
+| 结束识别 | AA FF BB | 例 | AA 00 00 BB |
 
-SysConfig allows developers to easily configure unused pins by selecting **Board**→**Configure Unused Pins**.
 
-For more information about jumper configuration to achieve low-power using the
-MSPM0 LaunchPad, please visit the [LP-MSPM0G3507 User's Guide](https://www.ti.com/lit/slau873).
 
-## Example Usage
+## 项目结构
 
-Compile, load and run the example.
+```
+empty/
+├── empty.c                 # 主程序文件
+├── ti_msp_dl_config.h      # 系统配置头文件
+├── gimbal/                 # 云台控制模块
+│   ├── gimbal.h           # 云台控制头文件
+│   ├── gimbal.c           # 云台控制实现
+│   ├── ZDT_drive.h        # 电机驱动头文件
+│   └── ZDT_drive.c        # 电机驱动实现
+├── vision/                 # 视觉处理模块
+│   ├── vision.h           # 视觉处理头文件
+│   └── vision.c           # 视觉处理实现
+├── time/                   # 时间处理模块
+│   ├── time.h             # 时间处理头文件
+│   └── time.c             # 时间处理实现
+├── uart/                   # 串口通信模块
+│   ├── uart.h             # 串口通信头文件
+│   └── uart.c             # 串口通信实现
+└── README.md               # 项目说明文档
