@@ -26,16 +26,82 @@ Project File Date:  07/30/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'D:\Programs\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'empty_LP_MSPM0G3507_nortos_keil'
+Rebuild target 'empty_LP_MSPM0G3507_nortos_keil'
 Before Build - User command #1: cmd.exe /C "D:\Code_sourse\mspm0_sdk_2_05_01_00\empty\keil\../../tools/keil/syscfg.bat 'D:\Code_sourse\mspm0_sdk_2_05_01_00\empty\keil\' empty.syscfg"
 Couldn't find Sysconfig Tool "D:\ti\sysconfig_1.24.0\sysconfig_cli.bat"
 "Update the file located at <sdk path>/tools/keil/syscfg.bat"
+assembling startup_mspm0g350x_uvision.s...
 compiling time.c...
+compiling empty.c...
 compiling gimbal.c...
-linking...
-Program Size: Code=3412 RO-data=276 RW-data=4 ZI-data=612  
-FromELF: creating hex file...
-".\Objects\empty_LP_MSPM0G3507_nortos_keil.axf" - 0 Error(s), 0 Warning(s).
+compiling vision.c...
+compiling ti_msp_dl_config.c...
+compiling ZDT_drive.c...
+../OLED/oled_hardware_i2c.c(30): error: use of undeclared identifier 'I2C_OLED_INST'
+   30 |     DL_I2C_reset(I2C_OLED_INST);
+      |                  ^
+../OLED/oled_hardware_i2c.c(31): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SCL'
+   31 |     DL_GPIO_initDigitalOutput(GPIO_I2C_OLED_IOMUX_SCL);
+      |                               ^
+../OLED/oled_hardware_i2c.c(32): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SDA'
+   32 |     DL_GPIO_initDigitalInputFeatures(GPIO_I2C_OLED_IOMUX_SDA,
+      |                                      ^
+../OLED/oled_hardware_i2c.c(35): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PORT'
+   35 |     DL_GPIO_clearPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                       ^
+../OLED/oled_hardware_i2c.c(35): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PIN'
+   35 |     DL_GPIO_clearPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                                               ^
+../OLED/oled_hardware_i2c.c(36): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PORT'
+   36 |     DL_GPIO_enableOutput(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                          ^
+../OLED/oled_hardware_i2c.c(36): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PIN'
+   36 |     DL_GPIO_enableOutput(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                                                  ^
+../OLED/oled_hardware_i2c.c(42): error: use of undeclared identifier 'I2C_OLED_INST'
+   42 |     DL_I2C_reset(I2C_OLED_INST);
+      |                  ^
+../OLED/oled_hardware_i2c.c(43): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SDA'
+   43 |     DL_GPIO_initPeripheralInputFunctionFeatures(GPIO_I2C_OLED_IOMUX_SDA,
+      |                                                 ^
+../OLED/oled_hardware_i2c.c(44): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SDA_FUNC'
+   44 |         GPIO_I2C_OLED_IOMUX_SDA_FUNC, DL_GPIO_INVERSION_DISABLE,
+      |         ^
+../OLED/oled_hardware_i2c.c(47): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SCL'
+   47 |     DL_GPIO_initPeripheralInputFunctionFeatures(GPIO_I2C_OLED_IOMUX_SCL,
+      |                                                 ^
+../OLED/oled_hardware_i2c.c(48): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SCL_FUNC'
+   48 |         GPIO_I2C_OLED_IOMUX_SCL_FUNC, DL_GPIO_INVERSION_DISABLE,
+      |         ^
+../OLED/oled_hardware_i2c.c(51): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SDA'
+   51 |     DL_GPIO_enableHiZ(GPIO_I2C_OLED_IOMUX_SDA);
+      |                       ^
+../OLED/oled_hardware_i2c.c(52): error: use of undeclared identifier 'GPIO_I2C_OLED_IOMUX_SCL'
+   52 |     DL_GPIO_enableHiZ(GPIO_I2C_OLED_IOMUX_SCL);
+      |                       ^
+../OLED/oled_hardware_i2c.c(53): error: use of undeclared identifier 'I2C_OLED_INST'
+   53 |     DL_I2C_enablePower(I2C_OLED_INST);
+      |                        ^
+../OLED/oled_hardware_i2c.c(54): error: call to undeclared function 'SYSCFG_DL_I2C_OLED_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   54 |     SYSCFG_DL_I2C_OLED_init();
+      |     ^
+../OLED/oled_hardware_i2c.c(54): note: did you mean 'SYSCFG_DL_I2C_0_init'?
+../OLED/../ti_msp_dl_config.h(150): note: 'SYSCFG_DL_I2C_0_init' declared here
+  150 | void SYSCFG_DL_I2C_0_init(void);
+      |      ^
+../OLED/oled_hardware_i2c.c(64): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PORT'
+   64 |         DL_GPIO_clearPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                           ^
+../OLED/oled_hardware_i2c.c(64): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PIN'
+   64 |         DL_GPIO_clearPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                                                   ^
+../OLED/oled_hardware_i2c.c(66): error: use of undeclared identifier 'GPIO_I2C_OLED_SCL_PORT'
+   66 |         DL_GPIO_setPins(GPIO_I2C_OLED_SCL_PORT, GPIO_I2C_OLED_SCL_PIN);
+      |                         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+compiling oled_hardware_i2c.c...
+".\Objects\empty_LP_MSPM0G3507_nortos_keil.axf" - 19 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -47,6 +113,7 @@ Package Vendor: TexasInstruments
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
+Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\OLED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -463,6 +463,26 @@
               <FileName>time.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\time\time.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Oled</GroupName>
+          <Files>
+            <File>
+              <FileName>oled_hardware_i2c.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\OLED\oled_hardware_i2c.h</FilePath>
+            </File>
+            <File>
+              <FileName>oledfont.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\OLED\oledfont.h</FilePath>
+            </File>
+            <File>
+              <FileName>oled_hardware_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\OLED\oled_hardware_i2c.c</FilePath>
             </File>
           </Files>
         </Group>
