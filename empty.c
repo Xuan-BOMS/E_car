@@ -3,6 +3,7 @@
 #include "time.h"
 #include "vision.h"
 #include "motor.h"
+#include "hwt101.h"
 volatile unsigned char uart1_data = 0;
 uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
@@ -17,8 +18,9 @@ int main(void)
     NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
     vision_init(); // 初始化视觉模块
-    gimbal_init(); // 初始化云台、
+    gimbal_init(); // 初始化云台
     motor_init(); // 初始化电机
+    HWT101_Init(); // 初始化HWT101传感器
     while (1)
     {
         delay_ms(10);

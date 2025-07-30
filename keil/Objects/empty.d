@@ -82,4 +82,5 @@
   ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h \
   ..\vision\vision.h ..\vision\..\ti_msp_dl_config.h ..\time\time.h \
   ..\time\..\ti_msp_dl_config.h ..\motor\motor.h \
-  ..\motor\..\ti_msp_dl_config.h
+  ..\motor\..\ti_msp_dl_config.h ..\HWT101\hwt101.h \
+  ..\HWT101\..\ti_msp_dl_config.h
