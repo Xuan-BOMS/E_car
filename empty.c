@@ -2,6 +2,7 @@
 #include "gimbal.h"
 #include "time.h"
 #include "vision.h"
+#include "motor.h"
 volatile unsigned char uart1_data = 0;
 uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
@@ -16,10 +17,12 @@ int main(void)
     NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
     vision_init(); // 初始化视觉模块
-    gimbal_init(); // 初始化云台
+    gimbal_init(); // 初始化云台、
+    motor_init(); // 初始化电机
     while (1)
     {
-        delay_ms(100);
+        delay_ms(10);
+        motor_setSpeed();
         //发送字符串
         //uart1_send_string((char*)send_text_data);
         //gimbal_motor_move(); // 控制云台电机移动

@@ -78,6 +78,44 @@ extern "C" {
 
 
 
+/* Defines for PWM_MotorL */
+#define PWM_MotorL_INST                                                    TIMG0
+#define PWM_MotorL_INST_IRQHandler                              TIMG0_IRQHandler
+#define PWM_MotorL_INST_INT_IRQN                                (TIMG0_INT_IRQn)
+#define PWM_MotorL_INST_CLK_FREQ                                         1000000
+/* GPIO defines for channel 0 */
+#define GPIO_PWM_MotorL_C0_PORT                                            GPIOA
+#define GPIO_PWM_MotorL_C0_PIN                                    DL_GPIO_PIN_12
+#define GPIO_PWM_MotorL_C0_IOMUX                                 (IOMUX_PINCM34)
+#define GPIO_PWM_MotorL_C0_IOMUX_FUNC                IOMUX_PINCM34_PF_TIMG0_CCP0
+#define GPIO_PWM_MotorL_C0_IDX                               DL_TIMER_CC_0_INDEX
+/* GPIO defines for channel 1 */
+#define GPIO_PWM_MotorL_C1_PORT                                            GPIOA
+#define GPIO_PWM_MotorL_C1_PIN                                    DL_GPIO_PIN_13
+#define GPIO_PWM_MotorL_C1_IOMUX                                 (IOMUX_PINCM35)
+#define GPIO_PWM_MotorL_C1_IOMUX_FUNC                IOMUX_PINCM35_PF_TIMG0_CCP1
+#define GPIO_PWM_MotorL_C1_IDX                               DL_TIMER_CC_1_INDEX
+
+/* Defines for PWM_MotorR */
+#define PWM_MotorR_INST                                                    TIMG6
+#define PWM_MotorR_INST_IRQHandler                              TIMG6_IRQHandler
+#define PWM_MotorR_INST_INT_IRQN                                (TIMG6_INT_IRQn)
+#define PWM_MotorR_INST_CLK_FREQ                                         1000000
+/* GPIO defines for channel 0 */
+#define GPIO_PWM_MotorR_C0_PORT                                            GPIOB
+#define GPIO_PWM_MotorR_C0_PIN                                     DL_GPIO_PIN_6
+#define GPIO_PWM_MotorR_C0_IOMUX                                 (IOMUX_PINCM23)
+#define GPIO_PWM_MotorR_C0_IOMUX_FUNC                IOMUX_PINCM23_PF_TIMG6_CCP0
+#define GPIO_PWM_MotorR_C0_IDX                               DL_TIMER_CC_0_INDEX
+/* GPIO defines for channel 1 */
+#define GPIO_PWM_MotorR_C1_PORT                                            GPIOB
+#define GPIO_PWM_MotorR_C1_PIN                                     DL_GPIO_PIN_7
+#define GPIO_PWM_MotorR_C1_IOMUX                                 (IOMUX_PINCM24)
+#define GPIO_PWM_MotorR_C1_IOMUX_FUNC                IOMUX_PINCM24_PF_TIMG6_CCP1
+#define GPIO_PWM_MotorR_C1_IDX                               DL_TIMER_CC_1_INDEX
+
+
+
 /* Defines for TIMER_gimbal */
 #define TIMER_gimbal_INST                                                (TIMA1)
 #define TIMER_gimbal_INST_IRQHandler                            TIMA1_IRQHandler
@@ -146,6 +184,8 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
+void SYSCFG_DL_PWM_MotorL_init(void);
+void SYSCFG_DL_PWM_MotorR_init(void);
 void SYSCFG_DL_TIMER_gimbal_init(void);
 void SYSCFG_DL_I2C_0_init(void);
 void SYSCFG_DL_UART_1_init(void);

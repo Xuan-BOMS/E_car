@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -463,6 +463,21 @@
               <FileName>time.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\time\time.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Motor</GroupName>
+          <Files>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\motor\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\motor\motor.h</FilePath>
             </File>
           </Files>
         </Group>
