@@ -1,12 +1,11 @@
 #include "ti_msp_dl_config.h"
-
+#include "gimbal/gimbal.h"
 volatile unsigned int delay_times = 0;
 volatile unsigned char uart_data = 0;
 
 void delay_ms(unsigned int ms);
-void uart0_send_char(char ch);
-void uart0_send_string(char* str);
 
+uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
 {
     SYSCFG_DL_init();
@@ -14,10 +13,14 @@ int main(void)
     NVIC_ClearPendingIRQ(UART_1_INST_INT_IRQN);
     //使能串口中断
     NVIC_EnableIRQ(UART_1_INST_INT_IRQN);
-
+    DL_UART_enableInterrupt(UART_1_INST, DL_UART_IIDX_RX | DL_UART_IIDX_TX);
+    gimbal_init(); // 初始化云台
     while (1)
     {
-        delay_ms(500);
+        delay_ms(1000);
+        //发送字符串
+        //uart1_send_string((char*)send_text_data);
+        gimbal_motor_move(); // 控制云台电机移动
     }
 }
 
@@ -26,22 +29,7 @@ void delay_ms(unsigned int ms)
     delay_times = ms;
     while( delay_times != 0 );
 }
-void uart0_send_char(char ch)
-{
-    //当串口0忙的时候等待，不忙的时候再发送传进来的字符
-    while( DL_UART_isBusy(UART_1_INST) == true );
-    //发送单个字符
-    DL_UART_Main_transmitData(UART_1_INST, ch);
-}
-void uart0_send_string(char* str)
-{
-    //当前字符串地址不在结尾 并且 字符串首地址不为空
-    while(*str!=0&&str!=0)
-    {
-        //发送字符串首地址中的字符，并且在发送完成之后首地址自增
-        uart0_send_char(*str++);
-    }
-}
+
 
 void SysTick_Handler(void)
 {
@@ -61,9 +49,10 @@ void UART_1_INST_IRQHandler(void)
             //接发送过来的数据保存在变量中
             uart_data = DL_UART_Main_receiveData(UART_1_INST);
             //将保存的数据再发送出去
-            uart0_send_char(uart_data);
+            uart1_send_char(uart_data);
             break;
-
+        case DL_UART_IIDX_TX://如果是发送中断
+            break;
         default://其他的串口中断
             break;
     }

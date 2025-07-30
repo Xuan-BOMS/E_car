@@ -94,6 +94,24 @@ extern "C" {
 #define UART_1_BAUD_RATE                                                (115200)
 #define UART_1_IBRD_4_MHZ_115200_BAUD                                        (2)
 #define UART_1_FBRD_4_MHZ_115200_BAUD                                       (11)
+/* Defines for UART_0 */
+#define UART_0_INST                                                        UART0
+#define UART_0_INST_FREQUENCY                                            4000000
+#define UART_0_INST_IRQHandler                                  UART0_IRQHandler
+#define UART_0_INST_INT_IRQN                                      UART0_INT_IRQn
+#define GPIO_UART_0_RX_PORT                                                GPIOA
+#define GPIO_UART_0_TX_PORT                                                GPIOA
+#define GPIO_UART_0_RX_PIN                                        DL_GPIO_PIN_31
+#define GPIO_UART_0_TX_PIN                                        DL_GPIO_PIN_28
+#define GPIO_UART_0_IOMUX_RX                                      (IOMUX_PINCM6)
+#define GPIO_UART_0_IOMUX_TX                                      (IOMUX_PINCM3)
+#define GPIO_UART_0_IOMUX_RX_FUNC                       IOMUX_PINCM6_PF_UART0_RX
+#define GPIO_UART_0_IOMUX_TX_FUNC                       IOMUX_PINCM3_PF_UART0_TX
+#define UART_0_BAUD_RATE                                                (115200)
+#define UART_0_IBRD_4_MHZ_115200_BAUD                                        (2)
+#define UART_0_FBRD_4_MHZ_115200_BAUD                                       (11)
+
+
 
 
 
@@ -104,6 +122,8 @@ void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_UART_1_init(void);
+void SYSCFG_DL_UART_0_init(void);
+void SYSCFG_DL_SYSTICK_init(void);
 
 bool SYSCFG_DL_saveConfiguration(void);
 bool SYSCFG_DL_restoreConfiguration(void);

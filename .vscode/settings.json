@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "gimbal.h": "c",
+        "ti_msp_dl_config.h": "c",
+        "zdt_drive.h": "c"
+    }
+}

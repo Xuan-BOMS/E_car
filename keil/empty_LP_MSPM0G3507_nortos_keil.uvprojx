@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -408,6 +408,46 @@
               <FileName>ti_msp_dl_config.c</FileName>
               <FileType>1</FileType>
               <FilePath>../ti_msp_dl_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>gimbal</GroupName>
+          <Files>
+            <File>
+              <FileName>gimbal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\gimbal\gimbal.c</FilePath>
+            </File>
+            <File>
+              <FileName>ZDT_drive.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\gimbal\ZDT_drive.c</FilePath>
+            </File>
+            <File>
+              <FileName>gimbal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\gimbal\gimbal.h</FilePath>
+            </File>
+            <File>
+              <FileName>ZDT_drive.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\gimbal\ZDT_drive.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>vision</GroupName>
+          <Files>
+            <File>
+              <FileName>vision.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\vision\vision.c</FilePath>
+            </File>
+            <File>
+              <FileName>vision.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\vision\vision.h</FilePath>
             </File>
           </Files>
         </Group>
