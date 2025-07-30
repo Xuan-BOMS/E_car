@@ -1,6 +1,7 @@
 #include "ti_msp_dl_config.h"
-#include "gimbal/gimbal.h"
+#include "gimbal.h"
 #include "time.h"
+#include "vision.h"
 volatile unsigned char uart_data = 0;
 
 uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
@@ -15,6 +16,7 @@ int main(void)
     //使能定时器中断
     NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
+    //vision_init(); // 初始化视觉模块
     gimbal_init(); // 初始化云台
     while (1)
     {
