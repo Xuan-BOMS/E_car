@@ -86,6 +86,22 @@ extern "C" {
 
 
 
+
+/* Defines for I2C_0 */
+#define I2C_0_INST                                                          I2C1
+#define I2C_0_INST_IRQHandler                                    I2C1_IRQHandler
+#define I2C_0_INST_INT_IRQN                                        I2C1_INT_IRQn
+#define I2C_0_BUS_SPEED_HZ                                                400000
+#define GPIO_I2C_0_SDA_PORT                                                GPIOA
+#define GPIO_I2C_0_SDA_PIN                                        DL_GPIO_PIN_16
+#define GPIO_I2C_0_IOMUX_SDA                                     (IOMUX_PINCM38)
+#define GPIO_I2C_0_IOMUX_SDA_FUNC                      IOMUX_PINCM38_PF_I2C1_SDA
+#define GPIO_I2C_0_SCL_PORT                                                GPIOA
+#define GPIO_I2C_0_SCL_PIN                                        DL_GPIO_PIN_17
+#define GPIO_I2C_0_IOMUX_SCL                                     (IOMUX_PINCM39)
+#define GPIO_I2C_0_IOMUX_SCL_FUNC                      IOMUX_PINCM39_PF_I2C1_SCL
+
+
 /* Defines for UART_1 */
 #define UART_1_INST                                                        UART1
 #define UART_1_INST_FREQUENCY                                            4000000
@@ -131,6 +147,7 @@ void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_TIMER_gimbal_init(void);
+void SYSCFG_DL_I2C_0_init(void);
 void SYSCFG_DL_UART_1_init(void);
 void SYSCFG_DL_UART_0_init(void);
 void SYSCFG_DL_SYSTICK_init(void);
