@@ -3,7 +3,6 @@
 #include "time.h"
 #include "vision.h"
 volatile unsigned char uart1_data = 0;
-volatile unsigned char uart0_data = 0;
 uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
 {
@@ -41,22 +40,6 @@ void UART_1_INST_IRQHandler(void)
             break;
         case DL_UART_IIDX_TX://如果是发送中断
             break;
-        default://其他的串口中断
-            break;
-    }
-}
-void UART_0_INST_IRQHandler(void)
-{
-    //如果产生了串口中断
-    switch( DL_UART_getPendingInterrupt(UART_0_INST) )
-    {
-        case DL_UART_IIDX_RX://如果是接收中断
-            //接发送过来的数据保存在变量中
-            uart0_data = DL_UART_Main_receiveData(UART_0_INST);
-            //将保存的数据再发送出去
-            //uart0_send_char(uart_data);
-            break;
-
         default://其他的串口中断
             break;
     }
