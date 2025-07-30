@@ -79,4 +79,5 @@
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
   ..\..\source\ti\driverlib\m0p\dl_systick.h ..\gimbal\gimbal.h \
-  ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h
+  ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h ..\time\time.h \
+  ..\time\..\ti_msp_dl_config.h

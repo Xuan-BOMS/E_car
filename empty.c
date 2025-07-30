@@ -1,9 +1,7 @@
 #include "ti_msp_dl_config.h"
 #include "gimbal/gimbal.h"
-volatile unsigned int delay_times = 0;
+#include "time.h"
 volatile unsigned char uart_data = 0;
-
-void delay_ms(unsigned int ms);
 
 uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
@@ -17,27 +15,13 @@ int main(void)
     gimbal_init(); // 初始化云台
     while (1)
     {
-        delay_ms(1000);
+        delay_ms(100);
         //发送字符串
         //uart1_send_string((char*)send_text_data);
         gimbal_motor_move(); // 控制云台电机移动
     }
 }
 
-void delay_ms(unsigned int ms)
-{
-    delay_times = ms;
-    while( delay_times != 0 );
-}
-
-
-void SysTick_Handler(void)
-{
-    if( delay_times != 0 )
-    {
-        delay_times--;
-    }
-}
 
 //串口的中断服务函数
 void UART_1_INST_IRQHandler(void)
@@ -49,7 +33,6 @@ void UART_1_INST_IRQHandler(void)
             //接发送过来的数据保存在变量中
             uart_data = DL_UART_Main_receiveData(UART_1_INST);
             //将保存的数据再发送出去
-            uart1_send_char(uart_data);
             break;
         case DL_UART_IIDX_TX://如果是发送中断
             break;

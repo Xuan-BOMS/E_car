@@ -1,8 +1,8 @@
 #include "ZDT_drive.h"
 static uint8_t enable[]={0x01,0xF3,0xAB,0x01,0x00,0x6B};
 static uint8_t speed[]={0x01,0xF6,0x01,0x00,0x00,0xFF,0x00,0x6B};
-static uint8_t angle_relative[]={0x01,0xFD,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x6B};
-static uint8_t angle_absolute[]={0x01,0xFD,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x6B};
+static uint8_t angle_relative[]={0x01,0xFB,0x00,0x01,0x20,0x00,0x00,0x00,0x0A,0x00,0x00,0x6B};
+static uint8_t angle_absolute[]={0x01,0xFB,0x00,0x01,0x20,0x00,0x00,0x00,0x0A,0x00,0x00,0x6B};
 static uint8_t receive[4]={0x01,0x00,0x00,0x6B};
 static uint8_t receive_enable[]={0x01,0xF3,0x02,0x6B},receive_speed[]={0x01,0xF6,0x02,0x6B},receive_angle_relative[]={0x01,0xFD,0x02,0x6B},receive_angle_absolute[]={0x01,0xFD,0x02,0x6B};
 void ZDT_init(int16_t mode_set,int16_t address,ZDT_motor* motor)
@@ -52,22 +52,18 @@ void ZDT_speed(int16_t speed_set,int16_t address,ZDT_motor* motor)
 void ZDT_angle_absolute(int16_t angle_set,int16_t speed_set,int16_t address,ZDT_motor* motor)
 {   
     motor->move_mode=angle_absolute_mode;
-    angle_absolute[10]=1;
+    angle_absolute[9]=1;
     angle_absolute[0]=address;
     switch (motor->mode)
     {
     case usart1_mode:
     motor->direction=(angle_set>0)?0x01:0x00;
-    motor->angle=(angle_set>0)?(int)(angle_set*angle_per_turn/360):-(int)(angle_set*angle_per_turn/360);
+    motor->angle=(angle_set>0)?(int)(angle_set):-(int)(angle_set);
     angle_absolute[2]=motor->direction;angle_absolute[3] = (uint8_t)(speed_set >> 8);angle_absolute[4] = (uint8_t)(speed_set & 0xFF);
-    angle_absolute[6] = (uint8_t)(motor->angle >> 24);angle_absolute[7] = (uint8_t)(motor->angle >> 16);angle_absolute[8] = (uint8_t)(motor->angle >> 8);angle_absolute[9] = (uint8_t)motor->angle;
+    angle_absolute[5] = (uint8_t)(motor->angle >> 24);angle_absolute[6] = (uint8_t)(motor->angle >> 16);angle_absolute[7] = (uint8_t)(motor->angle >> 8);angle_absolute[8] = (uint8_t)motor->angle;
     uart1_send_bytes(angle_absolute, sizeof(angle_absolute));
         break;
     case usart2_mode:
-    motor->direction=(angle_set>0)?0x01:0x00;
-    motor->angle=(angle_set>0)?(int)(angle_set*angle_per_turn/360):-(int)(angle_set*angle_per_turn/360);
-    angle_absolute[2]=motor->direction;angle_absolute[3]=speed_set>>8;angle_absolute[4]=speed_set-angle_absolute[3]*16;
-    angle_absolute[6] = (uint8_t)(motor->angle >> 24);angle_absolute[7] = (uint8_t)(motor->angle >> 16);angle_absolute[8] = (uint8_t)(motor->angle >> 8);angle_absolute[9] = (uint8_t)motor->angle;
     break;
     case can1_mode:
         break;

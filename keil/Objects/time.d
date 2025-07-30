@@ -1,5 +1,5 @@
-./objects/gimbal.o: ..\gimbal\gimbal.c ..\gimbal\gimbal.h \
-  ..\gimbal\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
+./objects/time.o: ..\time\time.c ..\time\time.h \
+  ..\time\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h \
@@ -78,5 +78,4 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\gimbal\ZDT_drive.h \
-  ..\time\time.h ..\time\..\ti_msp_dl_config.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h
