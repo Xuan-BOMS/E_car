@@ -12,13 +12,16 @@ int main(void)
     //使能串口中断
     NVIC_EnableIRQ(UART_1_INST_INT_IRQN);
     DL_UART_enableInterrupt(UART_1_INST, DL_UART_IIDX_RX | DL_UART_IIDX_TX);
+    //使能定时器中断
+    NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
+    NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
     gimbal_init(); // 初始化云台
     while (1)
     {
         delay_ms(100);
         //发送字符串
         //uart1_send_string((char*)send_text_data);
-        gimbal_motor_move(); // 控制云台电机移动
+        //gimbal_motor_move(); // 控制云台电机移动
     }
 }
 

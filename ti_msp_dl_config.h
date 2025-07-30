@@ -78,6 +78,14 @@ extern "C" {
 
 
 
+/* Defines for TIMER_gimbal */
+#define TIMER_gimbal_INST                                                (TIMA1)
+#define TIMER_gimbal_INST_IRQHandler                            TIMA1_IRQHandler
+#define TIMER_gimbal_INST_INT_IRQN                              (TIMA1_INT_IRQn)
+#define TIMER_gimbal_INST_LOAD_VALUE                                      (199U)
+
+
+
 /* Defines for UART_1 */
 #define UART_1_INST                                                        UART1
 #define UART_1_INST_FREQUENCY                                            4000000
@@ -115,12 +123,14 @@ extern "C" {
 
 
 
+
 /* clang-format on */
 
 void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
+void SYSCFG_DL_TIMER_gimbal_init(void);
 void SYSCFG_DL_UART_1_init(void);
 void SYSCFG_DL_UART_0_init(void);
 void SYSCFG_DL_SYSTICK_init(void);

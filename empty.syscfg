@@ -11,6 +11,8 @@
  */
 const SYSCTL  = scripting.addModule("/ti/driverlib/SYSCTL");
 const SYSTICK = scripting.addModule("/ti/driverlib/SYSTICK");
+const TIMER   = scripting.addModule("/ti/driverlib/TIMER", {}, false);
+const TIMER1  = TIMER.addInstance();
 const UART    = scripting.addModule("/ti/driverlib/UART", {}, false);
 const UART1   = UART.addInstance();
 const UART2   = UART.addInstance();
@@ -31,6 +33,15 @@ SYSTICK.period            = 32000;
 SYSTICK.interruptEnable   = true;
 SYSTICK.interruptPriority = "0";
 SYSTICK.systickEnable     = true;
+
+TIMER1.$name              = "TIMER_gimbal";
+TIMER1.timerClkDiv        = 8;
+TIMER1.timerClkPrescale   = 100;
+TIMER1.timerMode          = "PERIODIC";
+TIMER1.timerPeriod        = "0.005";
+TIMER1.timerStartTimer    = true;
+TIMER1.interrupts         = ["ZERO"];
+TIMER1.peripheral.$assign = "TIMA1";
 
 UART1.$name                            = "UART_1";
 UART1.uartClkSrc                       = "MFCLK";

@@ -13,6 +13,7 @@ void gimbal_init(void);
 void gimbal_set_position(int16_t pitch, int16_t yaw);
 void gimbal_motor_move(void);
 void gimbal_get_position(int16_t* pitch, int16_t* yaw);
+void TIMER_gimbal_INST_IRQHandler(void);
 GimbalPosition* gimbal_get_position_struct(void);
 
 #endif // GIMBAL_H
