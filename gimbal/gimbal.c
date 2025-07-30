@@ -25,10 +25,10 @@ void gimbal_init(void)
     ZDT_init(gimbal.yaw_motor.mode, gimbal.yaw_motor.address, &gimbal.yaw_motor);
     gimbal.vision_data = vision_get_data();
 }
-void gimbal_set_position(int16_t pitch, int16_t yaw)
+void gimbal_set_position(void)
 {
-    gimbal.pitch = pitch;
-    gimbal.yaw = yaw;
+    gimbal.pitch += (int16_t)(gimbal.vision_data->y_offset * OFFSET_SCALE); // 使用视觉数据的y偏移
+    gimbal.yaw += (int16_t)(gimbal.vision_data->x_offset * OFFSET_SCALE); // 使用视觉数据的x偏移
 }
 void gimbal_motor_move(void)
 {
@@ -43,6 +43,7 @@ void TIMER_gimbal_INST_IRQHandler(void)
     switch( DL_TimerG_getPendingInterrupt(TIMER_gimbal_INST) )
     {
         case DL_TIMER_IIDX_ZERO://如果是0溢出中断
+            gimbal_set_position();
             gimbal_motor_move(); // 控制云台电机移动
             switch(send_mode)
             {
@@ -50,13 +51,13 @@ void TIMER_gimbal_INST_IRQHandler(void)
                     // 发送俯仰电机的角度
                     ZDT_angle_absolute(gimbal.pitch_motor.angle, gimbal.pitch_motor.speed, gimbal.pitch_motor.address, &gimbal.pitch_motor);
                     send_mode = 1;
-										NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
+					NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
                     break;
                 case 1:
                     // 发送偏航电机的角度
                     ZDT_angle_absolute(gimbal.yaw_motor.angle, gimbal.yaw_motor.speed, gimbal.yaw_motor.address, &gimbal.yaw_motor);
                     send_mode = 0;
-										NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
+					NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
                     break;
             }
             break;
