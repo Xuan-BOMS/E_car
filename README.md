@@ -49,5 +49,4 @@ empty/
 │   └── uart.c             # 串口通信实现
 └── README.md               # 项目说明文档
 
-![:Xuan](https://count.getloli.com/@Xuan?name=Xuan&theme=rule34&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
-<!--
+![:FuckTI](https://count.getloli.com/@Xuan?name=Xuan&theme=rule34&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
