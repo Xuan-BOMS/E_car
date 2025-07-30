@@ -1,11 +1,31 @@
 #include "vision.h"
 volatile unsigned char uart0_data = 0;
+vision_data_t vision_data;
+// 接收缓冲区相关变量
+static uint8_t rx_buffer[6];
+static volatile uint8_t rx_state = 0;  // 0: 等待0xAA, 1: 接收数据, 2: 数据接收完成
+static volatile uint8_t rx_index = 0;
 void vision_init(void)
 {
     NVIC_ClearPendingIRQ(UART_0_INST_INT_IRQN);
     //使能串口中断
     NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
     // 初始化视觉模块
+    vision_data.vision_on = 0;
+    vision_data.x_offset = 0;
+    vision_data.y_offset = 0;
+}
+void vision_on(void)
+{
+    uint8_t command[] = {0xAA, 0xAA, 0xBB}; // 示例命令
+    uart0_send_bytes(command, sizeof(command));
+    vision_data.vision_on = 1; // 设置视觉模块开启状态
+}
+void vision_off(void)
+{
+    uint8_t command[] = {0xAA, 0xFF, 0xBB}; // 示例命令
+    uart0_send_bytes(command, sizeof(command));
+    vision_data.vision_on = 0; // 设置视觉模块关闭状态
 }
 void UART_0_INST_IRQHandler(void)
 {
@@ -15,8 +35,8 @@ void UART_0_INST_IRQHandler(void)
         case DL_UART_IIDX_RX://如果是接收中断
             //接发送过来的数据保存在变量中
             uart0_data = DL_UART_Main_receiveData(UART_0_INST);
-            //将保存的数据再发送出去
-            uart0_send_char(uart0_data);
+            // 处理接收状态机
+            vision_receive_handler(uart0_data);
             break;
 
         default://其他的串口中断
@@ -56,17 +76,63 @@ void uart0_receive_char(void)
     // 接收单个字符
     uart0_data = DL_UART_Main_receiveData(UART_0_INST);
 }
-void uart0_receive_string(char* buffer, uint16_t max_length)
+
+// 视觉模块接收处理函数
+void vision_receive_handler(uint8_t received_byte)
 {
-    uint16_t i = 0;
-    while(i < max_length - 1) // 保留一个位置给字符串结束符
+    switch(rx_state)
     {
-        // 等待接收缓冲区非空
-        while(DL_UART_isBusy(UART_0_INST));
-        // 接收单个字符
-        buffer[i] = DL_UART_Main_receiveData(UART_0_INST);
-        if(buffer[i] == '\0') break; // 如果遇到字符串结束符则停止
-        i++;
+        case 0: // 等待起始字节0xAA
+            if(received_byte == 0xAA)
+            {
+                rx_buffer[0] = received_byte;
+                rx_index = 1;
+                rx_state = 1;
+            }
+            break;
+            
+        case 1: // 接收数据
+            rx_buffer[rx_index] = received_byte;
+            rx_index++;
+            
+            // 检查是否接收到结束字节0xBB
+            if(received_byte == 0xBB && rx_index >= 3) // 至少要有AA + 数据 + BB
+            {
+                rx_state = 0;
+                rx_index = 0;
+                vision_get_received_data();
+            }
+            // 防止缓冲区溢出
+            else if(rx_index > sizeof(rx_buffer))
+            {
+                rx_state = 0; // 重置状态
+                rx_index = 0;
+            }
+            break;
+        default:
+            rx_state = 0;
+            rx_index = 0;
+            break;
     }
-    buffer[i] = '\0'; // 确保字符串以'\0'结尾
+}
+
+void vision_get_received_data(void)
+{
+    if(rx_buffer[0] == 0xAA && rx_buffer[5] == 0xBB)
+    {
+        vision_data.x_offset = (int16_t)((rx_buffer[1] << 8) | rx_buffer[2]);
+        vision_data.y_offset = (int16_t)((rx_buffer[3] << 8) | rx_buffer[4]);
+        rx_state = 0;
+        rx_index = 0;
+    }
+    else
+    {
+        // 数据格式错误，重置状态
+        rx_state = 0;
+        rx_index = 0;
+    }
+}
+vision_data_t* vision_get_data(void)
+{
+    return &vision_data;
 }

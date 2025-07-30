@@ -2,11 +2,13 @@
 #define GIMBAL_H
 #include "../ti_msp_dl_config.h"
 #include "ZDT_drive.h"
+#include "vision.h"
 typedef struct {
     int16_t pitch;  // 俯仰角度
     int16_t yaw;    // 偏航角度
     ZDT_motor pitch_motor;
     ZDT_motor yaw_motor;
+    vision_data_t* vision_data;
     int16_t turn_angle; // 防止转圈绕线的角度控制
 } GimbalPosition;
 void gimbal_init(void);

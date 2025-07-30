@@ -23,6 +23,7 @@ void gimbal_init(void)
     gimbal.yaw_motor.acceleration = 0; // 初始加速度,0是最大
     ZDT_init(gimbal.pitch_motor.mode, gimbal.pitch_motor.address, &gimbal.pitch_motor);
     ZDT_init(gimbal.yaw_motor.mode, gimbal.yaw_motor.address, &gimbal.yaw_motor);
+    gimbal.vision_data = vision_get_data();
 }
 void gimbal_set_position(int16_t pitch, int16_t yaw)
 {
