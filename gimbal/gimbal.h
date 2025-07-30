@@ -3,7 +3,13 @@
 #include "../ti_msp_dl_config.h"
 #include "ZDT_drive.h"
 #include "vision.h"
-#define OFFSET_SCALE 0.2 // 差值换算
+#define OFFSET_SCALE 0.1 // 差值换算
+// 在头文件中添加限位宏
+#define GIMBAL_ANGLE_MAX    7200
+#define GIMBAL_ANGLE_MIN   -7200
+// 限位宏函数
+#define LIMIT_ANGLE(value, min, max) \
+    ((value) > (max) ? (max) : ((value) < (min) ? (min) : (value)))
 typedef struct {
     int16_t pitch;  // 俯仰角度
     int16_t yaw;    // 偏航角度

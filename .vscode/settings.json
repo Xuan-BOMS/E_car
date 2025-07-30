@@ -3,6 +3,7 @@
         "gimbal.h": "c",
         "ti_msp_dl_config.h": "c",
         "zdt_drive.h": "c",
-        "vision.h": "c"
+        "vision.h": "c",
+        "compare": "c"
     }
 }

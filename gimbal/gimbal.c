@@ -27,13 +27,18 @@ void gimbal_init(void)
 }
 void gimbal_set_position(void)
 {
-    gimbal.pitch += (int16_t)(gimbal.vision_data->y_offset * OFFSET_SCALE); // 使用视觉数据的y偏移
-    gimbal.yaw += (int16_t)(gimbal.vision_data->x_offset * OFFSET_SCALE); // 使用视觉数据的x偏移
+    // 计算新的位置值并应用限位
+    int16_t new_pitch = gimbal.pitch + (int16_t)(gimbal.vision_data->y_offset * OFFSET_SCALE);
+    int16_t new_yaw = gimbal.yaw + (int16_t)(gimbal.vision_data->x_offset * OFFSET_SCALE);
+    
+    // 应用限位
+    gimbal.pitch = LIMIT_ANGLE(new_pitch, GIMBAL_ANGLE_MIN, GIMBAL_ANGLE_MAX);
+    gimbal.yaw = LIMIT_ANGLE(new_yaw, GIMBAL_ANGLE_MIN, GIMBAL_ANGLE_MAX);
 }
 void gimbal_motor_move(void)
 {
-    gimbal.pitch_motor.angle = gimbal.pitch; 
-    gimbal.yaw_motor.angle = gimbal.yaw; 
+    gimbal.pitch_motor.angle = (int16_t)(gimbal.pitch/16); 
+    gimbal.yaw_motor.angle = (int16_t)(gimbal.yaw/2); 
     // 设置俯仰电机和偏航电机的角度
 }
 void TIMER_gimbal_INST_IRQHandler(void)
