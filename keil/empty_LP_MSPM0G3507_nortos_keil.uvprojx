@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor;..\HWT101</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -478,6 +478,21 @@
               <FileName>motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\motor\motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HWT101</GroupName>
+          <Files>
+            <File>
+              <FileName>hwt101.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HWT101\hwt101.c</FilePath>
+            </File>
+            <File>
+              <FileName>hwt101.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HWT101\hwt101.h</FilePath>
             </File>
           </Files>
         </Group>
