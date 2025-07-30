@@ -23,7 +23,7 @@
 | 单片机->k230 |  | k230->单片机 |  |
 |--------|------|------|------|
 | 开启识别 | AA AA BB | 差值返回 | AA (16位x偏移值)(16位y偏移值)  BB |
-| 结束识别 | AA FF BB | 例 | AA 00 00 BB |
+| 结束识别 | AA FF BB | 例 | AA 00 00 00 00 BB |
 
 
 
@@ -48,3 +48,6 @@ empty/
 │   ├── uart.h             # 串口通信头文件
 │   └── uart.c             # 串口通信实现
 └── README.md               # 项目说明文档
+
+![:Xuan](https://count.getloli.com/@Xuan?name=Xuan&theme=rule34&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+<!--
