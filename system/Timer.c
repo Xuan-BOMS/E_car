@@ -1,6 +1,7 @@
+#include "time.h"
 #include "Timer.h"
 #include "Encoder.h"
-#include "Motor.h"
+#include "Motor_tb.h"
 #include "Gray.h"
 #include "Tracking.h"
 #include "Key.h"
@@ -21,9 +22,9 @@ int32_t Encoder_cnt[2];
 void TIMER_Init(void)
 {
     // 清除定时器中断标志
-    NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
+    NVIC_ClearPendingIRQ(TIMER_classic_INST_INT_IRQN);
     // 使能定时器中断
-    NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
+    NVIC_EnableIRQ(TIMER_classic_INST_INT_IRQN);
 }
 
 /**
@@ -31,10 +32,10 @@ void TIMER_Init(void)
  * @param  无
  * @retval 无
  */
-void TIMER_0_INST_IRQHandler(void)
+void TIMER_classic_INST_IRQHandler(void)
 {
     // 检查并处理定时器中断
-    switch(DL_TimerG_getPendingInterrupt(TIMER_0_INST))
+    switch(DL_TimerG_getPendingInterrupt(TIMER_classic_INST))
     {
         case DL_TIMER_IIDX_ZERO:  // 零事件中断
 		{

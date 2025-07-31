@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor;..\HWT101;..\classic;..\OLED;..\State</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor;..\HWT101;..\classic;..\OLED;..\State;..\system</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

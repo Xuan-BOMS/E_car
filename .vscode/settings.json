@@ -6,6 +6,7 @@
         "vision.h": "c",
         "compare": "c",
         "type_traits": "c",
-        "limits": "c"
+        "limits": "c",
+        "task.h": "c"
     }
 }

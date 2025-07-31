@@ -103,11 +103,11 @@ extern "C" {
 #define TIMER_gimbal_INST_IRQHandler                            TIMA1_IRQHandler
 #define TIMER_gimbal_INST_INT_IRQN                              (TIMA1_INT_IRQn)
 #define TIMER_gimbal_INST_LOAD_VALUE                                      (199U)
-/* Defines for TIMER_0 */
-#define TIMER_0_INST                                                     (TIMG8)
-#define TIMER_0_INST_IRQHandler                                 TIMG8_IRQHandler
-#define TIMER_0_INST_INT_IRQN                                   (TIMG8_INT_IRQn)
-#define TIMER_0_INST_LOAD_VALUE                                          (3199U)
+/* Defines for TIMER_classic */
+#define TIMER_classic_INST                                               (TIMG8)
+#define TIMER_classic_INST_IRQHandler                           TIMG8_IRQHandler
+#define TIMER_classic_INST_INT_IRQN                             (TIMG8_INT_IRQn)
+#define TIMER_classic_INST_LOAD_VALUE                                    (3199U)
 
 
 
@@ -242,18 +242,28 @@ extern "C" {
 #define GPIO_ENCODERA_PORT                                               (GPIOA)
 
 /* Defines for PIN_A_1: GPIOA.1 with pinCMx 2 on package pin 34 */
+// pins affected by this interrupt request:["PIN_A_1","PIN_A_2"]
+#define GPIO_ENCODERA_INT_IRQN                                  (GPIOA_INT_IRQn)
+#define GPIO_ENCODERA_INT_IIDX                  (DL_INTERRUPT_GROUP1_IIDX_GPIOA)
+#define GPIO_ENCODERA_PIN_A_1_IIDX                           (DL_GPIO_IIDX_DIO1)
 #define GPIO_ENCODERA_PIN_A_1_PIN                                (DL_GPIO_PIN_1)
 #define GPIO_ENCODERA_PIN_A_1_IOMUX                               (IOMUX_PINCM2)
 /* Defines for PIN_A_2: GPIOA.0 with pinCMx 1 on package pin 33 */
+#define GPIO_ENCODERA_PIN_A_2_IIDX                           (DL_GPIO_IIDX_DIO0)
 #define GPIO_ENCODERA_PIN_A_2_PIN                                (DL_GPIO_PIN_0)
 #define GPIO_ENCODERA_PIN_A_2_IOMUX                               (IOMUX_PINCM1)
 /* Port definition for Pin Group GPIO_ENCODERB */
 #define GPIO_ENCODERB_PORT                                               (GPIOB)
 
 /* Defines for PIN_B_1: GPIOB.15 with pinCMx 32 on package pin 3 */
+// pins affected by this interrupt request:["PIN_B_1","PIN_B_2"]
+#define GPIO_ENCODERB_INT_IRQN                                  (GPIOB_INT_IRQn)
+#define GPIO_ENCODERB_INT_IIDX                  (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
+#define GPIO_ENCODERB_PIN_B_1_IIDX                          (DL_GPIO_IIDX_DIO15)
 #define GPIO_ENCODERB_PIN_B_1_PIN                               (DL_GPIO_PIN_15)
 #define GPIO_ENCODERB_PIN_B_1_IOMUX                              (IOMUX_PINCM32)
 /* Defines for PIN_B_2: GPIOB.16 with pinCMx 33 on package pin 4 */
+#define GPIO_ENCODERB_PIN_B_2_IIDX                          (DL_GPIO_IIDX_DIO16)
 #define GPIO_ENCODERB_PIN_B_2_PIN                               (DL_GPIO_PIN_16)
 #define GPIO_ENCODERB_PIN_B_2_IOMUX                              (IOMUX_PINCM33)
 /* Port definition for Pin Group GPIO_OLED */
@@ -265,6 +275,50 @@ extern "C" {
 /* Defines for SDA: GPIOA.16 with pinCMx 38 on package pin 9 */
 #define GPIO_OLED_SDA_PIN                                       (DL_GPIO_PIN_16)
 #define GPIO_OLED_SDA_IOMUX                                      (IOMUX_PINCM38)
+/* Defines for PIN_6: GPIOA.2 with pinCMx 7 on package pin 42 */
+#define GPIO_Gray_PIN_6_PORT                                             (GPIOA)
+#define GPIO_Gray_PIN_6_PIN                                      (DL_GPIO_PIN_2)
+#define GPIO_Gray_PIN_6_IOMUX                                     (IOMUX_PINCM7)
+/* Defines for PIN_7: GPIOA.11 with pinCMx 22 on package pin 57 */
+#define GPIO_Gray_PIN_7_PORT                                             (GPIOA)
+#define GPIO_Gray_PIN_7_PIN                                     (DL_GPIO_PIN_11)
+#define GPIO_Gray_PIN_7_IOMUX                                    (IOMUX_PINCM22)
+/* Defines for PIN_8: GPIOB.19 with pinCMx 45 on package pin 16 */
+#define GPIO_Gray_PIN_8_PORT                                             (GPIOB)
+#define GPIO_Gray_PIN_8_PIN                                     (DL_GPIO_PIN_19)
+#define GPIO_Gray_PIN_8_IOMUX                                    (IOMUX_PINCM45)
+/* Defines for PIN_9: GPIOB.26 with pinCMx 57 on package pin 28 */
+#define GPIO_Gray_PIN_9_PORT                                             (GPIOB)
+#define GPIO_Gray_PIN_9_PIN                                     (DL_GPIO_PIN_26)
+#define GPIO_Gray_PIN_9_IOMUX                                    (IOMUX_PINCM57)
+/* Defines for PIN_10: GPIOA.12 with pinCMx 34 on package pin 5 */
+#define GPIO_Gray_PIN_10_PORT                                            (GPIOA)
+#define GPIO_Gray_PIN_10_PIN                                    (DL_GPIO_PIN_12)
+#define GPIO_Gray_PIN_10_IOMUX                                   (IOMUX_PINCM34)
+/* Defines for PIN_11: GPIOA.13 with pinCMx 35 on package pin 6 */
+#define GPIO_Gray_PIN_11_PORT                                            (GPIOA)
+#define GPIO_Gray_PIN_11_PIN                                    (DL_GPIO_PIN_13)
+#define GPIO_Gray_PIN_11_IOMUX                                   (IOMUX_PINCM35)
+/* Defines for PIN_12: GPIOB.8 with pinCMx 25 on package pin 60 */
+#define GPIO_Gray_PIN_12_PORT                                            (GPIOB)
+#define GPIO_Gray_PIN_12_PIN                                     (DL_GPIO_PIN_8)
+#define GPIO_Gray_PIN_12_IOMUX                                   (IOMUX_PINCM25)
+/* Defines for PIN_13: GPIOB.9 with pinCMx 26 on package pin 61 */
+#define GPIO_Gray_PIN_13_PORT                                            (GPIOB)
+#define GPIO_Gray_PIN_13_PIN                                     (DL_GPIO_PIN_9)
+#define GPIO_Gray_PIN_13_IOMUX                                   (IOMUX_PINCM26)
+/* Defines for PIN_14: GPIOB.6 with pinCMx 23 on package pin 58 */
+#define GPIO_Gray_PIN_14_PORT                                            (GPIOB)
+#define GPIO_Gray_PIN_14_PIN                                     (DL_GPIO_PIN_6)
+#define GPIO_Gray_PIN_14_IOMUX                                   (IOMUX_PINCM23)
+/* Defines for PIN_15: GPIOB.7 with pinCMx 24 on package pin 59 */
+#define GPIO_Gray_PIN_15_PORT                                            (GPIOB)
+#define GPIO_Gray_PIN_15_PIN                                     (DL_GPIO_PIN_7)
+#define GPIO_Gray_PIN_15_IOMUX                                   (IOMUX_PINCM24)
+/* Defines for PIN_16: GPIOA.10 with pinCMx 21 on package pin 56 */
+#define GPIO_Gray_PIN_16_PORT                                            (GPIOA)
+#define GPIO_Gray_PIN_16_PIN                                    (DL_GPIO_PIN_10)
+#define GPIO_Gray_PIN_16_IOMUX                                   (IOMUX_PINCM21)
 
 
 
@@ -276,7 +330,7 @@ void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_MOTOR_init(void);
 void SYSCFG_DL_TIMER_gimbal_init(void);
-void SYSCFG_DL_TIMER_0_init(void);
+void SYSCFG_DL_TIMER_classic_init(void);
 void SYSCFG_DL_UART_1_init(void);
 void SYSCFG_DL_UART_0_init(void);
 void SYSCFG_DL_UART_2_init(void);

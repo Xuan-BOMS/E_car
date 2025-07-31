@@ -1,4 +1,4 @@
-#include "ti_msp_dl_config.h"
+#include "../ti_msp_dl_config.h"
 
 #define PWM1_SetDuty(Duty) DL_TimerG_setCaptureCompareValue(PWM_1_2_INST,Duty,GPIO_PWM_1_2_C0_IDX)
 #define PWM2_SetDuty(Duty) DL_TimerG_setCaptureCompareValue(PWM_1_2_INST,Duty,GPIO_PWM_1_2_C1_IDX)

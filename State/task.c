@@ -36,17 +36,16 @@ void Task1(void)
     if(corner_flag ==1){
 		
 		Motor_MoveForward(1000);//直行
-		Delay_ms(250); // 等待转向完成
+		delay_ms(250); // 等待转向完成
         Motor_Spin_Left(800); // 左转
-        Buzzer_on(1);
-        Delay_ms(300); // 等待转向完成
+        delay_ms(300); // 等待转向完成
         corner_flag = 0; // 重置角落标志
         tracking_flag = 1; // 开始跟踪
     }
     if(tracking_flag == 1) {
         // 如果正在跟踪
         Tracking_Update();
-        Delay_ms(10); // 延时10ms，模拟任务间隔
+        delay_ms(10); // 延时10ms，模拟任务间隔
     }
 	
 }
@@ -63,7 +62,6 @@ void Task_Init(void)
     
     // 其他初始化
 	TIMER_Init();
-	Buzzer_on(3);
 	encoder_init();
 	Tracking_PID_Init();
 	
@@ -86,9 +84,7 @@ void Task_Choose(void)
             if (current_task > 6) {
                 current_task = 1;
             }
-            
-            // 蜂鸣器提示
-            // Buzzer_Beep(100);
+
             
             // 显示当前任务
             // OLED_ShowString(0, 0, "Task: ");
@@ -108,8 +104,6 @@ void Task_Choose(void)
                     circle_count = 1;
                 }
                 
-                // 蜂鸣器提示
-                // Buzzer_Beep(50);
                 
                 // 显示圈数
                 // OLED_ShowString(0, 16, "Circles: ");
@@ -124,10 +118,7 @@ void Task_Choose(void)
                 if (speed_level > 3) {
                     speed_level = 1;
                 }
-                
-                // 蜂鸣器提示
-                // Buzzer_Beep(80);
-                
+
                 // 显示速度档位
                 // OLED_ShowString(0, 32, "Speed: ");
                 // OLED_ShowNum(54, 32, speed_level, 1);
@@ -141,12 +132,9 @@ void Task_Choose(void)
             // 停止任务
             task_running = false;
             Motor_Stop_All();
-            // Buzzer_Beep(200); // 长响表示停止
         } else {
             // 启动任务
             task_running = true;
-            // Buzzer_Beep(50); // 短响表示启动
-            // Buzzer_Beep(50);
         }
     }
     
@@ -161,9 +149,6 @@ void Task_Choose(void)
         current_task = 1;
         circle_count = 1;
         speed_level = 1;
-        
-        // 蜂鸣器报警提示
-        // Buzzer_Beep(300); // 超长响表示紧急停止
         
         // 显示复位信息
         // OLED_Clear();

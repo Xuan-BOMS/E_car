@@ -1,13 +1,3 @@
-/*********************************************************************
-*@file:			OLED.c
-*@brief:		OLED驱动程序
-/*********************************************************************
-*@brief:		OLED IIC停止信号
-*********************************************************************/uthor:		Pan ZhiKang
-*@date:			2022-10-26
-*@note:			移植OLED模块请参考OLED.h中的配置函数
-*				以及OLED.c中的OLED_Pin_Config函数
-*********************************************************************/
 #include "OLED.h"
 #include "OLED_FONT.h"
 
@@ -15,15 +5,7 @@ OLED_STATUS_TYPE OLED_STATUS;
 
 static char OLED_Display_Buffer[OLED_Printf_BufferSize];
 
-uint8_t OLED_GRAM[128][8];//每页共有128位,共8页
-//[0]0 1 2 3 ... 127
-//[1]0 1 2 3 ... 127
-//[2]0 1 2 3 ... 127
-//[3]0 1 2 3 ... 127
-//[4]0 1 2 3 ... 127
-//[5]0 1 2 3 ... 127
-//[6]0 1 2 3 ... 127
-//[7]0 1 2 3 ... 127
+uint8_t OLED_GRAM[128][8];
 
 #if	OLED_Mode==OLED_USE_SPI
 /*********************************************************************
@@ -197,7 +179,7 @@ static void OLED_Set_Pos(uint8_t X,uint8_t Y)
 *********************************************************************/
 void OLED_Display_On(void)
 {
-	OLED_WriteReadByte(0X8D,Write_Command);					//SET DCDC����
+	OLED_WriteReadByte(0X8D,Write_Command);					//SET DCDC命令
 	OLED_WriteReadByte(0X14,Write_Command);					//DCDC ON
 	OLED_WriteReadByte(0XAF,Write_Command);					//DISPLAY ON
 }
@@ -207,7 +189,7 @@ void OLED_Display_On(void)
 *********************************************************************/
 void OLED_Display_Off(void)
 {
-	OLED_WriteReadByte(0X8D,Write_Command);  				//SET DCDC����
+	OLED_WriteReadByte(0X8D,Write_Command);  				//SET DCDC命令
 	OLED_WriteReadByte(0X10,Write_Command); 				//DCDC OFF
 	OLED_WriteReadByte(0XAE,Write_Command);  				//DISPLAY OFF
 }
@@ -269,12 +251,12 @@ void OLED_EditPixel(uint8_t X,uint8_t Y,bool OP)
 }
 
 /*********************************************************************
-*@brief:		OLED�޸���������
-*@param:		X0��	������ʼX����,����ֵ����Ч��Χ0~127
-*@param:		Y0��	������ʼY����,����ֵ����Ч��Χ0~63
-*@param:		X1��	����ĩβX����,����ֵ����Ч��Χ0~127
-*@param:		Y1��	����ĩβY����,����ֵ����Ч��Χ0~63
-*@param:		OP:		ѡ���Ƿ��������ص�,�ò���ֵֻ��Ϊ���£�
+*@brief:		OLED修改区域像素
+*@param:		X0：	区域起始X坐标,参数值有效范围0~127
+*@param:		Y0：	区域起始Y坐标,参数值有效范围0~63
+*@param:		X1：	区域末尾X坐标,参数值有效范围0~127
+*@param:		Y1：	区域末尾Y坐标,参数值有效范围0~63
+*@param:		OP:		选择是否填充该像素,该参数值只能为如下：
 *				@arg:	OLED_Clear
 *				@arg:	OLED_Fill
 *@retval:		None
@@ -290,16 +272,16 @@ void OLED_EditArea(uint8_t X0,uint8_t Y0,uint8_t X1,uint8_t Y1,uint8_t OP)
 			OLED_EditPixel(X,Y,OP);
 		}
 	}
-	OLED_Refresh_GRAM();				//ˢ��GRAM
+	OLED_Refresh_GRAM();				//刷新GRAM
 }
 
 /*********************************************************************
-*@brief:		OLED���ߺ���
-*@param:		x1:		������ʼX����,����ֵ����Ч��Χ0~127
-*@param:		y1:		������ʼY����,����ֵ����Ч��Χ0~63
-*@param:		x2:		����ĩβX����,����ֵ����Ч��Χ0~127
-*@param:		y2:		����ĩβY����,����ֵ����Ч��Χ0~63
-*@param:		OP:		�Ƿ��ο�,trueΪ�ο�,falseΪ���
+*@brief:		OLED画线函数
+*@param:		x1:		直线起始X坐标,参数值有效范围0~127
+*@param:		y1:		直线起始Y坐标,参数值有效范围0~63
+*@param:		x2:		直线末尾X坐标,参数值有效范围0~127
+*@param:		y2:		直线末尾Y坐标,参数值有效范围0~63
+*@param:		OP:		是否反显,true为反显,false为正显
 *@retval:		None
 *********************************************************************/
 void OLED_DrawLine(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2,bool OP)
@@ -363,10 +345,10 @@ void OLED_DrawLine(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2,bool OP)
 }
 
 /*********************************************************************
-*@brief:		OLED��Բ����
-*@param:		X0:		Բ������X,����ֵ����Ч��Χ0~127
-*@param:		Y0:		Բ������Y,����ֵ����Ч��Χ0~63
-*@param:		R:		Բ�뾶
+*@brief:		OLED画圆函数
+*@param:		X0:		圆心坐标X,参数值有效范围0~127
+*@param:		Y0:		圆心坐标Y,参数值有效范围0~63
+*@param:		R:		圆半径
 *@retval:		None
 *********************************************************************/
 void OLED_DrawCircle(uint8_t X,uint8_t Y,uint8_t R)
@@ -385,7 +367,7 @@ void OLED_DrawCircle(uint8_t X,uint8_t Y,uint8_t R)
         OLED_EditPixel(X - b, Y - a,OLED_PixelFill);
         OLED_EditPixel(X - b, Y + a,OLED_PixelFill);
         a++;
-        num=(a*a+b*b)-R*R;		//���㻭�ĵ���Բ�ĵľ���
+        num=(a*a+b*b)-R*R;		//计算画的点到圆心的距离
         if(num>0)
         {
             b--;
@@ -397,34 +379,34 @@ void OLED_DrawCircle(uint8_t X,uint8_t Y,uint8_t R)
 }
 
 /*********************************************************************
-*@brief:		OLED��ָ��λ����ʾһ���ַ�(����ASCII��)
-*@param:		X:				�ַ�X����,����ֵ����Ч��Χ0~127
-*@param:		Y:				�ַ�������,����ֵ����Ч��Χ0~63
-*@param:		Char:			����ʾ���ַ�
-*@param:		Fonty:			�����ʽ,��ֵ��ѡ�Ĳ�����������
+*@brief:		OLED在指定位置显示一个字符(仅限ASCII码)
+*@param:		X:				字符X坐标,参数值有效范围0~127
+*@param:		Y:				字符行坐标,参数值有效范围0~63
+*@param:		Char:			待显示的字符
+*@param:		Fonty:			字体格式,可选择的参数如下：
 *@arg:							OLED_FONTSIZE_12X6
 *@arg:							OLED_FONTSIZE_16X8
 *@arg:							OLED_FONTSIZE_24X12
-*@param:		OP:				falseΪ������ʾ��trueΪ����
-*@retval:		true:��ʾ�ɹ�	false:��ʾ��ʾʧ��,�����ǷǷ����ֺŴ�С
+*@param:		OP:				false为正常显示，true为反显
+*@retval:		true:显示成功	false:显示显示失败,可能是非法字符号大小
 *********************************************************************/
 bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Fonty,bool OP)
 {
 	uint8_t Data,Byte_ctr,Bit_ctr;
-	uint8_t Y0=Y;										//��¼ԭʼY����
-	uint8_t Char_Size=(Fonty/8+((Fonty%8)?1:0))*(Fonty/2);	//�õ�����һ���ַ���Ӧ������ռ���ֽ���
-	Char=Char-' ';										//��ȡ��' '��ƫ����
+	uint8_t Y0=Y;										//记录原始Y坐标
+	uint8_t Char_Size=(Fonty/8+((Fonty%8)?1:0))*(Fonty/2);	//得到点阵一个字符对应字节数占用的字节数
+	Char=Char-' ';										//获取偏移后的值
 	for(Byte_ctr=0;Byte_ctr<Char_Size;Byte_ctr++)
 	{
 		switch(Fonty)
 		{
-			case 12:	Data=ASCII_1206[Char][Byte_ctr];break;				//����1206ASCII����
-			case 16:	Data=ASCII_1608[Char][Byte_ctr];break;				//����1608ASCII����
-			case 24:	Data=ASCII_2412[Char][Byte_ctr];break;				//����2412ASCII����
-			default: return false;											//�����ڴ��ֿ�
+			case 12:	Data=ASCII_1206[Char][Byte_ctr];break;				//调用1206ASCII字库
+			case 16:	Data=ASCII_1608[Char][Byte_ctr];break;				//调用1608ASCII字库
+			case 24:	Data=ASCII_2412[Char][Byte_ctr];break;				//调用2412ASCII字库
+			default: return false;											//不存在该字库
 		}
 
-		for(Bit_ctr=0;Bit_ctr<8;Bit_ctr++)					//��λд��GRAM
+		for(Bit_ctr=0;Bit_ctr<8;Bit_ctr++)					//逐位写入GRAM
 		{
 			if((Data<<Bit_ctr)&0x80)
 			{
@@ -432,7 +414,7 @@ bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Fonty,bool OP)
 			}
 			else
 			{
-				OLED_EditPixel(X,Y,OP);			//��������
+				OLED_EditPixel(X,Y,OP);			//清空像素
 			}
 			Y++;
 
@@ -445,19 +427,19 @@ bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Fonty,bool OP)
 		}
 	}
 
-	if(OLED_STATUS.STA.BIT.RAM_BUSY == 0){OLED_Refresh_GRAM();}				//���ⲿƵ������OLED_ShowCharʱ,����Ƶ��ˢ��GRAM
+	if(OLED_STATUS.STA.BIT.RAM_BUSY == 0){OLED_Refresh_GRAM();}				//避免外部频繁调用OLED_ShowChar时,造成频繁刷新GRAM
 
 	return true;
 }
 
 /************************************************************
-*@brief:	OLED����Printf��ʽ����Ϊ��ӡ��ǰ�ú���
-*@param:	x:				��ӡ����OLED���x����
-*@param:	y:				��ӡ����OLED���y����
-*@param:	sizey:			��ӡ���������ֺŴ�С
-*@param:	mode:			��ӡ���������ʾģʽ(�������Ƿ���)
+*@brief:	OLED设置Printf格式函数为打印设定前置函数
+*@param:	x:				打印起始OLED屏x坐标
+*@param:	y:				打印起始OLED屏y坐标
+*@param:	sizey:			打印内容的字符号大小
+*@param:	mode:			打印内容的显示模式(是否需要反显)
 *@retval:	None
-*@note:		�ú���ӦΪOLED_Printf��ǰ�ú���
+*@note:		该函数应为OLED_Printf设定前置函数
 ************************************************************/
 __inline void OLED_Set_Printfmt(uint16_t x,uint16_t y,uint8_t sizey,bool mode)
 {
@@ -490,14 +472,14 @@ void OLED_Printf(const char *fmt,...)
 			chinese_buf[0]=*dispbuf_ptr++;
 			chinese_buf[1]=*dispbuf_ptr++;
 
-			/*���м��*/
+			/*自动换行*/
 			if(OLED_STATUS.STA.BIT.fmt_x+OLED_STATUS.STA.BIT.fmt_sizey/2 > Max_X_Pixel)
 			{OLED_STATUS.STA.BIT.fmt_x=0;OLED_STATUS.STA.BIT.fmt_y+=OLED_STATUS.STA.BIT.fmt_sizey;}
 
-			/*������ʾ*/
+			/*调用显示*/
 			OLED_ShowChinese(OLED_STATUS.STA.BIT.fmt_x,OLED_STATUS.STA.BIT.fmt_y,chinese_buf,OLED_STATUS.STA.BIT.fmt_sizey,OLED_STATUS.STA.BIT.fmt_mode);
 
-			/*��ȷ����*/
+			/*更新坐标*/
 			OLED_STATUS.STA.BIT.fmt_x+=OLED_STATUS.STA.BIT.fmt_sizey;
 		}
 		else if(*dispbuf_ptr == '\n')
@@ -516,14 +498,14 @@ void OLED_Printf(const char *fmt,...)
 		}
 		else
 		{
-			/*���м��*/
+			/*自动换行*/
 			if(OLED_STATUS.STA.BIT.fmt_x+OLED_STATUS.STA.BIT.fmt_sizey/2 > Max_X_Pixel)
 			{OLED_STATUS.STA.BIT.fmt_x=0;OLED_STATUS.STA.BIT.fmt_y+=OLED_STATUS.STA.BIT.fmt_sizey;}
 
-			/*ASCII��ʾ*/
+			/*ASCII显示*/
 			OLED_ShowChar(OLED_STATUS.STA.BIT.fmt_x,OLED_STATUS.STA.BIT.fmt_y,*dispbuf_ptr++,OLED_STATUS.STA.BIT.fmt_sizey,OLED_STATUS.STA.BIT.fmt_mode);
 
-			/*��ȷ����*/
+			/*更新坐标*/
 			OLED_STATUS.STA.BIT.fmt_x+=OLED_STATUS.STA.BIT.fmt_sizey/2;
 		}
 	}
@@ -535,10 +517,10 @@ void OLED_Printf(const char *fmt,...)
 
 #if OLED_FUNC_COMPATIBLE == 1
 /*********************************************************************
-*@brief:		OLED��ʾ��������
-*@param:		X:			�ַ�X����,����ֵ����Ч��Χ0~127
-*@param:		Y:			�ַ�������,����ֵ����Ч��Χ0~63
-*@param:		Int:		����ʾ������(����)
+*@brief:		OLED显示整数函数
+*@param:		X:			字符X坐标,参数值有效范围0~127
+*@param:		Y:			字符行坐标,参数值有效范围0~63
+*@param:		Int:		待显示的整数(有符号)
 *@retval:		None
 *********************************************************************/
 void OLED_ShowInt(uint8_t X,uint8_t Y,int32_t Int)

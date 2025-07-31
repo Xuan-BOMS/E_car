@@ -56,7 +56,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_SYSCTL_init();
     SYSCFG_DL_MOTOR_init();
     SYSCFG_DL_TIMER_gimbal_init();
-    SYSCFG_DL_TIMER_0_init();
+    SYSCFG_DL_TIMER_classic_init();
     SYSCFG_DL_UART_1_init();
     SYSCFG_DL_UART_0_init();
     SYSCFG_DL_UART_2_init();
@@ -100,7 +100,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_GPIO_reset(GPIOB);
     DL_TimerA_reset(MOTOR_INST);
     DL_TimerA_reset(TIMER_gimbal_INST);
-    DL_TimerG_reset(TIMER_0_INST);
+    DL_TimerG_reset(TIMER_classic_INST);
     DL_UART_Main_reset(UART_1_INST);
     DL_UART_Main_reset(UART_0_INST);
     DL_UART_Main_reset(UART_2_INST);
@@ -110,7 +110,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
     DL_GPIO_enablePower(GPIOB);
     DL_TimerA_enablePower(MOTOR_INST);
     DL_TimerA_enablePower(TIMER_gimbal_INST);
-    DL_TimerG_enablePower(TIMER_0_INST);
+    DL_TimerG_enablePower(TIMER_classic_INST);
     DL_UART_Main_enablePower(UART_1_INST);
     DL_UART_Main_enablePower(UART_0_INST);
     DL_UART_Main_enablePower(UART_2_INST);
@@ -209,6 +209,50 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initDigitalOutput(GPIO_OLED_SDA_IOMUX);
 
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_6_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_7_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_8_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_9_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_10_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_11_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_12_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_13_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_14_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_15_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
+    DL_GPIO_initDigitalInputFeatures(GPIO_Gray_PIN_16_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_NONE,
+		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
+
     DL_GPIO_clearPins(GPIOA, GPIO_Buzzer_PIN_A27_PIN |
 		GPIO_LED_LED1_PIN |
 		GPIO_LED_LED2_PIN |
@@ -223,6 +267,12 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		GPIO_MOTOR_DIR_BIN_1_PIN |
 		GPIO_OLED_SCL_PIN |
 		GPIO_OLED_SDA_PIN);
+    DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_1_EDGE_RISE |
+		DL_GPIO_PIN_0_EDGE_RISE);
+    DL_GPIO_clearInterruptStatus(GPIOA, GPIO_ENCODERA_PIN_A_1_PIN |
+		GPIO_ENCODERA_PIN_A_2_PIN);
+    DL_GPIO_enableInterrupt(GPIOA, GPIO_ENCODERA_PIN_A_1_PIN |
+		GPIO_ENCODERA_PIN_A_2_PIN);
     DL_GPIO_clearPins(GPIOB, GPIO_LED_LED3_PIN |
 		GPIO_MOTOR_DIR_AIN_1_PIN |
 		GPIO_MOTOR_DIR_STBY_PIN |
@@ -231,6 +281,12 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		GPIO_MOTOR_DIR_AIN_1_PIN |
 		GPIO_MOTOR_DIR_STBY_PIN |
 		GPIO_MOTOR_DIR_BIN_2_PIN);
+    DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_15_EDGE_RISE);
+    DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_16_EDGE_RISE);
+    DL_GPIO_clearInterruptStatus(GPIOB, GPIO_ENCODERB_PIN_B_1_PIN |
+		GPIO_ENCODERB_PIN_B_2_PIN);
+    DL_GPIO_enableInterrupt(GPIOB, GPIO_ENCODERB_PIN_B_1_PIN |
+		GPIO_ENCODERB_PIN_B_2_PIN);
 
 }
 
@@ -248,6 +304,8 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSCTL_init(void)
 	DL_SYSCTL_disableHFXT();
 	DL_SYSCTL_disableSYSPLL();
     DL_SYSCTL_enableMFCLK();
+    /* INT_GROUP1 Priority */
+    NVIC_SetPriority(GPIOB_INT_IRQn, 0);
 
 }
 
@@ -348,7 +406,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_TIMER_gimbal_init(void) {
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
  *   320000 Hz = 32000000 Hz / (1 * (99 + 1))
  */
-static const DL_TimerG_ClockConfig gTIMER_0ClockConfig = {
+static const DL_TimerG_ClockConfig gTIMER_classicClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
     .prescale    = 99U,
@@ -356,24 +414,24 @@ static const DL_TimerG_ClockConfig gTIMER_0ClockConfig = {
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * TIMER_0_INST_LOAD_VALUE = (10 ms * 320000 Hz) - 1
+ * TIMER_classic_INST_LOAD_VALUE = (10 ms * 320000 Hz) - 1
  */
-static const DL_TimerG_TimerConfig gTIMER_0TimerConfig = {
-    .period     = TIMER_0_INST_LOAD_VALUE,
+static const DL_TimerG_TimerConfig gTIMER_classicTimerConfig = {
+    .period     = TIMER_classic_INST_LOAD_VALUE,
     .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
     .startTimer = DL_TIMER_START,
 };
 
-SYSCONFIG_WEAK void SYSCFG_DL_TIMER_0_init(void) {
+SYSCONFIG_WEAK void SYSCFG_DL_TIMER_classic_init(void) {
 
-    DL_TimerG_setClockConfig(TIMER_0_INST,
-        (DL_TimerG_ClockConfig *) &gTIMER_0ClockConfig);
+    DL_TimerG_setClockConfig(TIMER_classic_INST,
+        (DL_TimerG_ClockConfig *) &gTIMER_classicClockConfig);
 
-    DL_TimerG_initTimerMode(TIMER_0_INST,
-        (DL_TimerG_TimerConfig *) &gTIMER_0TimerConfig);
-    DL_TimerG_enableInterrupt(TIMER_0_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
-	NVIC_SetPriority(TIMER_0_INST_INT_IRQN, 0);
-    DL_TimerG_enableClock(TIMER_0_INST);
+    DL_TimerG_initTimerMode(TIMER_classic_INST,
+        (DL_TimerG_TimerConfig *) &gTIMER_classicTimerConfig);
+    DL_TimerG_enableInterrupt(TIMER_classic_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(TIMER_classic_INST_INT_IRQN, 0);
+    DL_TimerG_enableClock(TIMER_classic_INST);
 
 
 

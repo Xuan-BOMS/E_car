@@ -1,7 +1,6 @@
+#if 0
 #include "motorDK.h"
-
 MotorSpeed_t MotorSpeed;
-
 void motor_init(void) {
     MotorSpeed.Motor_Left_Speed = 0;
     MotorSpeed.Motor_Right_Speed = 0;
@@ -34,3 +33,4 @@ void motor_setSpeed(void) {
 MotorSpeed_t* motor_getSpeed(void) {
     return &MotorSpeed;
 }
+#endif // #if 0

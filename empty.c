@@ -2,10 +2,17 @@
 #include "gimbal.h"
 #include "time.h"
 #include "vision.h"
-#include "motor.h"
+#include "motor_tb.h"
 #include "hwt101.h"
+#include "Key.h"
+#include "Gray.h"
+#include "Encoder.h"
+#include "Gray.h"
+#include "Tracking.h"
+#include "LED.h"
+#include "OLED.h"
+#include "task.h"
 volatile unsigned char uart1_data = 0;
-uint8_t send_text_data[] = "Hello, this is a test message.\r\n";
 int main(void)
 {
     SYSCFG_DL_init();
@@ -17,16 +24,25 @@ int main(void)
     //使能定时器中断
     NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
+    __enable_irq();
+    Task_Init();
     vision_init(); // 初始化视觉模块
     gimbal_init(); // 初始化云台
+    #if 0
     motor_init(); // 初始化电机
+    #endif
     HWT101_Init(); // 初始化HWT101传感器
+    LED3_On();
+	LED1_On();
+	LED2_On();
+	OLED_Init();
+	OLED_Set_Printfmt(0,0,16,0);
+    OLED_Printf("Beginning\n");
     while (1)
     {
         delay_ms(10);
-        motor_setSpeed();
+        //motor_setSpeed();
         //发送字符串
-        //uart1_send_string((char*)send_text_data);
         //gimbal_motor_move(); // 控制云台电机移动
     }
 }
