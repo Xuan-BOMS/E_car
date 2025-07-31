@@ -1,3 +1,4 @@
+#if 0
 #include "Motor_tb.h"
 #include <stdlib.h>
 // 电机状态数组
@@ -436,4 +437,4 @@ void stop_motor(void)
 {
     Motor_Stop_All();
 }
-
+#endif

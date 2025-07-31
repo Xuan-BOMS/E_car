@@ -82,4 +82,7 @@
   ..\system\..\ti_msp_dl_config.h ..\classic\Encoder.h \
   ..\classic\..\ti_msp_dl_config.h ..\classic\Motor_tb.h \
   ..\classic\Gray.h ..\classic\Tracking.h ..\State\Key.h \
-  ..\State\..\ti_msp_dl_config.h ..\State\task.h
+  ..\State\..\ti_msp_dl_config.h ..\State\task.h ..\classic\motorDK.h \
+  ..\OLED\OLED.h ..\OLED\..\ti_msp_dl_config.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h

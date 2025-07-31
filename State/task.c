@@ -35,9 +35,10 @@ void Task1(void)
     }
     if(corner_flag ==1){
 		
-		Motor_MoveForward(1000);//直行
+		//Motor_MoveForward(1000);//直行
 		delay_ms(250); // 等待转向完成
-        Motor_Spin_Left(800); // 左转
+        //Motor_Spin_Left(800); // 左转
+        Buzzer_on(1);
         delay_ms(300); // 等待转向完成
         corner_flag = 0; // 重置角落标志
         tracking_flag = 1; // 开始跟踪
@@ -57,21 +58,35 @@ void Task_Init(void)
     Key_Init();
     
     // 初始化电机
-    Motor_Init();
-    Motor_Enable();
+    motor_init();
+    //Motor_Enable();
     
     // 其他初始化
 	TIMER_Init();
+	Buzzer_on(3);
 	encoder_init();
 	Tracking_PID_Init();
-	
-    // OLED_Init(); // 如果有OLED显示
-    
+	//OLED初始化
+    OLED_Init(); 
+    OLED_Set_Printfmt(0,0,16,0);
+
     // 初始化变量
     current_task = 1;
     circle_count = 1;
     speed_level = 1;
     task_running = false;
+
+	OLED_Set_Printfmt(80, 0, 16, 0);
+    OLED_Printf("ready");
+	// 显示当前任务
+	OLED_Set_Printfmt(0, 0, 16, 0);
+	OLED_Printf("Task:%d", current_task);
+	// 显示圈数
+	OLED_Set_Printfmt(0, 16 , 16, 0);
+	OLED_Printf("Circles:%d", circle_count);
+	// 显示速度档位
+	OLED_Set_Printfmt(0, 32, 16, 0);
+	OLED_Printf("Speed:%d", speed_level);
 }
 
 // 选择任务
@@ -84,18 +99,13 @@ void Task_Choose(void)
             if (current_task > 6) {
                 current_task = 1;
             }
-
-            
             // 显示当前任务
-            // OLED_ShowString(0, 0, "Task: ");
-            // OLED_ShowNum(48, 0, current_task, 1);
+            OLED_Set_Printfmt(0, 0, 16, 0);
+            OLED_Printf("Task:%d", current_task);
         }
     }
-    
     // 根据任务类型处理KEY_2和KEY_3
-    if (current_task == 1 || current_task == 4 || current_task == 5 || current_task == 6) {
-        // 任务1、4、5、6的共同功能
-        
+    if (current_task == 1) {
         // KEY_2: 圈数控制 (1->2->3->...->5->1)
         if ((Key_IsClicked(KEY_2))&&(current_task == 1)) {
             if (!task_running) {
@@ -103,14 +113,13 @@ void Task_Choose(void)
                 if (circle_count > 5) {
                     circle_count = 1;
                 }
-                
-                
                 // 显示圈数
-                // OLED_ShowString(0, 16, "Circles: ");
-                // OLED_ShowNum(72, 16, circle_count, 1);
+                OLED_Set_Printfmt(0, 16 , 16, 0);
+                OLED_Printf("Circles:%d", circle_count);
             }
         }
-        
+    }
+    if (current_task == 1 || current_task == 4 || current_task == 5 || current_task == 6) {
         // KEY_3: 速度档位控制 (1->2->3->1)
         if (Key_IsClicked(KEY_3)) {
             if (!task_running) {
@@ -118,23 +127,27 @@ void Task_Choose(void)
                 if (speed_level > 3) {
                     speed_level = 1;
                 }
-
                 // 显示速度档位
-                // OLED_ShowString(0, 32, "Speed: ");
-                // OLED_ShowNum(54, 32, speed_level, 1);
+                OLED_Set_Printfmt(0, 32, 16, 0);
+                OLED_Printf("Speed:%d", speed_level);
             }
         }
     }
-    
     // KEY_4单击：启动/停止当前任务
     if (Key_IsClicked(KEY_4)) {
         if (task_running) {
             // 停止任务
             task_running = false;
-            Motor_Stop_All();
+            //Motor_Stop_All();
+            // Buzzer_Beep(200); // 长响表示停止
         } else {
             // 启动任务
             task_running = true;
+			OLED_Set_Printfmt(80, 0, 16, 0);
+			OLED_Printf("     ");
+			OLED_Set_Printfmt(108, 0, 16, 0);
+			OLED_Printf("ok");
+
         }
     }
     
@@ -142,13 +155,16 @@ void Task_Choose(void)
     if (Key_IsHold(KEY_4)) {
         // 紧急停止
         task_running = false;
-        Motor_Stop_All();
-        Motor_Disable();
+        //Motor_Stop_All();
+        //Motor_Disable();
         
         // 复位参数到默认值
         current_task = 1;
         circle_count = 1;
         speed_level = 1;
+        
+        // 蜂鸣器报警提示
+        Buzzer_Beep(300); // 超长响表示紧急停止
         
         // 显示复位信息
         // OLED_Clear();
@@ -161,14 +177,31 @@ void Task_Choose(void)
         Key_IsPressed(KEY_3) && Key_IsPressed(KEY_4)) {
         // 完全停止系统
         task_running = false;
-        Motor_Stop_All();
-        Motor_Disable();
+        //Motor_Stop_All();
+        //Motor_Disable();
         
         // 复位到出厂设置
         current_task = 1;
         circle_count = 1;
         speed_level = 1;
+
+        OLED_Set_Printfmt(80, 0, 16, 0);
+        OLED_Printf("     ");
+        OLED_Set_Printfmt(80, 0, 16, 0);
+        OLED_Printf("ready");
+        // 显示当前任务
+        OLED_Set_Printfmt(0, 0, 16, 0);
+        OLED_Printf("Task:%d", current_task);
+        // 显示圈数
+        OLED_Set_Printfmt(0, 16 , 16, 0);
+        OLED_Printf("Circles:%d", circle_count);
+        // 显示速度档位
+        OLED_Set_Printfmt(0, 32, 16, 0);
+        OLED_Printf("Speed:%d", speed_level);
         
+        // 蜂鸣器报警提示
+        Buzzer_Beep(2000); // 超长响表示紧急停止
+
         // 系统复位标志
         // SystemReset();
     }

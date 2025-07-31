@@ -1,4 +1,3 @@
-#if 0
 #include "motorDK.h"
 MotorSpeed_t MotorSpeed;
 void motor_init(void) {
@@ -30,7 +29,6 @@ void motor_setSpeed(void) {
         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C0_IDX); // 停止右电机正转
     }
 }
-MotorSpeed_t* motor_getSpeed(void) {
+MotorSpeed_t* Motor_Get_Speed_Pointer(void) {
     return &MotorSpeed;
 }
-#endif // #if 0

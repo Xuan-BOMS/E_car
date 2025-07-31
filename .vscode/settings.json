@@ -7,6 +7,14 @@
         "compare": "c",
         "type_traits": "c",
         "limits": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "chassis.h": "c",
+        "hwt101.h": "c",
+        "tracking.h": "c",
+        "timer.h": "c",
+        "motordk.h": "c",
+        "motor_tb.h": "c",
+        "stdbool.h": "c",
+        "encoder.h": "c"
     }
 }

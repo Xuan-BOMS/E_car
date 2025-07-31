@@ -1,4 +1,3 @@
-#if 0
 #ifndef MOTOR_DK_H_
 #define MOTOR_DK_H_
 
@@ -11,6 +10,5 @@ typedef struct {
 
 void motor_init(void);
 void motor_setSpeed(void);
-MotorSpeed_t* motor_getSpeed(void);
+MotorSpeed_t* Motor_Get_Speed_Pointer(void);
 #endif // !MOTOR_H
-#endif // #if 0

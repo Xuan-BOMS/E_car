@@ -1,10 +1,10 @@
 /*********************************************************************
 *@file:			OLED.h
-*@brief:		OLEDÇı¶¯´úÂëÍ·ÎÄ¼ş
+*@brief:		OLEDå±å¹•é©±åŠ¨å¤´æ–‡ä»¶
 *@author:		Pan Zhikang
 *@date:			2022-10-26
-*@note:			ÒÆÖ²OLEDÄ£¿éÇë¸ü¸ÄOLED.hÖĞÒı½ÅÏà¹ØÅäÖÃºê
-*				ÒÔ¼°OLED.cÖĞµÄOLED_Pin_Configº¯Êı
+*@note:			ç§»æ¤OLEDæ¨¡å—è¯·ä¿®æ”¹OLED.hä¸­çš„é…ç½®ä¿¡æ¯ä»¥åŠ
+*				ä»¥åŠOLED.cä¸­çš„OLED_Pin_Configå‡½æ•°
 *********************************************************************/
 #ifndef	__OLED_H__
 #define	__OLED_H__
@@ -16,7 +16,7 @@
 #include <stdbool.h>
 
 /*********************************************************************
-*					Ç°Ìáºê¶¨ÒåÓëÀàĞÍ¶¨Òå(²»ÒªĞŞ¸Ä)
+*					å‰ç½®å®å®šä¹‰å’Œç±»å‹å®šä¹‰(éœ€è¦ä¿®æ”¹)
 *********************************************************************/
 #define	OLED_USE_IIC				1
 #define	OLED_USE_SPI				0
@@ -35,12 +35,12 @@ typedef struct
 
 		struct
 		{
-			uint32_t RAM_BUSY		:1;		//¼ÇÂ¼µ±Ç°µÄGRAMÕ¼ÓÃĞ´Èë×´Ì¬£¬1±íÊ¾µ±Ç°±»Õ¼ÓÃ
+			uint32_t RAM_BUSY		:1;		//è®°å½•å½“å‰çš„GRAMå ç”¨å†™å…¥çŠ¶æ€ï¼Œ1è¡¨ç¤ºå½“å‰è¢«å ç”¨
 
-			uint32_t fmt_mode		:1;		//¸ñÊ½»¯ÏÔÊ¾Ä£Ê½
-			uint32_t fmt_sizey		:8;		//¸ñÊ½»¯×ÖºÅ
-			uint32_t fmt_x			:8;		//¸ñÊ½»¯Æğµãx
-			uint32_t fmt_y			:8;		//¸ñÊ½»¯Æğµãy
+			uint32_t fmt_mode		:1;		//æ ¼å¼åŒ–æ˜¾ç¤ºæ¨¡å¼
+			uint32_t fmt_sizey		:8;		//æ ¼å¼åŒ–å­—å·
+			uint32_t fmt_x			:8;		//æ ¼å¼åŒ–åæ ‡x
+			uint32_t fmt_y			:8;		//æ ¼å¼åŒ–åæ ‡y
 
 			uint32_t RESERVEED		:6;
 		}BIT;
@@ -48,16 +48,16 @@ typedef struct
 }OLED_STATUS_TYPE;
 
 /*********************************************************************
-*					 OLEDÒı½ÅÅäÖÃ¶¨Òå(ÒÆÖ²ĞèÒªĞŞ¸Ä)
+*					 OLEDé©±åŠ¨æ–¹å¼å®å®šä¹‰(ç§»æ¤éœ€è¦ä¿®æ”¹)
 *********************************************************************/
 #define	OLED_Mode 					OLED_USE_IIC
-//OLED_USE_IIC:		Ê¹ÓÃIICÍ¨ĞÅ
-//OLED_USE_SPI:		Ê¹ÓÃSPIÍ¨ĞÅ
+//OLED_USE_IIC:		ä½¿ç”¨IICé€šè®¯
+//OLED_USE_SPI:		ä½¿ç”¨SPIé€šè®¯
 
 /********************************************************************/
-#if		OLED_Mode==OLED_USE_SPI		//7ÏßSPIÍ¨Ñ¶
+#if		OLED_Mode==OLED_USE_SPI		//7çº¿SPIé€šè®¯
 /*********************************************************************
-*						Ê¹ÓÃSPI·½Ê½Í¨ĞÅ
+*						ä½¿ç”¨SPIæ–¹å¼é€šè®¯
 *********************************************************************/
 #define	OLED_PIN_Periph				RCC_APB2Periph_GPIOB
 
@@ -87,7 +87,7 @@ typedef struct
 #define	OLED_CS_High()				GPIO_SetBits(OLED_CS_Port,OLED_CS_Pin)
 #define	OLED_CS_Low()				GPIO_ResetBits(OLED_CS_Port,OLED_CS_Pin)
 
-/*×¢Òâ£ºÈô°üº¬RESÒı½Å£¬ÔòÓ¦¿ªÆôRESÒı½Å¹¦ÄÜ*/
+/*æ³¨æ„ï¼šå¦‚æœä½ ç”¨RESç®¡è„šï¼Œåº”è¯¥å°†RESç®¡è„šæ‹‰é«˜*/
 #define OLED_USE_RES				1
 
 #if OLED_USE_RES == 1
@@ -100,9 +100,9 @@ typedef struct
 
 #endif
 /********************************************************************/
-#elif   OLED_Mode==OLED_USE_IIC		//4ÏßIICÍ¨Ñ¶
+#elif   OLED_Mode==OLED_USE_IIC		//4çº¿IICé€šè®¯
 /*********************************************************************
-*						Ê¹ÓÃIIC·½Ê½Í¨ĞÅ
+*						ä½¿ç”¨IICæ–¹å¼é€šè®¯
 *********************************************************************/
 #define	OLED_SCL_Port				GPIO_OLED_PORT
 #define	OLED_SCL_Pin				GPIO_OLED_SCL_PIN
@@ -119,24 +119,24 @@ typedef struct
 #endif
 
 /*********************************************************************
-*						 OLED³£ÓÃÅäÖÃ¶¨Òå
+*						 OLEDå±å¹•åˆ†è¾¨ç‡å®šä¹‰
 *********************************************************************/
 #define Max_X_Pixel					127
 #define Max_Y_Pixel					63
 
 /*********************************************************************
-*						OLEDÄÚ²¿ÑÓÊ±(ÒÆÖ²Ğè¼ì²é)
+*						OLEDå†…éƒ¨å»¶æ—¶(ç§»æ¤é…ç½®)
 *********************************************************************/
 #define OLED_Delay();				__NOP();__NOP();__NOP();__NOP();__NOP();\
 									__NOP();__NOP();__NOP();__NOP();__NOP();
 
 /*********************************************************************
-*						OLED´òÓ¡»º³åÇø´óĞ¡(ÒÆÖ²Ğè¼ì²é)
+*						OLEDæ‰“å°ç¼“å†²åŒºå¤§å°(ç§»æ¤é…ç½®)
 *********************************************************************/
 #define OLED_Printf_BufferSize		256
 
 /*********************************************************************
-*				ÀÏ°æ±¾OLEDÇı¶¯ÓÃµ½µÄ·Ö¶ÎÊ½´òÓ¡Êı×Ö¡¢×Ö·û
+*				æ—§ç‰ˆæœ¬OLEDå¸¸ç”¨åˆ°çš„åˆ†æ®µå¼æ‰“å°æ•°å­—ã€å­—ç¬¦
 *********************************************************************/
 #define OLED_FUNC_COMPATIBLE		0
 
@@ -158,12 +158,12 @@ typedef struct
 #endif
 
 /*********************************************************************
-*					Ïà¹ØAPI½Ó¿Ú¼°PUBLIC±äÁ¿
+*					å¤–éƒ¨APIæ¥å£åŠPUBLICå‡½æ•°
 *********************************************************************/
-/*Çı¶¯*/
+/*åˆå§‹åŒ–*/
 void OLED_Init(void);
 
-/*ÏÔÊ¾ÉèÖÃ*/
+/*æ˜¾ç¤ºå‡½æ•°*/
 void OLED_SetContrast(uint8_t Level);
 void OLED_Display_On(void);
 void OLED_Display_Off(void);
@@ -173,21 +173,21 @@ void OLED_SetGRAMoffset(uint8_t Level);
 void OLED_Refresh_GRAM(void);
 void OLED_InverseDisplay(bool OP);
 
-/*Í¼ĞÎ*/
+/*å›¾å½¢*/
 void OLED_EditPixel(uint8_t X,uint8_t Y,bool OP);
 void OLED_EditArea(uint8_t X0,uint8_t Y1,uint8_t X2,uint8_t Y2,uint8_t OP);
 void OLED_DrawLine(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2,bool OP);
 void OLED_DrawCircle(uint8_t X,uint8_t Y,uint8_t R);
 void OLED_DrawBMP(uint8_t X0,uint8_t Y0,uint8_t X1,uint8_t Y1,const char BMP[]);
 
-/*×Ö·û*/
+/*å­—ç¬¦*/
 bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Size,bool OP);
 bool OLED_ShowChinese(uint8_t X,uint8_t Y,uint8_t *s,uint8_t Sizey,bool OP);
 void OLED_Set_Printfmt(uint16_t x,uint16_t y,uint8_t sizey,bool mode);
 void OLED_Printf(const char *fmt,...);
 
-/*ÏòÏÂ¼æÈİµÄ¹¦ÄÜ¿ÉÄÜ»á³öÏÖÎÊÌâ£¬Çë½÷É÷Ê¹ÓÃ*/
-/*ÈçĞèÊ¹ÓÃÇëÊÖ¶¯´ò¿ª@line 141*/
+/*ä»¥ä¸‹æ—§æ•°æ®çš„åŠŸèƒ½å¯èƒ½ä¼šäº§ç”Ÿå†²çªï¼Œä¸å»ºè®®ä½¿ç”¨*/
+/*å¦‚éœ€ä½¿ç”¨è¯·æ‰‹åŠ¨å¯ç”¨@line 141*/
 #if OLED_FUNC_COMPATIBLE == 1
 void OLED_ShowInt(uint8_t X,uint8_t Y,int32_t Int);
 void OLED_ShowFloat(uint8_t X,uint8_t Y,float Float);
@@ -195,7 +195,7 @@ void OLED_ShowHex(uint8_t X,uint8_t Y,int32_t Num);
 void OLED_ShowString(uint8_t X,uint8_t Y,const char *Str);
 #endif
 
-/*¹«¹²±äÁ¿*/
+/*å¤–éƒ¨å˜é‡*/
 extern OLED_STATUS_TYPE OLED_STATUS;
 
 #endif	

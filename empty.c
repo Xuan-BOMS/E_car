@@ -12,6 +12,7 @@
 #include "LED.h"
 #include "OLED.h"
 #include "task.h"
+#include "chassis.h"
 volatile unsigned char uart1_data = 0;
 int main(void)
 {
@@ -28,19 +29,16 @@ int main(void)
     Task_Init();
     vision_init(); // 初始化视觉模块
     gimbal_init(); // 初始化云台
-    #if 0
+    Chassis_Init(); // 初始化底盘
     motor_init(); // 初始化电机
-    #endif
     HWT101_Init(); // 初始化HWT101传感器
     LED3_On();
-	LED1_On();
-	LED2_On();
-	OLED_Init();
-	OLED_Set_Printfmt(0,0,16,0);
-    OLED_Printf("Beginning\n");
+		LED1_On();
+		LED2_On();
     while (1)
     {
-        delay_ms(10);
+        delay_ms(1);
+        Task_Choose();
         //motor_setSpeed();
         //发送字符串
         //gimbal_motor_move(); // 控制云台电机移动

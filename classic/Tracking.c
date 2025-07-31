@@ -35,6 +35,6 @@ void Tracking_Update(void)
     // Motor_Control(MOTOR_A, MOTOR_DIR_FORWARD, Motor_Speed[0]);
     // Motor_Control(MOTOR_B, MOTOR_DIR_FORWARD, Motor_Speed[1]);
 
-    Motor_Set_dir_Speed(Motor_Speed[0], Motor_Speed[1]);
-    Motor_Enable();
+//    Motor_Set_dir_Speed(Motor_Speed[0], Motor_Speed[1]);
+//    Motor_Enable();
 }

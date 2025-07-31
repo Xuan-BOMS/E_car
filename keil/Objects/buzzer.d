@@ -1,4 +1,4 @@
-./objects/task.o: ..\State\task.c ..\State\task.h \
+./objects/buzzer.o: ..\State\Buzzer.c ..\State\Buzzer.h \
   ..\State\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
@@ -78,11 +78,5 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\State\Key.h \
-  ..\system\Timer.h ..\system\..\ti_msp_dl_config.h ..\classic\Gray.h \
-  ..\classic\..\ti_msp_dl_config.h ..\classic\motorDK.h \
-  ..\classic\Encoder.h ..\classic\Tracking.h ..\time\time.h \
-  ..\time\..\ti_msp_dl_config.h ..\OLED\OLED.h \
-  ..\OLED\..\ti_msp_dl_config.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\time\time.h \
+  ..\time\..\ti_msp_dl_config.h

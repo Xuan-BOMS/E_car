@@ -1,3 +1,4 @@
+#if 0
 #ifndef _HW_MOTOR_H_
 #define _HW_MOTOR_H_
 
@@ -84,3 +85,4 @@ void set_motor(uint16_t fi_value, uint16_t bi_value);
 void stop_motor(void);
 
 #endif /* _HW_MOTOR_H_ */
+#endif
