@@ -26,6 +26,7 @@ void ZDT_init(int16_t mode_set,int16_t address, ZDT_motor* motor);
 void ZDT_speed(int16_t speed_set,int16_t address, ZDT_motor* motor);
 void ZDT_angle_relative(int16_t angle_set,int16_t speed_set,int16_t address, ZDT_motor* motor);
 void ZDT_angle_absolute(int16_t angle_set,int16_t speed_set,int16_t address, ZDT_motor* motor);
+void ZDT_a_angle_absolute(int16_t angle_set,int16_t speed_set,int16_t a_speed_set,int16_t address,ZDT_motor* motor);
 uint8_t ZDT_receive(ZDT_motor* motor);
 void uart1_send_char(char ch);
 void uart1_send_string(char* str);

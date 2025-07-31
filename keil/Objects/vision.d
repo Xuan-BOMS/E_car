@@ -78,4 +78,5 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h

@@ -170,7 +170,7 @@ I (..\..\source\ti\driverlib\dl_vref.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x6866DDBA)
-F (..\gimbal\gimbal.c)(0x688A15E4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/gimbal.o -MD)
+F (..\gimbal\gimbal.c)(0x688B07A8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/gimbal.o -MD)
 I (..\gimbal\..\ti_msp_dl_config.hb.\..\source\ti\devices\msp\msp.h)(0x00000000)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x6866DDBA)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x6866DDBA)
@@ -253,7 +253,7 @@ I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h..\gimbal\ZDT_drive.h)(0x00000000)
 I (..\vision\vision.hi.\vision\..\ti_msp_dl_config.ha.\time\time.h)(0x00000000)
 I (..\time\..\ti_msp_dl_config.h)(0x688A651B)
-F (..\gimbal\ZDT_drive.c)(0x6889C14A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/zdt_drive.o -MD)
+F (..\gimbal\ZDT_drive.c)(0x688AED6D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/zdt_drive.o -MD)
 I (..\gimbal\..\ti_msp_dl_config.hZ.\..\source\ti\devices\msp\msp.h)(0x00000000)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x6866DDBA)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x6866DDBA)
@@ -334,9 +334,9 @@ I (..\..\source\ti\driverlib\dl_vref.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x6866DDBA)
-F (..\gimbal\gimbal.h)(0x688A14A9)()
-F (..\gimbal\ZDT_drive.h)(0x68898536)()
-F (..\vision\vision.c)(0x6889E30B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/vision.o -MD)
+F (..\gimbal\gimbal.h)(0x688B1B34)()
+F (..\gimbal\ZDT_drive.h)(0x688AEC2F)()
+F (..\vision\vision.c)(0x688B0050)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/vision.o -MD)
 I (..\vision\..\ti_msp_dl_config.hi.\..\source\ti\devices\msp\msp.h)(0x00000000)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x6866DDBA)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x6866DDBA)
@@ -417,9 +417,10 @@ I (..\..\source\ti\driverlib\dl_vref.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x6866DDBA)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x6866DDBA)
+I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6569B012)
 F (..\vision\vision.h)(0x6889DF25)()
-F (..\time\time.c)(0x688A53D8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/time.o -MD)
-I (..\time\..\ti_msp_dl_config.h)(0x688A651B)
+F (..\time\time.c)(0x688AF0DC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../motor -I ../HWT101-D__UVISION_VERSION="539" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/time.o -MD)
+I (..\time\..\ti_msp_dl_config.h….\..\source\ti\devices\msp\msp.h)(0x00000000)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x6866DDBA)
 I (..\..\source\ti\devices\msp\m0p\mspm0g350x.h)(0x6866DDBA)
 I (D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6569B012)

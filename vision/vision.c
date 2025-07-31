@@ -1,4 +1,5 @@
 #include "vision.h"
+#include <string.h>
 volatile unsigned char uart0_data = 0;
 vision_data_t vision_data;
 // 接收缓冲区相关变量
@@ -96,17 +97,18 @@ void vision_receive_handler(uint8_t received_byte)
             rx_index++;
             
             // 检查是否接收到结束字节0xBB
-            if(received_byte == 0xBB && rx_index >= 3) // 至少要有AA + 数据 + BB
+            if(received_byte == 0xBB && rx_index == 6) // 至少要有AA + 数据 + BB
             {
                 rx_state = 0;
                 rx_index = 0;
                 vision_get_received_data();
             }
             // 防止缓冲区溢出
-            else if(rx_index > sizeof(rx_buffer))
+            else if(rx_index >= sizeof(rx_buffer))
             {
                 rx_state = 0; // 重置状态
                 rx_index = 0;
+                memset(rx_buffer, 0, sizeof(rx_buffer));
             }
             break;
         default:
@@ -120,10 +122,11 @@ void vision_get_received_data(void)
 {
     if(rx_buffer[0] == 0xAA && rx_buffer[5] == 0xBB)
     {
+        __disable_irq();
         vision_data.x_offset = (int16_t)((rx_buffer[1] << 8) | rx_buffer[2]);
         vision_data.y_offset = (int16_t)((rx_buffer[3] << 8) | rx_buffer[4]);
-        rx_state = 0;
-        rx_index = 0;
+        __enable_irq();
+        memset(rx_buffer, 0, sizeof(rx_buffer));
     }
     else
     {

@@ -4,6 +4,7 @@
         "ti_msp_dl_config.h": "c",
         "zdt_drive.h": "c",
         "vision.h": "c",
-        "compare": "c"
+        "compare": "c",
+        "type_traits": "c"
     }
 }
