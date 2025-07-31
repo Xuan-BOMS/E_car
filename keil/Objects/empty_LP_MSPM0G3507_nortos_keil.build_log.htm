@@ -26,11 +26,79 @@ Project File Date:  07/31/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'D:\Programs\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'empty_LP_MSPM0G3507_nortos_keil'
+Rebuild target 'empty_LP_MSPM0G3507_nortos_keil'
 Before Build - User command #1: cmd.exe /C "D:\Code_sourse\mspm0_sdk_2_05_01_00\empty\keil\../../tools/keil/syscfg.bat 'D:\Code_sourse\mspm0_sdk_2_05_01_00\empty\keil\' empty.syscfg"
 Couldn't find Sysconfig Tool "D:\ti\sysconfig_1.24.0\sysconfig_cli.bat"
 "Update the file located at <sdk path>/tools/keil/syscfg.bat"
-".\Objects\empty_LP_MSPM0G3507_nortos_keil.axf" - 0 Error(s), 0 Warning(s).
+assembling startup_mspm0g350x_uvision.s...
+compiling time.c...
+compiling hwt101.c...
+compiling empty.c...
+compiling gimbal.c...
+compiling vision.c...
+compiling ZDT_drive.c...
+compiling ti_msp_dl_config.c...
+../motor/motor.c(14): error: use of undeclared identifier 'PWM_MotorL_INST'
+   14 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, MotorSpeed.Motor_Left_Speed, GPIO_PWM_MotorL_C0_IDX); // 设置左电机正转
+      |                                          ^
+../motor/motor.c(14): error: use of undeclared identifier 'GPIO_PWM_MotorL_C0_IDX'
+   14 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, MotorSpeed.Motor_Left_Speed, GPIO_PWM_MotorL_C0_IDX); // 设置左电机正转
+      |                                                                                        ^
+../motor/motor.c(15): error: use of undeclared identifier 'PWM_MotorL_INST'
+   15 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C1_IDX); // 停止左电机反转
+      |                                          ^
+../motor/motor.c(15): error: use of undeclared identifier 'GPIO_PWM_MotorL_C1_IDX'
+   15 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C1_IDX); // 停止左电机反转
+      |                                                              ^
+../motor/motor.c(17): error: use of undeclared identifier 'PWM_MotorL_INST'
+   17 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C0_IDX);
+      |                                          ^
+../motor/motor.c(17): error: use of undeclared identifier 'GPIO_PWM_MotorL_C0_IDX'
+   17 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C0_IDX);
+      |                                                              ^
+../motor/motor.c(18): error: use of undeclared identifier 'PWM_MotorL_INST'
+   18 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C1_IDX);
+      |                                          ^
+../motor/motor.c(18): error: use of undeclared identifier 'GPIO_PWM_MotorL_C1_IDX'
+   18 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C1_IDX);
+      |                                                              ^
+../motor/motor.c(20): error: use of undeclared identifier 'PWM_MotorL_INST'
+   20 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, -MotorSpeed.Motor_Left_Speed, GPIO_PWM_MotorL_C1_IDX); // 设置左电机反转
+      |                                          ^
+../motor/motor.c(20): error: use of undeclared identifier 'GPIO_PWM_MotorL_C1_IDX'
+   20 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, -MotorSpeed.Motor_Left_Speed, GPIO_PWM_MotorL_C1_IDX); // 设置左电机反转
+      |                                                                                         ^
+../motor/motor.c(21): error: use of undeclared identifier 'PWM_MotorL_INST'
+   21 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C0_IDX); // 停止左电机正转
+      |                                          ^
+../motor/motor.c(21): error: use of undeclared identifier 'GPIO_PWM_MotorL_C0_IDX'
+   21 |         DL_TimerG_setCaptureCompareValue(PWM_MotorL_INST, 0, GPIO_PWM_MotorL_C0_IDX); // 停止左电机正转
+      |                                                              ^
+../motor/motor.c(24): error: use of undeclared identifier 'PWM_MotorR_INST'
+   24 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, MotorSpeed.Motor_Right_Speed, GPIO_PWM_MotorR_C0_IDX); // 设置右电机正转
+      |                                          ^
+../motor/motor.c(24): error: use of undeclared identifier 'GPIO_PWM_MotorR_C0_IDX'
+   24 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, MotorSpeed.Motor_Right_Speed, GPIO_PWM_MotorR_C0_IDX); // 设置右电机正转
+      |                                                                                         ^
+../motor/motor.c(25): error: use of undeclared identifier 'PWM_MotorR_INST'
+   25 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C1_IDX); // 停止右电机反转
+      |                                          ^
+../motor/motor.c(25): error: use of undeclared identifier 'GPIO_PWM_MotorR_C1_IDX'
+   25 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C1_IDX); // 停止右电机反转
+      |                                                              ^
+../motor/motor.c(27): error: use of undeclared identifier 'PWM_MotorR_INST'
+   27 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C0_IDX);
+      |                                          ^
+../motor/motor.c(27): error: use of undeclared identifier 'GPIO_PWM_MotorR_C0_IDX'
+   27 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C0_IDX);
+      |                                                              ^
+../motor/motor.c(28): error: use of undeclared identifier 'PWM_MotorR_INST'
+   28 |         DL_TimerG_setCaptureCompareValue(PWM_MotorR_INST, 0, GPIO_PWM_MotorR_C1_IDX);
+      |                                          ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+compiling motor.c...
+".\Objects\empty_LP_MSPM0G3507_nortos_keil.axf" - 19 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -42,7 +110,8 @@ Package Vendor: TexasInstruments
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

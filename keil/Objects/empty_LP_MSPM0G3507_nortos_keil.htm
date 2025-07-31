@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\empty_LP_MSPM0G3507_nortos_keil.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\empty_LP_MSPM0G3507_nortos_keil.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Thu Jul 31 16:44:11 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Thu Jul 31 18:09:25 2025
 <BR><P>
 <H3>Maximum Stack Usage =        104 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -172,7 +172,7 @@ Global Symbols
 
 <P><STRONG><a name="[27]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; SYSCFG_DL_init &rArr; SYSCFG_DL_PWM_MotorR_init &rArr; DL_Timer_initFourCCPWMMode
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; SYSCFG_DL_init &rArr; SYSCFG_DL_MOTOR_init &rArr; DL_Timer_initFourCCPWMMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -437,42 +437,39 @@ Global Symbols
 <P><STRONG><a name="[43]"></a>DL_Timer_initFourCCPWMMode</STRONG> (Thumb, 264 bytes, Stack size 20 bytes, dl_timer.o(.text.DL_Timer_initFourCCPWMMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = DL_Timer_initFourCCPWMMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 </UL>
 
-<P><STRONG><a name="[49]"></a>DL_Timer_initTimerMode</STRONG> (Thumb, 240 bytes, Stack size 16 bytes, dl_timer.o(.text.DL_Timer_initTimerMode))
+<P><STRONG><a name="[48]"></a>DL_Timer_initTimerMode</STRONG> (Thumb, 240 bytes, Stack size 16 bytes, dl_timer.o(.text.DL_Timer_initTimerMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = DL_Timer_initTimerMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
+<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_0_init
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
 </UL>
 
 <P><STRONG><a name="[45]"></a>DL_Timer_setCaptCompUpdateMethod</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dl_timer.o(.text.DL_Timer_setCaptCompUpdateMethod))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DL_Timer_setCaptCompUpdateMethod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 </UL>
 
 <P><STRONG><a name="[44]"></a>DL_Timer_setCaptureCompareOutCtl</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dl_timer.o(.text.DL_Timer_setCaptureCompareOutCtl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DL_Timer_setCaptureCompareOutCtl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 </UL>
 
 <P><STRONG><a name="[46]"></a>DL_Timer_setCaptureCompareValue</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, dl_timer.o(.text.DL_Timer_setCaptureCompareValue))
-<BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_setSpeed
 </UL>
 
 <P><STRONG><a name="[42]"></a>DL_Timer_setClockConfig</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dl_timer.o(.text.DL_Timer_setClockConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DL_Timer_setClockConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_0_init
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 </UL>
 
 <P><STRONG><a name="[4c]"></a>DL_UART_init</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, dl_uart.o(.text.DL_UART_init))
@@ -504,7 +501,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
+<P><STRONG><a name="[51]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SYSCFG_DL_GPIO_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
@@ -518,20 +515,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
 
-<P><STRONG><a name="[41]"></a>SYSCFG_DL_PWM_MotorL_init</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SYSCFG_DL_PWM_MotorL_init &rArr; DL_Timer_initFourCCPWMMode
-</UL>
-<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setCaptureCompareValue
-<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setCaptCompUpdateMethod
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setCaptureCompareOutCtl
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_initFourCCPWMMode
-<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setClockConfig
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
-</UL>
-
-<P><STRONG><a name="[47]"></a>SYSCFG_DL_PWM_MotorR_init</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SYSCFG_DL_PWM_MotorR_init &rArr; DL_Timer_initFourCCPWMMode
+<P><STRONG><a name="[41]"></a>SYSCFG_DL_MOTOR_init</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_MOTOR_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SYSCFG_DL_MOTOR_init &rArr; DL_Timer_initFourCCPWMMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setCaptureCompareValue
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setCaptCompUpdateMethod
@@ -550,10 +535,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
 
-<P><STRONG><a name="[48]"></a>SYSCFG_DL_TIMER_gimbal_init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init))
+<P><STRONG><a name="[47]"></a>SYSCFG_DL_TIMER_0_init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_0_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SYSCFG_DL_TIMER_0_init &rArr; DL_Timer_initTimerMode
+</UL>
+<BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_initTimerMode
+<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setClockConfig
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
+</UL>
+
+<P><STRONG><a name="[49]"></a>SYSCFG_DL_TIMER_gimbal_init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SYSCFG_DL_TIMER_gimbal_init &rArr; DL_Timer_initTimerMode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_initTimerMode
+<BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_initTimerMode
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_setClockConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
@@ -587,16 +581,16 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[4f]"></a>SYSCFG_DL_init</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = SYSCFG_DL_init &rArr; SYSCFG_DL_PWM_MotorR_init &rArr; DL_Timer_initFourCCPWMMode
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = SYSCFG_DL_init &rArr; SYSCFG_DL_MOTOR_init &rArr; DL_Timer_initFourCCPWMMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_SYSTICK_init
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_UART_2_init
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_UART_0_init
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_UART_1_init
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_I2C_0_init
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorR_init
-<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_PWM_MotorL_init
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_0_init
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_TIMER_gimbal_init
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_MOTOR_init
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_SYSCTL_init
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_GPIO_init
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_initPower
@@ -677,7 +671,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[28]"></a>main</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, empty.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = main &rArr; SYSCFG_DL_init &rArr; SYSCFG_DL_PWM_MotorR_init &rArr; DL_Timer_initFourCCPWMMode
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = main &rArr; SYSCFG_DL_init &rArr; SYSCFG_DL_MOTOR_init &rArr; DL_Timer_initFourCCPWMMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_setSpeed
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
