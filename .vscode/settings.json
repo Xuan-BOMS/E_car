@@ -5,6 +5,7 @@
         "zdt_drive.h": "c",
         "vision.h": "c",
         "compare": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "limits": "c"
     }
 }

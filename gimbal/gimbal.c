@@ -1,7 +1,7 @@
 #include "gimbal.h"
 #include "time.h"
 GimbalPosition gimbal;
-uint8_t angle_text[]={0x01,0xFB,0x00,0x01,0x20,0x00,0x00,0x0A,0x0A,0x00,0x00,0x6B};
+float new_pitch=0, new_yaw=0;
 void gimbal_init(void)
 {
     // 初始化云台位置
@@ -27,10 +27,10 @@ void gimbal_init(void)
 
 }
 void gimbal_set_position(void)
-{
-    static float new_pitch=0, new_yaw=0;
-    new_pitch +=(float)(gimbal.vision_data->y_offset * OFFSET_PITCH_SCALE);
-    new_yaw +=(float)(gimbal.vision_data->x_offset * OFFSET_YAW_SCALE);
+{   
+
+    new_pitch +=(float)((LIMIT_ANGLE(gimbal.vision_data->y_offset,OFFSET_PITCH_MIN,OFFSET_PITCH_MAX))* OFFSET_PITCH_SCALE);
+    new_yaw +=(float)((LIMIT_ANGLE(gimbal.vision_data->x_offset,OFFSET_YAW_MIN,OFFSET_YAW_MAX)) * OFFSET_YAW_SCALE);
 
     new_pitch = (float)LIMIT_ANGLE(new_pitch, GIMBAL_PITCH_MIN, GIMBAL_PITCH_MAX);
     new_yaw = (float)LIMIT_ANGLE(new_yaw, GIMBAL_YAW_MIN, GIMBAL_YAW_MAX);
