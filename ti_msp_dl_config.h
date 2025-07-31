@@ -111,22 +111,6 @@ extern "C" {
 
 
 
-
-/* Defines for I2C_0 */
-#define I2C_0_INST                                                          I2C1
-#define I2C_0_INST_IRQHandler                                    I2C1_IRQHandler
-#define I2C_0_INST_INT_IRQN                                        I2C1_INT_IRQn
-#define I2C_0_BUS_SPEED_HZ                                                400000
-#define GPIO_I2C_0_SDA_PORT                                                GPIOA
-#define GPIO_I2C_0_SDA_PIN                                        DL_GPIO_PIN_16
-#define GPIO_I2C_0_IOMUX_SDA                                     (IOMUX_PINCM38)
-#define GPIO_I2C_0_IOMUX_SDA_FUNC                      IOMUX_PINCM38_PF_I2C1_SDA
-#define GPIO_I2C_0_SCL_PORT                                                GPIOA
-#define GPIO_I2C_0_SCL_PIN                                        DL_GPIO_PIN_17
-#define GPIO_I2C_0_IOMUX_SCL                                     (IOMUX_PINCM39)
-#define GPIO_I2C_0_IOMUX_SCL_FUNC                      IOMUX_PINCM39_PF_I2C1_SCL
-
-
 /* Defines for UART_1 */
 #define UART_1_INST                                                        UART1
 #define UART_1_INST_FREQUENCY                                            4000000
@@ -272,6 +256,15 @@ extern "C" {
 /* Defines for PIN_B_2: GPIOB.16 with pinCMx 33 on package pin 4 */
 #define GPIO_ENCODERB_PIN_B_2_PIN                               (DL_GPIO_PIN_16)
 #define GPIO_ENCODERB_PIN_B_2_IOMUX                              (IOMUX_PINCM33)
+/* Port definition for Pin Group GPIO_OLED */
+#define GPIO_OLED_PORT                                                   (GPIOA)
+
+/* Defines for SCL: GPIOA.17 with pinCMx 39 on package pin 10 */
+#define GPIO_OLED_SCL_PIN                                       (DL_GPIO_PIN_17)
+#define GPIO_OLED_SCL_IOMUX                                      (IOMUX_PINCM39)
+/* Defines for SDA: GPIOA.16 with pinCMx 38 on package pin 9 */
+#define GPIO_OLED_SDA_PIN                                       (DL_GPIO_PIN_16)
+#define GPIO_OLED_SDA_IOMUX                                      (IOMUX_PINCM38)
 
 
 
@@ -284,7 +277,6 @@ void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_MOTOR_init(void);
 void SYSCFG_DL_TIMER_gimbal_init(void);
 void SYSCFG_DL_TIMER_0_init(void);
-void SYSCFG_DL_I2C_0_init(void);
 void SYSCFG_DL_UART_1_init(void);
 void SYSCFG_DL_UART_0_init(void);
 void SYSCFG_DL_UART_2_init(void);
