@@ -173,18 +173,18 @@
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>33</LineNumber>
+          <LineNumber>49</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>20646</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\State\task.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\empty_LP_MSPM0G3507_nortos_keil\../State/task.c\49</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
@@ -259,6 +259,11 @@
           <count>7</count>
           <WinNumber>1</WinNumber>
           <ItemText>keys,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>task,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

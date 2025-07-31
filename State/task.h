@@ -9,6 +9,26 @@
 #include "time.h"  
 #include "OLED.h"
 #include "Buzzer.h"
+#include <string.h>
+typedef struct {
+    // 任务管理参数
+    uint8_t current_task;           // 当前任务号 (1-6)
+    uint8_t circle_count;           // 圈数 (1-6圈)
+    uint8_t speed_level;            // 速度档位 (1-3档)
+    uint8_t task_running;              // 任务运行状态
+    
+    // 任务统计数据
+    uint16_t completed_circles;     // 已完成圈数
+    uint8_t corner_cnt;             // 角落计数
+    
+    // 任务状态标志
+    uint8_t corner_flag;            // 0: 未检测到角落, 1: 检测到角落
+    uint8_t tracking_flag;          // 0: 未开始跟踪, 1: 开始跟踪
+    uint8_t forward_flag;           // 直行标志位
+    
+    // 速度配置表
+    uint16_t speed_table[3];        // 速度档位对应的PWM值
+} Task_t;
 // 函数声明
 void Task_Init(void);           // 任务系统初始化
 void Task_Choose(void);         // 任务选择和参数设置
