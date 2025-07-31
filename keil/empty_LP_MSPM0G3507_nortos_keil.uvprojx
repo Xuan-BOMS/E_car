@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__MSPM0G3507__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor;..\HWT101</IncludePath>
+              <IncludePath>..\..\source\third_party\CMSIS\Core\Include;..\..\source;..\gimbal;..\vision;..\time;..\motor;..\HWT101;..\classic;..\OLED;..\State</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -467,21 +467,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Motor</GroupName>
-          <Files>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\motor\motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\motor\motor.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>HWT101</GroupName>
           <Files>
             <File>
@@ -493,6 +478,161 @@
               <FileName>hwt101.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HWT101\hwt101.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>classic</GroupName>
+          <Files>
+            <File>
+              <FileName>Encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\classic\Encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>Gray.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\classic\Gray.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor_tb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\classic\Motor_tb.h</FilePath>
+            </File>
+            <File>
+              <FileName>motorDK.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\classic\motorDK.h</FilePath>
+            </File>
+            <File>
+              <FileName>Tracking.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\classic\Tracking.h</FilePath>
+            </File>
+            <File>
+              <FileName>Encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\classic\Encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gray.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\classic\Gray.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor_tb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\classic\Motor_tb.c</FilePath>
+            </File>
+            <File>
+              <FileName>motorDK.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\classic\motorDK.c</FilePath>
+            </File>
+            <File>
+              <FileName>Tracking.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\classic\Tracking.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>OLED</GroupName>
+          <Files>
+            <File>
+              <FileName>OLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\OLED\OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\OLED\OLED.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\OLED\OLED_Font.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>State</GroupName>
+          <Files>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\State\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\State\LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\State\task.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\State\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\State\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\State\task.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>system</GroupName>
+          <Files>
+            <File>
+              <FileName>max_min.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\system\max_min.c</FilePath>
+            </File>
+            <File>
+              <FileName>PID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\system\PID.c</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\system\PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\system\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>max_min.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\system\max_min.h</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\system\PID.h</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\system\PWM.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\system\Timer.h</FilePath>
             </File>
           </Files>
         </Group>

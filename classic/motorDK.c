@@ -1,4 +1,4 @@
-#include "motor.h"
+#include "motorDK.h"
 
 MotorSpeed_t MotorSpeed;
 

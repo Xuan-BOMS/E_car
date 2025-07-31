@@ -1,5 +1,5 @@
-#ifndef MOTOR_H
-#define MOTOR_H
+#ifndef MOTOR_DK_H_
+#define MOTOR_DK_H_
 
 #include "../ti_msp_dl_config.h"
 #define LIMIT(value, min, max) ((value) > (max) ? (max) : ((value) < (min) ? (min) : (value)))

@@ -1,5 +1,5 @@
-./objects/empty.o: ..\empty.c ..\ti_msp_dl_config.h \
-  ..\..\source\ti\devices\msp\msp.h \
+./objects/led.o: ..\State\LED.c ..\State\LED.h \
+  ..\State\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h \
@@ -78,9 +78,4 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h ..\gimbal\gimbal.h \
-  ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h \
-  ..\vision\vision.h ..\vision\..\ti_msp_dl_config.h ..\time\time.h \
-  ..\time\..\ti_msp_dl_config.h ..\motor\motor.h \
-  ..\motor\..\ti_msp_dl_config.h ..\HWT101\hwt101.h \
-  ..\HWT101\..\ti_msp_dl_config.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h

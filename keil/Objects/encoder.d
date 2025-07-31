@@ -1,5 +1,5 @@
-./objects/oled.o: ..\OLED\OLED.c ..\OLED\OLED.h \
-  ..\OLED\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
+./objects/encoder.o: ..\classic\Encoder.c ..\classic\Encoder.h \
+  ..\classic\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h \
@@ -78,6 +78,4 @@
   ..\..\source\ti\driverlib\dl_vref.h \
   ..\..\source\ti\driverlib\dl_wwdt.h \
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
-  ..\..\source\ti\driverlib\m0p\dl_systick.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\OLED\OLED_FONT.h
+  ..\..\source\ti\driverlib\m0p\dl_systick.h
