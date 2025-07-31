@@ -25,13 +25,13 @@ int main(void)
     //使能定时器中断
     NVIC_ClearPendingIRQ(TIMER_gimbal_INST_INT_IRQN);
     NVIC_EnableIRQ(TIMER_gimbal_INST_INT_IRQN);
-    __enable_irq();
-    Task_Init();
     vision_init(); // 初始化视觉模块
     gimbal_init(); // 初始化云台
     Chassis_Init(); // 初始化底盘
     motor_init(); // 初始化电机
     HWT101_Init(); // 初始化HWT101传感器
+    __enable_irq();
+    Task_Init();
     LED3_On();
 		LED1_On();
 		LED2_On();

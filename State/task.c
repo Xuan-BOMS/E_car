@@ -69,7 +69,8 @@ void Task_Init(void)
 	//OLED初始化
     OLED_Init(); 
     OLED_Set_Printfmt(0,0,16,0);
-
+    OLED_DrawBMP_logo(32, 0);
+    delay_ms(1000);
     // 初始化变量
     current_task = 1;
     circle_count = 1;
@@ -77,7 +78,7 @@ void Task_Init(void)
     task_running = false;
 
 	OLED_Set_Printfmt(80, 0, 16, 0);
-    OLED_Printf("ready");
+    OLED_Printf(task_running ? "run" : "stop");
 	// 显示当前任务
 	OLED_Set_Printfmt(0, 0, 16, 0);
 	OLED_Printf("Task:%d", current_task);
@@ -134,21 +135,17 @@ void Task_Choose(void)
         }
     }
     // KEY_4单击：启动/停止当前任务
+    // 改进显示逻辑，确保清除旧内容
     if (Key_IsClicked(KEY_4)) {
-        if (task_running) {
-            // 停止任务
-            task_running = false;
-            //Motor_Stop_All();
-            // Buzzer_Beep(200); // 长响表示停止
-        } else {
-            // 启动任务
-            task_running = true;
-			OLED_Set_Printfmt(80, 0, 16, 0);
-			OLED_Printf("     ");
-			OLED_Set_Printfmt(108, 0, 16, 0);
-			OLED_Printf("ok");
-
-        }
+        task_running = !task_running;
+        
+        // 先清除显示区域
+        OLED_Set_Printfmt(80, 0, 16, 0);
+        OLED_Printf("    ");  // 清除4个字符位置
+        
+        // 重新显示状态
+        OLED_Set_Printfmt(80, 0, 16, 0);
+        OLED_Printf(task_running ? "run" : "stop");
     }
     
     // KEY_4长按：紧急停止并复位所有参数

@@ -764,6 +764,30 @@ void OLED_DrawBMP(uint8_t X0,uint8_t Y0,uint8_t X1,uint8_t Y1,const char BMP[])
 	}
 }
 
+void OLED_DrawBMP_logo(uint8_t X0, uint8_t Y0)
+{
+    uint16_t Pixel_ctr = 0;
+    uint8_t x, y;
+    
+    // 固定logo尺寸
+    const uint8_t LOGO_WIDTH = 64;   // logo宽度：64像素
+    const uint8_t LOGO_HEIGHT = 8;   // logo高度：8页（64像素）
+    
+    // 边界检查，防止超出屏幕范围
+    if(X0 + LOGO_WIDTH > 128 || Y0 + LOGO_HEIGHT > 8) {
+        return; // 超出范围，不显示
+    }
+    
+    // 逐页显示
+    for(y = 0; y < LOGO_HEIGHT; y++)
+    {
+        OLED_Set_Pos(X0, Y0 + y);  // 设置起始位置
+        for(x = 0; x < LOGO_WIDTH; x++)
+        {      
+            OLED_WriteReadByte(bmp_logo[Pixel_ctr++], Write_Data);
+        }
+    }
+}
 /*********************************************************************
 *@brief:		OLED�Աȶ�(����)���ں���
 *@param:		Level:	���ڵ��ĶԱȶ�(����)ֵ,����ֵ����Ч��Χ0~255

@@ -179,7 +179,7 @@ void OLED_EditArea(uint8_t X0,uint8_t Y1,uint8_t X2,uint8_t Y2,uint8_t OP);
 void OLED_DrawLine(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2,bool OP);
 void OLED_DrawCircle(uint8_t X,uint8_t Y,uint8_t R);
 void OLED_DrawBMP(uint8_t X0,uint8_t Y0,uint8_t X1,uint8_t Y1,const char BMP[]);
-
+void OLED_DrawBMP_logo(uint8_t X0, uint8_t Y0);
 /*字符*/
 bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Size,bool OP);
 bool OLED_ShowChinese(uint8_t X,uint8_t Y,uint8_t *s,uint8_t Sizey,bool OP);
