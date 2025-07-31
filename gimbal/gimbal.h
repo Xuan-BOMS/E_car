@@ -24,7 +24,7 @@
 #define GIMBAL_PITCH_SPEED 0x0A80 // 352
 #define GIMBAL_PITCH_ACCELERATION 0x1B00 // 2816
 #define GIMBAL_YAW_SPEED 0x0A80 // 352
-#define GIMBAL_YAW_ACCELERATION 0x0F00 // 2816
+#define GIMBAL_YAW_ACCELERATION 0x1F00 // 2816
 typedef struct {
     int16_t pitch;  // 俯仰角度
     int16_t yaw;    // 偏航角度
