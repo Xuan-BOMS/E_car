@@ -71,7 +71,7 @@ void Task1(void)
 		
 		Motor_MoveForward(1000);//直行
 		Delay_ms(150); // 等待转向完成
-        Motor_Spin_Left(800); // 左转
+        Motor_Spin_Left(850); // 左转
         Buzzer_on(1);
         Delay_ms(200); // 等待转向完成
         corner_flag = 0; // 重置角落标志
