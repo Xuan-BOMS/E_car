@@ -44,7 +44,13 @@ void TIMER_classic_INST_IRQHandler(void)
 			{
 				//Motor_Stop_All();
 			}
-            
+            if (Key_IsPressed(KEY_1) &&
+        	Key_IsPressed(KEY_3)) {
+    		__RESET_AIRCR();
+
+        // 系统复位标志
+        // SystemReset();
+    }
 		}
 			break;
         default:  // 其他定时器中断
