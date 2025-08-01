@@ -57,7 +57,7 @@ void Task1(void)
     
     tracking_flag =1; // 设置为已开始跟踪
 
-    if(Tracking_Error>=80.0)//到达拐角
+    if(Tracking_Error>=66.0)//到达拐角
     {
         corner_flag = 1; // 检测到角落
         tracking_flag =0; // 停止跟踪
