@@ -7,6 +7,8 @@ volatile Task_t task;
 extern double Tracking_Error;
 extern int16_t Motor_Speed[2];
 // 初始化任务
+
+
 void Task_Init(void)
 {
     // 先进行其他硬件初始化
@@ -71,11 +73,10 @@ void Task1(void)
         task.corner_cnt++;
     }
     if(task.corner_flag == 1){
-		
-		Chassis_setSpeed(-Basic_Speed,Basic_Speed); 
+		Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
+        delay_ms(350);
+		Chassis_setSpeed(-15,15); 
         float last_yaw_angle = get_YAW_Angle();
-        Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
-        delay_ms(500);
 		delay_ms(5); // 等待转向完成
         while(1)
         {
@@ -84,11 +85,9 @@ void Task1(void)
             if (angle_diff > 180.0f) angle_diff -= 360.0f;
             if (angle_diff < -180.0f) angle_diff += 360.0f;
             // 判断是否达到90度
-            if (fabs(angle_diff) >= 80.0f) break;
+            if (fabs(angle_diff) >= 85.0f) break;
             delay_ms(1);
         }
-        Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
-        delay_ms(1000);
         task.corner_flag = 0; // 重置角落标志
         task.tracking_flag = 1; // 开始跟踪
     }
