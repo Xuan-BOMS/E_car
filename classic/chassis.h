@@ -9,7 +9,7 @@
 #include "Tracking.h"
 #include "Key.h"
 #include "task.h"
-#define Basic_Speed 15 // 基础速度
+#define Basic_Speed 20 // 基础速度
 typedef enum {
     MOVE_FORWARD = 0,  // 前进
     MOVE_BACKWARD,     // 后退

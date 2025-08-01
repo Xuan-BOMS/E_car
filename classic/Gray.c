@@ -64,16 +64,9 @@ bool Gray_DetectStartLine(void)
 {
     uint8_t black_count = 0;
     
-    // 统计检测到黑线的传感器数量
-    for (int i = 2; i < 5; i++) {
-        if (Gray_data[i] == 1) {  // 假设0表示检测到黑线
-            black_count++;
-        }
-    }
-    
-    // 如果超过12个传感器检测到黑线，认为是起始线
-    // 这个阈值可以根据实际情况调整
-    if (black_count >= 3) {
+    // 统计检测到黑线的传感器数
+
+    if (Gray_data[3] == 1 && Gray_data[4] == 1 && Gray_data[0] == 0) {
         return true;
     }
     
