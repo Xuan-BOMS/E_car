@@ -1,6 +1,6 @@
 #include "../ti_msp_dl_config.h"
 
-#define P_Error1 30.0
+#define P_Error1 20.0
 #define P_Error2 20.0
 #define P_Error3 15.0
 #define P_Error4 15.0

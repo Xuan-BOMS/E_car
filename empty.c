@@ -31,7 +31,7 @@ int main(void)
     #if 0
     motor_init(); // 初始化电机
     #endif
-    HWT101_Init(); // 初始化HWT101传感器
+//    HWT101_Init(); // 初始化HWT101传感器
     LED3_On();
 	LED1_On();
 	LED2_On();

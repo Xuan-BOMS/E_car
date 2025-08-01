@@ -42,11 +42,11 @@ void Task1(void)
         // 蜂鸣器提示任务完成
         Buzzer_on(2);
         
-        // 显示任务完成信息
-        OLED_Set_Printfmt(80, 0, 16, 0);
-        OLED_Printf("     ");
-        OLED_Set_Printfmt(80, 0, 16, 0);
-        OLED_Printf("Done!");
+//        // 显示任务完成信息
+//        OLED_Set_Printfmt(80, 0, 16, 0);
+//        OLED_Printf("     ");
+//        OLED_Set_Printfmt(80, 0, 16, 0);
+//        OLED_Printf("Done!");
         
         // 显示完成的圈数
         OLED_Set_Printfmt(0, 48, 16, 0);
@@ -57,15 +57,15 @@ void Task1(void)
     
     tracking_flag =1; // 设置为已开始跟踪
 
-    if(Tracking_Error>=85)//到达拐角
+    if(Tracking_Error>=80.0)//到达拐角
     {
         corner_flag = 1; // 检测到角落
         tracking_flag =0; // 停止跟踪
         corner_cnt++;
         
-        // 实时显示当前进度 (已完成的角数和圈数)
-        OLED_Set_Printfmt(0, 48, 16, 0);
-        OLED_Printf("Progress:%d/%d", corner_cnt/4, circle_count_target);
+//        // 实时显示当前进度 (已完成的角数和圈数)
+//        OLED_Set_Printfmt(0, 48, 16, 0);
+//        OLED_Printf("Progress:%d/%d", corner_cnt/4, circle_count_target);
     }
     if(corner_flag ==1){
 		
@@ -73,7 +73,7 @@ void Task1(void)
 		Delay_ms(150); // 等待转向完成
         Motor_Spin_Left(800); // 左转
         Buzzer_on(1);
-        Delay_ms(230); // 等待转向完成
+        Delay_ms(200); // 等待转向完成
         corner_flag = 0; // 重置角落标志
         tracking_flag = 1; // 开始跟踪
     }

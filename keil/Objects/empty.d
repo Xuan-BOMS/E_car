@@ -71,8 +71,7 @@
   ..\..\source\ti\driverlib\m0p\dl_systick.h ..\gimbal\gimbal.h \
   ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h \
   ..\vision\vision.h ..\vision\..\ti_msp_dl_config.h ..\classic\Motor.h \
-  ..\..\E_car\ti_msp_dl_config.h ..\HWT101\hwt101.h \
-  ..\HWT101\..\ti_msp_dl_config.h ..\State\Key.h \
+  ..\..\E_car\ti_msp_dl_config.h ..\HWT101\hwt101.h ..\State\Key.h \
   ..\State\..\ti_msp_dl_config.h ..\classic\Gray.h \
   ..\classic\..\ti_msp_dl_config.h ..\classic\Encoder.h \
   ..\classic\Tracking.h ..\State\LED.h ..\OLED\OLED.h ..\State\task.h \

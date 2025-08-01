@@ -13,7 +13,7 @@
 
 #define PID_KP 30.0f
 #define PID_KI 0.0f
-#define PID_KD 0.0f
+#define PID_KD 15.0f
 #define PID_MAX_I 1000.0f
 #define PID_MAX_OUTPUT 2000.0f
 
