@@ -1,4 +1,5 @@
 #ifndef __CHASSIS_H__
+#define __CHASSIS_H__
 #include "../ti_msp_dl_config.h"
 #include "time.h"
 #include "Timer.h"
@@ -8,6 +9,7 @@
 #include "Tracking.h"
 #include "Key.h"
 #include "task.h"
+#define Basic_Speed 15 // 基础速度
 typedef enum {
     MOVE_FORWARD = 0,  // 前进
     MOVE_BACKWARD,     // 后退
@@ -26,4 +28,5 @@ void Chassis_Init(void);
 void Chassis_update(void);
 void TIMER_classic_INST_IRQHandler(void);
 void Chassis_setSpeed(int8_t left_speed, int8_t right_speed);
+float get_YAW_Angle(void);
 #endif // !__CHASSIS_H__

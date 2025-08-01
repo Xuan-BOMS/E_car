@@ -72,11 +72,23 @@ void Task1(void)
     }
     if(task.corner_flag == 1){
 		
-		//Motor_MoveForward(1000);//直行
-		delay_ms(250); // 等待转向完成
-        //Motor_Spin_Left(800); // 左转
-        Buzzer_on(1);
-        delay_ms(300); // 等待转向完成
+		Chassis_setSpeed(-Basic_Speed,Basic_Speed); 
+        float last_yaw_angle = get_YAW_Angle();
+        Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
+        delay_ms(500);
+		delay_ms(5); // 等待转向完成
+        while(1)
+        {
+            float angle_diff = get_YAW_Angle() - last_yaw_angle;
+            // 处理跨界
+            if (angle_diff > 180.0f) angle_diff -= 360.0f;
+            if (angle_diff < -180.0f) angle_diff += 360.0f;
+            // 判断是否达到90度
+            if (fabs(angle_diff) >= 80.0f) break;
+            delay_ms(1);
+        }
+        Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
+        delay_ms(1000);
         task.corner_flag = 0; // 重置角落标志
         task.tracking_flag = 1; // 开始跟踪
     }
@@ -148,7 +160,7 @@ void Task_Choose(void)
         // 先清除显示区域
         OLED_Set_Printfmt(80, 0, 16, 0);
         OLED_Printf("    ");  // 清除4个字符位置
-        
+        Chassis_setSpeed(0, 0);
         // 重新显示状态
         OLED_Set_Printfmt(80, 0, 16, 0);
         OLED_Printf(task.task_running ? "run" : "stop");
@@ -188,28 +200,50 @@ void Task_Choose(void)
         task.circle_count = 1;
         task.speed_level = 1;
 
-        OLED_Set_Printfmt(80, 0, 16, 0);
-        OLED_Printf("     ");
-        OLED_Set_Printfmt(80, 0, 16, 0);
-        OLED_Printf("Stop");
-        // 显示当前任务
-        OLED_Set_Printfmt(0, 0, 16, 0);
-        OLED_Printf("Task:");
-        uint8_t temp_task_display = task.current_task;
-        OLED_ShowChar(40, 0, '0' + temp_task_display, 16, 0);
-        // 显示圈数
-        OLED_Set_Printfmt(0, 16 , 16, 0);
-        OLED_Printf("Circle:");
-        uint8_t temp_circle_stop = task.circle_count;
-        OLED_ShowChar(64, 16, '0' + temp_circle_stop, 16, 0);
-        // 显示速度档位
-        OLED_Set_Printfmt(0, 32, 16, 0);
-        OLED_Printf("Speed:");
-        uint8_t temp_speed_stop = task.speed_level;
-        OLED_ShowChar(48, 32, '0' + temp_speed_stop, 16, 0);
+        OLED_Init(); 
+    OLED_Set_Printfmt(0,0,16,0);
+    OLED_DrawBMP_logo(32, 0);
+    delay_ms(500);
+    
+    // 使用memset清零整个结构体
+    memset((void*)&task, 0, sizeof(Task_t));
+    
+    // 然后逐个赋值
+    task.current_task = 1;
+    task.circle_count = 1;
+    task.speed_level = 1;
+    task.task_running = 0;
+    task.completed_circles = 0;
+    task.corner_cnt = 0;
+    task.corner_flag = 0;
+    task.tracking_flag = 0;
+    task.forward_flag = 0;
+    
+    // 初始化速度配置表
+    task.speed_table[0] = 1500;
+    task.speed_table[1] = 2000;
+    task.speed_table[2] = 2500;
+    OLED_Init(); 
+    OLED_Set_Printfmt(0,0,16,0);
+    // 添加调试输出验证初始化
+    delay_ms(100);  // 确保初始化完成
         
-        // 蜂鸣器报警提示
-        Buzzer_Beep(2000); // 超长响表示紧急停止
+    // 显示初始化后的值
+    OLED_Set_Printfmt(80, 0, 16, 0);
+    OLED_Printf("stop");
+    OLED_Set_Printfmt(0, 0, 16, 0);
+    OLED_Printf("Task:");
+    // 使用临时变量避免直接访问task结构体
+    uint8_t temp_task = task.current_task;
+    OLED_ShowChar(40, 0, '0' + temp_task, 16, 0);
+    OLED_Set_Printfmt(0, 16 , 16, 0);
+    OLED_Printf("Circle:");
+    uint8_t temp_circle = task.circle_count;
+    OLED_ShowChar(64, 16, '0' + temp_circle, 16, 0);
+    OLED_Set_Printfmt(0, 32, 16, 0);
+    OLED_Printf("Speed:");
+    uint8_t temp_speed = task.speed_level;
+    OLED_ShowChar(48, 32, '0' + temp_speed, 16, 0);
 
         // 系统复位标志
         // SystemReset();

@@ -65,7 +65,7 @@ bool Gray_DetectStartLine(void)
     uint8_t black_count = 0;
     
     // 统计检测到黑线的传感器数量
-    for (int i = 0; i < 5; i++) {
+    for (int i = 2; i < 5; i++) {
         if (Gray_data[i] == 1) {  // 假设0表示检测到黑线
             black_count++;
         }

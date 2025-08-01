@@ -12,6 +12,7 @@
 #include "time.h"  
 #include "OLED.h"
 #include "Buzzer.h"
+#include "chassis.h"
 #include <string.h>
 
 typedef struct {

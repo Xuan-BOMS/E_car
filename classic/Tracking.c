@@ -25,8 +25,8 @@ void Tracking_Update(void)
     int8_t motor_Speed[2];
     Tracking_Error = Gray_CalError(); // 获取灰度传感器误差值
     // 根据PID输出调整左右电机速度
-    motor_Speed[0] = base_speed + (int8_t)pid_line_follow.output;
-    motor_Speed[1] = base_speed - (int8_t)pid_line_follow.output;
+    motor_Speed[0] = base_speed - (int8_t)pid_line_follow.output;
+    motor_Speed[1] = base_speed + (int8_t)pid_line_follow.output;
     // 限制速度范围
     motor_Speed[0] = Limit_Range(motor_Speed[0], MOTOR_MIN_SPEED, MOTOR_MAX_SPEED);
     motor_Speed[1] = Limit_Range(motor_Speed[1], MOTOR_MIN_SPEED, MOTOR_MAX_SPEED);

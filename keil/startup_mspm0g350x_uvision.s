@@ -127,7 +127,7 @@ __Vectors_Size  EQU     __Vectors_End - __Vectors
 
                 AREA    |.text|, CODE, READONLY
 
-
+  
 ; Reset Handler
 
 Reset_Handler   PROC
@@ -137,7 +137,7 @@ Reset_Handler   PROC
 				; SystemInit can be called here, but not necessary for MSPM0
                 ;LDR     R0, =SystemInit
                 ;BLX     R0
-                LDR     R0, =__main
+                 LDR     R0, =__main
                 BX      R0
                 ENDP
 

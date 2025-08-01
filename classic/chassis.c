@@ -56,3 +56,11 @@ void Chassis_setSpeed(int8_t left_speed, int8_t right_speed)
 	chassis.motor_speed->Motor_Left_Speed = left_speed;
 	chassis.motor_speed->Motor_Right_Speed = right_speed;
 }
+float get_YAW_Angle(void)
+{
+	if(chassis.hwt_data->type_mode == 1) // 数据有效
+	{
+		return chassis.hwt_data->YAW; // 返回偏航角度
+	}
+	return 0.0f; // 数据无效时返回0
+}

@@ -90,5 +90,5 @@
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\task.h \
   ..\system\Timer.h ..\system\..\ti_msp_dl_config.h ..\classic\motorDK.h \
-  ..\State\Buzzer.h D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h \
-  ..\classic\chassis.h
+  ..\State\Buzzer.h ..\classic\chassis.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h

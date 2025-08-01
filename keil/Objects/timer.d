@@ -86,4 +86,6 @@
   ..\OLED\OLED.h ..\OLED\..\ti_msp_dl_config.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h \
+  ..\classic\chassis.h ..\HWT101\hwt101.h \
+  ..\HWT101\..\ti_msp_dl_config.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h

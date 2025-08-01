@@ -259,6 +259,8 @@ Section Cross References
     chassis.o(.ARM.exidx.text.TIMG8_IRQHandler) refers to chassis.o(.text.TIMG8_IRQHandler) for [Anonymous Symbol]
     chassis.o(.text.Chassis_setSpeed) refers to chassis.o(.bss.chassis) for chassis
     chassis.o(.ARM.exidx.text.Chassis_setSpeed) refers to chassis.o(.text.Chassis_setSpeed) for [Anonymous Symbol]
+    chassis.o(.text.get_YAW_Angle) refers to chassis.o(.bss.chassis) for chassis
+    chassis.o(.ARM.exidx.text.get_YAW_Angle) refers to chassis.o(.text.get_YAW_Angle) for [Anonymous Symbol]
     oled.o(.text.OLED_Display_On) refers to oled.o(.text.OLED_IIC_WriteByte) for OLED_IIC_WriteByte
     oled.o(.ARM.exidx.text.OLED_Display_On) refers to oled.o(.text.OLED_Display_On) for [Anonymous Symbol]
     oled.o(.text.OLED_Display_Off) refers to oled.o(.text.OLED_IIC_WriteByte) for OLED_IIC_WriteByte
@@ -365,8 +367,14 @@ Section Cross References
     task.o(.text.Task_Init) refers to task.o(.rodata.str1.1) for [Anonymous Symbol]
     task.o(.ARM.exidx.text.Task_Init) refers to task.o(.text.Task_Init) for [Anonymous Symbol]
     task.o(.text.Task1) refers to gray.o(.text.Gray_DetectStartLine) for Gray_DetectStartLine
+    task.o(.text.Task1) refers to chassis.o(.text.Chassis_setSpeed) for Chassis_setSpeed
+    task.o(.text.Task1) refers to chassis.o(.text.get_YAW_Angle) for get_YAW_Angle
     task.o(.text.Task1) refers to time.o(.text.delay_ms) for delay_ms
-    task.o(.text.Task1) refers to buzzer.o(.text.Buzzer_on) for Buzzer_on
+    task.o(.text.Task1) refers to faddsub.o(x$fpl$fsub) for __aeabi_fsub
+    task.o(.text.Task1) refers to fcmp.o(i._fgr) for __aeabi_fcmpgt
+    task.o(.text.Task1) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
+    task.o(.text.Task1) refers to fcmp.o(i._fls) for __aeabi_fcmplt
+    task.o(.text.Task1) refers to fcmp.o(i._fgeq) for __aeabi_fcmpge
     task.o(.text.Task1) refers to tracking.o(.text.Tracking_Update) for Tracking_Update
     task.o(.text.Task1) refers to task.o(.bss.task) for task
     task.o(.ARM.exidx.text.Task1) refers to task.o(.text.Task1) for [Anonymous Symbol]
@@ -374,9 +382,13 @@ Section Cross References
     task.o(.text.Task_Choose) refers to oled.o(.text.OLED_Set_Printfmt) for OLED_Set_Printfmt
     task.o(.text.Task_Choose) refers to oled.o(.text.OLED_Printf) for OLED_Printf
     task.o(.text.Task_Choose) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    task.o(.text.Task_Choose) refers to chassis.o(.text.Chassis_setSpeed) for Chassis_setSpeed
     task.o(.text.Task_Choose) refers to key.o(.text.Key_IsHold) for Key_IsHold
     task.o(.text.Task_Choose) refers to buzzer.o(.text.Buzzer_Beep) for Buzzer_Beep
     task.o(.text.Task_Choose) refers to key.o(.text.Key_IsPressed) for Key_IsPressed
+    task.o(.text.Task_Choose) refers to oled.o(.text.OLED_Init) for OLED_Init
+    task.o(.text.Task_Choose) refers to oled.o(.text.OLED_DrawBMP_logo) for OLED_DrawBMP_logo
+    task.o(.text.Task_Choose) refers to time.o(.text.delay_ms) for delay_ms
     task.o(.text.Task_Choose) refers to task.o(.text.Task1) for Task1
     task.o(.text.Task_Choose) refers to task.o(.bss.task) for task
     task.o(.text.Task_Choose) refers to task.o(.rodata.str1.1) for [Anonymous Symbol]
@@ -956,6 +968,7 @@ Removing Unused input sections from the image.
     Removing chassis.o(.ARM.exidx.text.Chassis_update), (8 bytes).
     Removing chassis.o(.ARM.exidx.text.TIMG8_IRQHandler), (8 bytes).
     Removing chassis.o(.ARM.exidx.text.Chassis_setSpeed), (8 bytes).
+    Removing chassis.o(.ARM.exidx.text.get_YAW_Angle), (8 bytes).
     Removing oled.o(.text), (0 bytes).
     Removing oled.o(.text.OLED_Display_On), (372 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_Display_On), (8 bytes).
@@ -1190,7 +1203,7 @@ Removing Unused input sections from the image.
     Removing dl_uart.o(.text.DL_UART_Extend_restoreConfiguration), (132 bytes).
     Removing dl_uart.o(.ARM.exidx.text.DL_UART_Extend_restoreConfiguration), (8 bytes).
 
-342 unused section(s) (total 12474 bytes) removed from the image.
+343 unused section(s) (total 12482 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1560,308 +1573,320 @@ Image Symbol Table
     __arm_cp.1_1                             0x00002820   Number         4  gray.o(.text.Gray_CalError)
     __arm_cp.1_2                             0x00002824   Number         4  gray.o(.text.Gray_CalError)
     [Anonymous Symbol]                       0x00002828   Section        0  gray.o(.text.Gray_DetectStartLine)
-    [Anonymous Symbol]                       0x00002860   Section        0  gray.o(.text.Gray_Read)
-    __arm_cp.0_1                             0x00002890   Number         4  gray.o(.text.Gray_Read)
-    [Anonymous Symbol]                       0x00002894   Section        0  hwt101.o(.text.HWT101_Angle_Get)
-    __arm_cp.2_0                             0x00002924   Number         4  hwt101.o(.text.HWT101_Angle_Get)
-    __arm_cp.2_1                             0x00002928   Number         4  hwt101.o(.text.HWT101_Angle_Get)
-    __arm_cp.2_2                             0x0000292c   Number         4  hwt101.o(.text.HWT101_Angle_Get)
-    __arm_cp.2_4                             0x00002930   Number         4  hwt101.o(.text.HWT101_Angle_Get)
-    [Anonymous Symbol]                       0x00002934   Section        0  hwt101.o(.text.HWT101_Get_Data_Pointer)
-    [Anonymous Symbol]                       0x00002938   Section        0  hwt101.o(.text.HWT101_Init)
-    __arm_cp.0_0                             0x0000294c   Number         4  hwt101.o(.text.HWT101_Init)
-    __arm_cp.0_1                             0x00002950   Number         4  hwt101.o(.text.HWT101_Init)
-    __arm_cp.0_2                             0x00002954   Number         4  hwt101.o(.text.HWT101_Init)
-    [Anonymous Symbol]                       0x00002958   Section        0  key.o(.text.Key_Init)
-    [Anonymous Symbol]                       0x00002970   Section        0  key.o(.text.Key_IsClicked)
-    [Anonymous Symbol]                       0x00002990   Section        0  key.o(.text.Key_IsHold)
-    [Anonymous Symbol]                       0x000029b0   Section        0  key.o(.text.Key_IsPressed)
-    [Anonymous Symbol]                       0x000029c8   Section        0  key.o(.text.Key_Scan)
-    __arm_cp.1_0                             0x00002ab8   Number         4  key.o(.text.Key_Scan)
-    __arm_cp.1_1                             0x00002abc   Number         4  key.o(.text.Key_Scan)
-    __arm_cp.1_2                             0x00002ac0   Number         4  key.o(.text.Key_Scan)
-    __arm_cp.1_3                             0x00002ac4   Number         4  key.o(.text.Key_Scan)
-    [Anonymous Symbol]                       0x00002ac8   Section        0  led.o(.text.LED1_On)
-    [Anonymous Symbol]                       0x00002ad4   Section        0  led.o(.text.LED2_On)
-    [Anonymous Symbol]                       0x00002ae0   Section        0  led.o(.text.LED3_On)
-    __arm_cp.5_0                             0x00002aec   Number         4  led.o(.text.LED3_On)
-    [Anonymous Symbol]                       0x00002af0   Section        0  max_min.o(.text.Limit_Range)
-    [Anonymous Symbol]                       0x00002b0c   Section        0  motordk.o(.text.Motor_Get_Speed_Pointer)
-    __arm_cp.2_0                             0x00002b10   Number         4  motordk.o(.text.Motor_Get_Speed_Pointer)
-    [Anonymous Symbol]                       0x00002b14   Section        0  oled.o(.text.OLED_DrawBMP_logo)
-    __arm_cp.16_1                            0x00002bdc   Number         4  oled.o(.text.OLED_DrawBMP_logo)
-    OLED_IIC_WriteByte                       0x00002be1   Thumb Code   292  oled.o(.text.OLED_IIC_WriteByte)
-    [Anonymous Symbol]                       0x00002be0   Section        0  oled.o(.text.OLED_IIC_WriteByte)
-    __arm_cp.21_0                            0x00002d04   Number         4  oled.o(.text.OLED_IIC_WriteByte)
-    [Anonymous Symbol]                       0x00002d08   Section        0  oled.o(.text.OLED_Init)
-    __arm_cp.20_4                            0x00003990   Number         4  oled.o(.text.OLED_Init)
-    __arm_cp.20_5                            0x00003a70   Number         4  oled.o(.text.OLED_Init)
-    [Anonymous Symbol]                       0x000040b8   Section        0  oled.o(.text.OLED_Printf)
-    __arm_cp.10_0                            0x00004254   Number         4  oled.o(.text.OLED_Printf)
-    __arm_cp.10_1                            0x00004258   Number         4  oled.o(.text.OLED_Printf)
-    __arm_cp.10_2                            0x0000425c   Number         4  oled.o(.text.OLED_Printf)
-    __arm_cp.10_3                            0x00004260   Number         4  oled.o(.text.OLED_Printf)
-    [Anonymous Symbol]                       0x00004264   Section        0  oled.o(.text.OLED_Refresh_GRAM)
-    __arm_cp.2_0                             0x00004484   Number         4  oled.o(.text.OLED_Refresh_GRAM)
-    OLED_Set_Pos                             0x00004489   Thumb Code   376  oled.o(.text.OLED_Set_Pos)
-    [Anonymous Symbol]                       0x00004488   Section        0  oled.o(.text.OLED_Set_Pos)
-    __arm_cp.15_0                            0x00004600   Number         4  oled.o(.text.OLED_Set_Pos)
-    [Anonymous Symbol]                       0x00004604   Section        0  oled.o(.text.OLED_Set_Printfmt)
-    __arm_cp.9_1                             0x0000462c   Number         4  oled.o(.text.OLED_Set_Printfmt)
-    [Anonymous Symbol]                       0x00004630   Section        0  oled.o(.text.OLED_ShowChar)
-    __arm_cp.8_0                             0x000047c4   Number         4  oled.o(.text.OLED_ShowChar)
-    __arm_cp.8_1                             0x000047c8   Number         4  oled.o(.text.OLED_ShowChar)
-    __arm_cp.8_2                             0x000047cc   Number         4  oled.o(.text.OLED_ShowChar)
-    __arm_cp.8_3                             0x000047d0   Number         4  oled.o(.text.OLED_ShowChar)
-    __arm_cp.8_4                             0x000047d4   Number         4  oled.o(.text.OLED_ShowChar)
-    [Anonymous Symbol]                       0x000047d8   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_0                             0x00004898   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_1                             0x0000489c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_2                             0x000048a0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_3                             0x000048a4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_4                             0x000048a8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_5                             0x000048ac   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_6                             0x000048b0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_7                             0x000048b4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_8                             0x000048b8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_9                             0x000048bc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_10                            0x000048c0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    __arm_cp.2_11                            0x000048c4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    [Anonymous Symbol]                       0x000048c8   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    __arm_cp.4_0                             0x00004940   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    __arm_cp.4_1                             0x00004944   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    __arm_cp.4_2                             0x00004948   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    __arm_cp.4_3                             0x0000494c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    __arm_cp.4_5                             0x00004950   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    [Anonymous Symbol]                       0x00004954   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_0                             0x000049cc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_1                             0x000049d0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_2                             0x000049d4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_3                             0x000049d8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_4                             0x000049dc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    __arm_cp.5_5                             0x000049e0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    [Anonymous Symbol]                       0x000049e4   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    __arm_cp.3_0                             0x00004a24   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    __arm_cp.3_1                             0x00004a28   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    [Anonymous Symbol]                       0x00004a2c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    __arm_cp.11_0                            0x00004a50   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    __arm_cp.11_1                            0x00004a54   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    __arm_cp.11_2                            0x00004a58   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    [Anonymous Symbol]                       0x00004a5c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_0                             0x00004a8c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_1                             0x00004a90   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_2                             0x00004a94   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_3                             0x00004a98   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_4                             0x00004a9c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    __arm_cp.7_5                             0x00004aa0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    [Anonymous Symbol]                       0x00004aa4   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    __arm_cp.6_0                             0x00004ac8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    __arm_cp.6_1                             0x00004acc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    __arm_cp.6_2                             0x00004ad0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    __arm_cp.6_3                             0x00004ad4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    __arm_cp.6_4                             0x00004ad8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    [Anonymous Symbol]                       0x00004adc   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    __arm_cp.9_0                             0x00004b34   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    __arm_cp.9_1                             0x00004b38   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    __arm_cp.9_2                             0x00004b3c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    __arm_cp.9_3                             0x00004b40   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    __arm_cp.9_5                             0x00004b44   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    [Anonymous Symbol]                       0x00004b48   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    __arm_cp.8_0                             0x00004ba0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    __arm_cp.8_1                             0x00004ba4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    __arm_cp.8_2                             0x00004ba8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    __arm_cp.8_3                             0x00004bac   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    __arm_cp.8_5                             0x00004bb0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    [Anonymous Symbol]                       0x00004bb4   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_0                            0x00004c0c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_1                            0x00004c10   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_2                            0x00004c14   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_3                            0x00004c18   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_4                            0x00004c1c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    __arm_cp.10_5                            0x00004c20   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    [Anonymous Symbol]                       0x00004c24   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    __arm_cp.0_0                             0x00004c68   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    __arm_cp.0_1                             0x00004c6c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    __arm_cp.0_2                             0x00004c70   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    [Anonymous Symbol]                       0x00004c74   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_0                             0x00004cc4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_1                             0x00004cc8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_2                             0x00004ccc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_3                             0x00004cd0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_4                             0x00004cd4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_5                             0x00004cd8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_6                             0x00004cdc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_7                             0x00004ce0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_8                             0x00004ce4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_9                             0x00004ce8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    __arm_cp.1_10                            0x00004cec   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    [Anonymous Symbol]                       0x00004cf0   Section        0  time.o(.text.SysTick_Handler)
-    __arm_cp.1_0                             0x00004d00   Number         4  time.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x00004d04   Section        0  gimbal.o(.text.TIMA1_IRQHandler)
-    __arm_cp.3_0                             0x00004d64   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
-    __arm_cp.3_1                             0x00004d68   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
-    __arm_cp.3_2                             0x00004d6c   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
-    [Anonymous Symbol]                       0x00004d70   Section        0  timer.o(.text.TIMER_Init)
-    __arm_cp.0_0                             0x00004d7c   Number         4  timer.o(.text.TIMER_Init)
-    __arm_cp.0_1                             0x00004d80   Number         4  timer.o(.text.TIMER_Init)
-    [Anonymous Symbol]                       0x00004d84   Section        0  chassis.o(.text.TIMG8_IRQHandler)
-    __arm_cp.2_0                             0x00004db0   Number         4  chassis.o(.text.TIMG8_IRQHandler)
-    __arm_cp.2_1                             0x00004db4   Number         4  chassis.o(.text.TIMG8_IRQHandler)
-    [Anonymous Symbol]                       0x00004db8   Section        0  task.o(.text.Task1)
-    [Anonymous Symbol]                       0x00004e08   Section        0  task.o(.text.Task_Choose)
-    __arm_cp.2_0                             0x00005054   Number         4  task.o(.text.Task_Choose)
-    __arm_cp.2_1                             0x00005058   Number         4  task.o(.text.Task_Choose)
-    __arm_cp.2_2                             0x0000505c   Number         4  task.o(.text.Task_Choose)
-    __arm_cp.2_3                             0x00005060   Number         4  task.o(.text.Task_Choose)
-    __arm_cp.2_5                             0x0000506c   Number         4  task.o(.text.Task_Choose)
-    [Anonymous Symbol]                       0x00005084   Section        0  task.o(.text.Task_Init)
-    __arm_cp.0_0                             0x00005174   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_1                             0x00005178   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_2                             0x0000517c   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_3                             0x00005180   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_4                             0x00005184   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_5                             0x00005188   Number         4  task.o(.text.Task_Init)
-    __arm_cp.0_6                             0x0000518c   Number         4  task.o(.text.Task_Init)
-    [Anonymous Symbol]                       0x00005190   Section        0  tracking.o(.text.Tracking_PID_Init)
-    __arm_cp.0_0                             0x000051bc   Number         4  tracking.o(.text.Tracking_PID_Init)
-    __arm_cp.0_1                             0x000051c0   Number         4  tracking.o(.text.Tracking_PID_Init)
-    __arm_cp.0_3                             0x000051c4   Number         4  tracking.o(.text.Tracking_PID_Init)
-    [Anonymous Symbol]                       0x000051c8   Section        0  tracking.o(.text.Tracking_Update)
-    __arm_cp.1_0                             0x00005224   Number         4  tracking.o(.text.Tracking_Update)
-    __arm_cp.1_1                             0x00005228   Number         4  tracking.o(.text.Tracking_Update)
-    [Anonymous Symbol]                       0x0000522c   Section        0  vision.o(.text.UART0_IRQHandler)
-    __arm_cp.4_0                             0x00005248   Number         4  vision.o(.text.UART0_IRQHandler)
-    __arm_cp.4_1                             0x0000524c   Number         4  vision.o(.text.UART0_IRQHandler)
-    __arm_cp.4_2                             0x00005250   Number         4  vision.o(.text.UART0_IRQHandler)
-    [Anonymous Symbol]                       0x00005254   Section        0  empty.o(.text.UART1_IRQHandler)
-    __arm_cp.1_0                             0x00005268   Number         4  empty.o(.text.UART1_IRQHandler)
-    __arm_cp.1_1                             0x0000526c   Number         4  empty.o(.text.UART1_IRQHandler)
-    __arm_cp.1_2                             0x00005270   Number         4  empty.o(.text.UART1_IRQHandler)
-    [Anonymous Symbol]                       0x00005274   Section        0  hwt101.o(.text.UART3_IRQHandler)
-    __arm_cp.1_0                             0x00005290   Number         4  hwt101.o(.text.UART3_IRQHandler)
-    __arm_cp.1_1                             0x00005294   Number         4  hwt101.o(.text.UART3_IRQHandler)
-    __arm_cp.1_2                             0x00005298   Number         4  hwt101.o(.text.UART3_IRQHandler)
-    [Anonymous Symbol]                       0x0000529c   Section        0  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_0                             0x000054c8   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_1                             0x000054cc   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_2                             0x000054d0   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_3                             0x000054d4   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_4                             0x000054d8   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_5                             0x000054dc   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_6                             0x000054e0   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_7                             0x000054e4   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_8                             0x000054e8   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_9                             0x000054ec   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    __arm_cp.5_10                            0x000054f0   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    [Anonymous Symbol]                       0x000054f4   Section        0  zdt_drive.o(.text.ZDT_init)
-    __arm_cp.0_0                             0x000055a8   Number         4  zdt_drive.o(.text.ZDT_init)
-    [Anonymous Symbol]                       0x000055ac   Section        0  time.o(.text.delay_ms)
-    __arm_cp.0_0                             0x000055cc   Number         4  time.o(.text.delay_ms)
-    [Anonymous Symbol]                       0x000055d0   Section        0  encoder.o(.text.encoder_init)
-    [Anonymous Symbol]                       0x000055e0   Section        0  gimbal.o(.text.gimbal_init)
-    __arm_cp.0_1                             0x0000562c   Number         4  gimbal.o(.text.gimbal_init)
-    __arm_cp.0_2                             0x00005630   Number         4  gimbal.o(.text.gimbal_init)
-    [Anonymous Symbol]                       0x00005634   Section        0  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_0                             0x0000571c   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_1                             0x00005720   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_2                             0x00005724   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_3                             0x00005728   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_4                             0x0000572c   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_5                             0x00005730   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_6                             0x00005734   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_7                             0x00005738   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_8                             0x0000573c   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_9                             0x00005740   Number         4  gimbal.o(.text.gimbal_set_position)
-    __arm_cp.1_10                            0x00005744   Number         4  gimbal.o(.text.gimbal_set_position)
-    [Anonymous Symbol]                       0x00005748   Section        0  empty.o(.text.main)
-    __arm_cp.0_2                             0x0000579c   Number         4  empty.o(.text.main)
-    [Anonymous Symbol]                       0x000057a0   Section        0  motordk.o(.text.motor_init)
-    [Anonymous Symbol]                       0x000057ac   Section        0  motordk.o(.text.motor_setSpeed)
-    __arm_cp.1_0                             0x00005844   Number         4  motordk.o(.text.motor_setSpeed)
-    __arm_cp.1_1                             0x00005848   Number         4  motordk.o(.text.motor_setSpeed)
-    __arm_cp.1_2                             0x0000584c   Number         4  motordk.o(.text.motor_setSpeed)
-    [Anonymous Symbol]                       0x00005850   Section        0  pid.o(.text.pid_calc)
-    [Anonymous Symbol]                       0x00005958   Section        0  pid.o(.text.pid_init)
-    [Anonymous Symbol]                       0x0000598c   Section        0  vision.o(.text.vision_get_data)
-    [Anonymous Symbol]                       0x00005990   Section        0  vision.o(.text.vision_init)
-    __arm_cp.0_0                             0x000059a8   Number         4  vision.o(.text.vision_init)
-    __arm_cp.0_1                             0x000059ac   Number         4  vision.o(.text.vision_init)
-    [Anonymous Symbol]                       0x000059b0   Section        0  vision.o(.text.vision_receive_handler)
-    __arm_cp.5_0                             0x00005a54   Number         4  vision.o(.text.vision_receive_handler)
-    __arm_cp.5_1                             0x00005a58   Number         4  vision.o(.text.vision_receive_handler)
-    __arm_cp.5_2                             0x00005a5c   Number         4  vision.o(.text.vision_receive_handler)
-    __arm_cp.5_3                             0x00005a60   Number         4  vision.o(.text.vision_receive_handler)
-    i.__ARM_common_ll_muluu                  0x00005a64   Section        0  btod.o(i.__ARM_common_ll_muluu)
-    i.__ARM_fpclassify                       0x00005a94   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i._dgeq                                  0x00005ac0   Section        0  dcmp.o(i._dgeq)
-    i._dgr                                   0x00005ad6   Section        0  dcmp.o(i._dgr)
-    i._fls                                   0x00005aec   Section        0  fcmp.o(i._fls)
-    i._is_digit                              0x00005b02   Section        0  __printf_wp.o(i._is_digit)
-    locale$$code                             0x00005b10   Section       44  lc_numeric_c.o(locale$$code)
-    locale$$code                             0x00005b3c   Section       44  lc_ctype_c.o(locale$$code)
-    x$fpl$dgeqf                              0x00005b68   Section      100  dgef.o(x$fpl$dgeqf)
-    x$fpl$fadd                               0x00005bcc   Section      140  faddsub.o(x$fpl$fadd)
-    _fadd1                                   0x00005bd9   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    x$fpl$fleqf                              0x00005c58   Section       84  flef.o(x$fpl$fleqf)
-    x$fpl$fmul                               0x00005cac   Section      176  fmul.o(x$fpl$fmul)
-    x$fpl$fsub                               0x00005d5c   Section      208  faddsub.o(x$fpl$fsub)
-    _fsub1                                   0x00005d69   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    x$fpl$printf1                            0x00005e2c   Section       16  printf1.o(x$fpl$printf1)
-    x$fpl$printf2                            0x00005e3c   Section       16  printf2.o(x$fpl$printf2)
-    initial_mbstate                          0x00005e4c   Data           8  _printf_wctomb.o(.constdata)
-    .constdata                               0x00005e4c   Section        8  _printf_wctomb.o(.constdata)
-    x$fpl$usenofp                            0x00005e4c   Section        0  usenofp.o(x$fpl$usenofp)
-    uc_hextab                                0x00005e54   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    .constdata                               0x00005e54   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
-    lc_hextab                                0x00005e68   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    maptable                                 0x00005e7c   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .constdata                               0x00005e7c   Section       17  __printf_flags_ss_wp.o(.constdata)
-    lc_hextab                                0x00005e8d   Data          19  _printf_fp_hex.o(.constdata)
-    .constdata                               0x00005e8d   Section       38  _printf_fp_hex.o(.constdata)
-    uc_hextab                                0x00005ea0   Data          19  _printf_fp_hex.o(.constdata)
-    tenpwrs_x                                0x00005eb4   Data          60  bigflt0.o(.constdata)
-    .constdata                               0x00005eb4   Section      148  bigflt0.o(.constdata)
-    tenpwrs_i                                0x00005ef0   Data          64  bigflt0.o(.constdata)
-    gPWM_MotorLClockConfig                   0x00007708   Data           3  ti_msp_dl_config.o(.rodata.gPWM_MotorLClockConfig)
-    [Anonymous Symbol]                       0x00007708   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorLClockConfig)
-    gPWM_MotorLConfig                        0x0000770c   Data           8  ti_msp_dl_config.o(.rodata.gPWM_MotorLConfig)
-    [Anonymous Symbol]                       0x0000770c   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorLConfig)
-    gPWM_MotorRClockConfig                   0x00007714   Data           3  ti_msp_dl_config.o(.rodata.gPWM_MotorRClockConfig)
-    [Anonymous Symbol]                       0x00007714   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorRClockConfig)
-    gPWM_MotorRConfig                        0x00007718   Data           8  ti_msp_dl_config.o(.rodata.gPWM_MotorRConfig)
-    [Anonymous Symbol]                       0x00007718   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorRConfig)
-    gTIMER_classicClockConfig                0x00007720   Data           3  ti_msp_dl_config.o(.rodata.gTIMER_classicClockConfig)
-    [Anonymous Symbol]                       0x00007720   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_classicClockConfig)
-    gTIMER_classicTimerConfig                0x00007724   Data          20  ti_msp_dl_config.o(.rodata.gTIMER_classicTimerConfig)
-    [Anonymous Symbol]                       0x00007724   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_classicTimerConfig)
-    gTIMER_gimbalClockConfig                 0x00007738   Data           3  ti_msp_dl_config.o(.rodata.gTIMER_gimbalClockConfig)
-    [Anonymous Symbol]                       0x00007738   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_gimbalClockConfig)
-    gTIMER_gimbalTimerConfig                 0x0000773c   Data          20  ti_msp_dl_config.o(.rodata.gTIMER_gimbalTimerConfig)
-    [Anonymous Symbol]                       0x0000773c   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_gimbalTimerConfig)
-    gUART_0ClockConfig                       0x00007750   Data           2  ti_msp_dl_config.o(.rodata.gUART_0ClockConfig)
-    [Anonymous Symbol]                       0x00007750   Section        0  ti_msp_dl_config.o(.rodata.gUART_0ClockConfig)
-    gUART_0Config                            0x00007752   Data          10  ti_msp_dl_config.o(.rodata.gUART_0Config)
-    [Anonymous Symbol]                       0x00007752   Section        0  ti_msp_dl_config.o(.rodata.gUART_0Config)
-    gUART_1ClockConfig                       0x0000775c   Data           2  ti_msp_dl_config.o(.rodata.gUART_1ClockConfig)
-    [Anonymous Symbol]                       0x0000775c   Section        0  ti_msp_dl_config.o(.rodata.gUART_1ClockConfig)
-    gUART_1Config                            0x0000775e   Data          10  ti_msp_dl_config.o(.rodata.gUART_1Config)
-    [Anonymous Symbol]                       0x0000775e   Section        0  ti_msp_dl_config.o(.rodata.gUART_1Config)
-    gUART_2ClockConfig                       0x00007768   Data           2  ti_msp_dl_config.o(.rodata.gUART_2ClockConfig)
-    [Anonymous Symbol]                       0x00007768   Section        0  ti_msp_dl_config.o(.rodata.gUART_2ClockConfig)
-    gUART_2Config                            0x0000776a   Data          10  ti_msp_dl_config.o(.rodata.gUART_2Config)
-    [Anonymous Symbol]                       0x0000776a   Section        0  ti_msp_dl_config.o(.rodata.gUART_2Config)
-    [Anonymous Symbol]                       0x00007774   Section        0  task.o(.rodata.str1.1)
-    locale$$data                             0x000077b0   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x000077b4   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x000077bc   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x000077c8   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x000077ca   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x000077cb   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x000077cc   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x000077cc   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x000077d0   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x000077d8   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x000078dc   Data           0  lc_ctype_c.o(locale$$data)
+    [Anonymous Symbol]                       0x00002850   Section        0  gray.o(.text.Gray_Read)
+    __arm_cp.0_1                             0x00002880   Number         4  gray.o(.text.Gray_Read)
+    [Anonymous Symbol]                       0x00002884   Section        0  hwt101.o(.text.HWT101_Angle_Get)
+    __arm_cp.2_0                             0x00002914   Number         4  hwt101.o(.text.HWT101_Angle_Get)
+    __arm_cp.2_1                             0x00002918   Number         4  hwt101.o(.text.HWT101_Angle_Get)
+    __arm_cp.2_2                             0x0000291c   Number         4  hwt101.o(.text.HWT101_Angle_Get)
+    __arm_cp.2_4                             0x00002920   Number         4  hwt101.o(.text.HWT101_Angle_Get)
+    [Anonymous Symbol]                       0x00002924   Section        0  hwt101.o(.text.HWT101_Get_Data_Pointer)
+    [Anonymous Symbol]                       0x00002928   Section        0  hwt101.o(.text.HWT101_Init)
+    __arm_cp.0_0                             0x0000293c   Number         4  hwt101.o(.text.HWT101_Init)
+    __arm_cp.0_1                             0x00002940   Number         4  hwt101.o(.text.HWT101_Init)
+    __arm_cp.0_2                             0x00002944   Number         4  hwt101.o(.text.HWT101_Init)
+    [Anonymous Symbol]                       0x00002948   Section        0  key.o(.text.Key_Init)
+    [Anonymous Symbol]                       0x00002960   Section        0  key.o(.text.Key_IsClicked)
+    [Anonymous Symbol]                       0x00002980   Section        0  key.o(.text.Key_IsHold)
+    [Anonymous Symbol]                       0x000029a0   Section        0  key.o(.text.Key_IsPressed)
+    [Anonymous Symbol]                       0x000029b8   Section        0  key.o(.text.Key_Scan)
+    __arm_cp.1_0                             0x00002aa8   Number         4  key.o(.text.Key_Scan)
+    __arm_cp.1_1                             0x00002aac   Number         4  key.o(.text.Key_Scan)
+    __arm_cp.1_2                             0x00002ab0   Number         4  key.o(.text.Key_Scan)
+    __arm_cp.1_3                             0x00002ab4   Number         4  key.o(.text.Key_Scan)
+    [Anonymous Symbol]                       0x00002ab8   Section        0  led.o(.text.LED1_On)
+    [Anonymous Symbol]                       0x00002ac4   Section        0  led.o(.text.LED2_On)
+    [Anonymous Symbol]                       0x00002ad0   Section        0  led.o(.text.LED3_On)
+    __arm_cp.5_0                             0x00002adc   Number         4  led.o(.text.LED3_On)
+    [Anonymous Symbol]                       0x00002ae0   Section        0  max_min.o(.text.Limit_Range)
+    [Anonymous Symbol]                       0x00002afc   Section        0  motordk.o(.text.Motor_Get_Speed_Pointer)
+    __arm_cp.2_0                             0x00002b00   Number         4  motordk.o(.text.Motor_Get_Speed_Pointer)
+    [Anonymous Symbol]                       0x00002b04   Section        0  oled.o(.text.OLED_DrawBMP_logo)
+    __arm_cp.16_1                            0x00002bcc   Number         4  oled.o(.text.OLED_DrawBMP_logo)
+    OLED_IIC_WriteByte                       0x00002bd1   Thumb Code   292  oled.o(.text.OLED_IIC_WriteByte)
+    [Anonymous Symbol]                       0x00002bd0   Section        0  oled.o(.text.OLED_IIC_WriteByte)
+    __arm_cp.21_0                            0x00002cf4   Number         4  oled.o(.text.OLED_IIC_WriteByte)
+    [Anonymous Symbol]                       0x00002cf8   Section        0  oled.o(.text.OLED_Init)
+    __arm_cp.20_4                            0x00003980   Number         4  oled.o(.text.OLED_Init)
+    __arm_cp.20_5                            0x00003a60   Number         4  oled.o(.text.OLED_Init)
+    [Anonymous Symbol]                       0x000040a8   Section        0  oled.o(.text.OLED_Printf)
+    __arm_cp.10_0                            0x00004244   Number         4  oled.o(.text.OLED_Printf)
+    __arm_cp.10_1                            0x00004248   Number         4  oled.o(.text.OLED_Printf)
+    __arm_cp.10_2                            0x0000424c   Number         4  oled.o(.text.OLED_Printf)
+    __arm_cp.10_3                            0x00004250   Number         4  oled.o(.text.OLED_Printf)
+    [Anonymous Symbol]                       0x00004254   Section        0  oled.o(.text.OLED_Refresh_GRAM)
+    __arm_cp.2_0                             0x00004474   Number         4  oled.o(.text.OLED_Refresh_GRAM)
+    OLED_Set_Pos                             0x00004479   Thumb Code   376  oled.o(.text.OLED_Set_Pos)
+    [Anonymous Symbol]                       0x00004478   Section        0  oled.o(.text.OLED_Set_Pos)
+    __arm_cp.15_0                            0x000045f0   Number         4  oled.o(.text.OLED_Set_Pos)
+    [Anonymous Symbol]                       0x000045f4   Section        0  oled.o(.text.OLED_Set_Printfmt)
+    __arm_cp.9_1                             0x0000461c   Number         4  oled.o(.text.OLED_Set_Printfmt)
+    [Anonymous Symbol]                       0x00004620   Section        0  oled.o(.text.OLED_ShowChar)
+    __arm_cp.8_0                             0x000047b4   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.8_1                             0x000047b8   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.8_2                             0x000047bc   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.8_3                             0x000047c0   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.8_4                             0x000047c4   Number         4  oled.o(.text.OLED_ShowChar)
+    [Anonymous Symbol]                       0x000047c8   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_0                             0x00004888   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_1                             0x0000488c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_2                             0x00004890   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_3                             0x00004894   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_4                             0x00004898   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_5                             0x0000489c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_6                             0x000048a0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_7                             0x000048a4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_8                             0x000048a8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_9                             0x000048ac   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_10                            0x000048b0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    __arm_cp.2_11                            0x000048b4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    [Anonymous Symbol]                       0x000048b8   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    __arm_cp.4_0                             0x00004930   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    __arm_cp.4_1                             0x00004934   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    __arm_cp.4_2                             0x00004938   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    __arm_cp.4_3                             0x0000493c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    __arm_cp.4_5                             0x00004940   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    [Anonymous Symbol]                       0x00004944   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_0                             0x000049bc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_1                             0x000049c0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_2                             0x000049c4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_3                             0x000049c8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_4                             0x000049cc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    __arm_cp.5_5                             0x000049d0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    [Anonymous Symbol]                       0x000049d4   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    __arm_cp.3_0                             0x00004a14   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    __arm_cp.3_1                             0x00004a18   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    [Anonymous Symbol]                       0x00004a1c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    __arm_cp.11_0                            0x00004a40   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    __arm_cp.11_1                            0x00004a44   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    __arm_cp.11_2                            0x00004a48   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    [Anonymous Symbol]                       0x00004a4c   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_0                             0x00004a7c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_1                             0x00004a80   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_2                             0x00004a84   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_3                             0x00004a88   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_4                             0x00004a8c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    __arm_cp.7_5                             0x00004a90   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    [Anonymous Symbol]                       0x00004a94   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    __arm_cp.6_0                             0x00004ab8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    __arm_cp.6_1                             0x00004abc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    __arm_cp.6_2                             0x00004ac0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    __arm_cp.6_3                             0x00004ac4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    __arm_cp.6_4                             0x00004ac8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    [Anonymous Symbol]                       0x00004acc   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    __arm_cp.9_0                             0x00004b24   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    __arm_cp.9_1                             0x00004b28   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    __arm_cp.9_2                             0x00004b2c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    __arm_cp.9_3                             0x00004b30   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    __arm_cp.9_5                             0x00004b34   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    [Anonymous Symbol]                       0x00004b38   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    __arm_cp.8_0                             0x00004b90   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    __arm_cp.8_1                             0x00004b94   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    __arm_cp.8_2                             0x00004b98   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    __arm_cp.8_3                             0x00004b9c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    __arm_cp.8_5                             0x00004ba0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    [Anonymous Symbol]                       0x00004ba4   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_0                            0x00004bfc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_1                            0x00004c00   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_2                            0x00004c04   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_3                            0x00004c08   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_4                            0x00004c0c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    __arm_cp.10_5                            0x00004c10   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    [Anonymous Symbol]                       0x00004c14   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    __arm_cp.0_0                             0x00004c58   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    __arm_cp.0_1                             0x00004c5c   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    __arm_cp.0_2                             0x00004c60   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    [Anonymous Symbol]                       0x00004c64   Section        0  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_0                             0x00004cb4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_1                             0x00004cb8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_2                             0x00004cbc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_3                             0x00004cc0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_4                             0x00004cc4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_5                             0x00004cc8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_6                             0x00004ccc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_7                             0x00004cd0   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_8                             0x00004cd4   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_9                             0x00004cd8   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    __arm_cp.1_10                            0x00004cdc   Number         4  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    [Anonymous Symbol]                       0x00004ce0   Section        0  time.o(.text.SysTick_Handler)
+    __arm_cp.1_0                             0x00004cf0   Number         4  time.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00004cf4   Section        0  gimbal.o(.text.TIMA1_IRQHandler)
+    __arm_cp.3_0                             0x00004d54   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
+    __arm_cp.3_1                             0x00004d58   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
+    __arm_cp.3_2                             0x00004d5c   Number         4  gimbal.o(.text.TIMA1_IRQHandler)
+    [Anonymous Symbol]                       0x00004d60   Section        0  timer.o(.text.TIMER_Init)
+    __arm_cp.0_0                             0x00004d6c   Number         4  timer.o(.text.TIMER_Init)
+    __arm_cp.0_1                             0x00004d70   Number         4  timer.o(.text.TIMER_Init)
+    [Anonymous Symbol]                       0x00004d74   Section        0  chassis.o(.text.TIMG8_IRQHandler)
+    __arm_cp.2_0                             0x00004da0   Number         4  chassis.o(.text.TIMG8_IRQHandler)
+    __arm_cp.2_1                             0x00004da4   Number         4  chassis.o(.text.TIMG8_IRQHandler)
+    [Anonymous Symbol]                       0x00004da8   Section        0  task.o(.text.Task1)
+    __arm_cp.1_1                             0x00004ec8   Number         4  task.o(.text.Task1)
+    __arm_cp.1_2                             0x00004ecc   Number         4  task.o(.text.Task1)
+    __arm_cp.1_3                             0x00004ed0   Number         4  task.o(.text.Task1)
+    __arm_cp.1_4                             0x00004ed4   Number         4  task.o(.text.Task1)
+    __arm_cp.1_5                             0x00004ed8   Number         4  task.o(.text.Task1)
+    [Anonymous Symbol]                       0x00004edc   Section        0  task.o(.text.Task_Choose)
+    __arm_cp.2_0                             0x0000517c   Number         4  task.o(.text.Task_Choose)
+    __arm_cp.2_1                             0x00005180   Number         4  task.o(.text.Task_Choose)
+    __arm_cp.2_2                             0x00005184   Number         4  task.o(.text.Task_Choose)
+    __arm_cp.2_3                             0x00005188   Number         4  task.o(.text.Task_Choose)
+    __arm_cp.2_5                             0x00005194   Number         4  task.o(.text.Task_Choose)
+    [Anonymous Symbol]                       0x0000519c   Section        0  task.o(.text.Task_Init)
+    __arm_cp.0_0                             0x0000528c   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_1                             0x00005290   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_2                             0x00005294   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_3                             0x00005298   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_4                             0x0000529c   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_5                             0x000052a0   Number         4  task.o(.text.Task_Init)
+    __arm_cp.0_6                             0x000052a4   Number         4  task.o(.text.Task_Init)
+    [Anonymous Symbol]                       0x000052a8   Section        0  tracking.o(.text.Tracking_PID_Init)
+    __arm_cp.0_0                             0x000052d4   Number         4  tracking.o(.text.Tracking_PID_Init)
+    __arm_cp.0_1                             0x000052d8   Number         4  tracking.o(.text.Tracking_PID_Init)
+    __arm_cp.0_3                             0x000052dc   Number         4  tracking.o(.text.Tracking_PID_Init)
+    [Anonymous Symbol]                       0x000052e0   Section        0  tracking.o(.text.Tracking_Update)
+    __arm_cp.1_0                             0x0000533c   Number         4  tracking.o(.text.Tracking_Update)
+    __arm_cp.1_1                             0x00005340   Number         4  tracking.o(.text.Tracking_Update)
+    [Anonymous Symbol]                       0x00005344   Section        0  vision.o(.text.UART0_IRQHandler)
+    __arm_cp.4_0                             0x00005360   Number         4  vision.o(.text.UART0_IRQHandler)
+    __arm_cp.4_1                             0x00005364   Number         4  vision.o(.text.UART0_IRQHandler)
+    __arm_cp.4_2                             0x00005368   Number         4  vision.o(.text.UART0_IRQHandler)
+    [Anonymous Symbol]                       0x0000536c   Section        0  empty.o(.text.UART1_IRQHandler)
+    __arm_cp.1_0                             0x00005380   Number         4  empty.o(.text.UART1_IRQHandler)
+    __arm_cp.1_1                             0x00005384   Number         4  empty.o(.text.UART1_IRQHandler)
+    __arm_cp.1_2                             0x00005388   Number         4  empty.o(.text.UART1_IRQHandler)
+    [Anonymous Symbol]                       0x0000538c   Section        0  hwt101.o(.text.UART3_IRQHandler)
+    __arm_cp.1_0                             0x000053a8   Number         4  hwt101.o(.text.UART3_IRQHandler)
+    __arm_cp.1_1                             0x000053ac   Number         4  hwt101.o(.text.UART3_IRQHandler)
+    __arm_cp.1_2                             0x000053b0   Number         4  hwt101.o(.text.UART3_IRQHandler)
+    [Anonymous Symbol]                       0x000053b4   Section        0  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_0                             0x000055e0   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_1                             0x000055e4   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_2                             0x000055e8   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_3                             0x000055ec   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_4                             0x000055f0   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_5                             0x000055f4   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_6                             0x000055f8   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_7                             0x000055fc   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_8                             0x00005600   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_9                             0x00005604   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    __arm_cp.5_10                            0x00005608   Number         4  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    [Anonymous Symbol]                       0x0000560c   Section        0  zdt_drive.o(.text.ZDT_init)
+    __arm_cp.0_0                             0x000056c0   Number         4  zdt_drive.o(.text.ZDT_init)
+    [Anonymous Symbol]                       0x000056c4   Section        0  time.o(.text.delay_ms)
+    __arm_cp.0_0                             0x000056e4   Number         4  time.o(.text.delay_ms)
+    [Anonymous Symbol]                       0x000056e8   Section        0  encoder.o(.text.encoder_init)
+    [Anonymous Symbol]                       0x000056f8   Section        0  chassis.o(.text.get_YAW_Angle)
+    __arm_cp.4_0                             0x0000570c   Number         4  chassis.o(.text.get_YAW_Angle)
+    [Anonymous Symbol]                       0x00005710   Section        0  gimbal.o(.text.gimbal_init)
+    __arm_cp.0_1                             0x0000575c   Number         4  gimbal.o(.text.gimbal_init)
+    __arm_cp.0_2                             0x00005760   Number         4  gimbal.o(.text.gimbal_init)
+    [Anonymous Symbol]                       0x00005764   Section        0  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_0                             0x0000584c   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_1                             0x00005850   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_2                             0x00005854   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_3                             0x00005858   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_4                             0x0000585c   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_5                             0x00005860   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_6                             0x00005864   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_7                             0x00005868   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_8                             0x0000586c   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_9                             0x00005870   Number         4  gimbal.o(.text.gimbal_set_position)
+    __arm_cp.1_10                            0x00005874   Number         4  gimbal.o(.text.gimbal_set_position)
+    [Anonymous Symbol]                       0x00005878   Section        0  empty.o(.text.main)
+    __arm_cp.0_0                             0x000058cc   Number         4  empty.o(.text.main)
+    __arm_cp.0_1                             0x000058d0   Number         4  empty.o(.text.main)
+    __arm_cp.0_2                             0x000058d4   Number         4  empty.o(.text.main)
+    [Anonymous Symbol]                       0x000058d8   Section        0  motordk.o(.text.motor_init)
+    [Anonymous Symbol]                       0x000058e4   Section        0  motordk.o(.text.motor_setSpeed)
+    __arm_cp.1_0                             0x0000597c   Number         4  motordk.o(.text.motor_setSpeed)
+    __arm_cp.1_1                             0x00005980   Number         4  motordk.o(.text.motor_setSpeed)
+    __arm_cp.1_2                             0x00005984   Number         4  motordk.o(.text.motor_setSpeed)
+    [Anonymous Symbol]                       0x00005988   Section        0  pid.o(.text.pid_calc)
+    [Anonymous Symbol]                       0x00005a90   Section        0  pid.o(.text.pid_init)
+    [Anonymous Symbol]                       0x00005ac4   Section        0  vision.o(.text.vision_get_data)
+    [Anonymous Symbol]                       0x00005ac8   Section        0  vision.o(.text.vision_init)
+    __arm_cp.0_0                             0x00005ae0   Number         4  vision.o(.text.vision_init)
+    __arm_cp.0_1                             0x00005ae4   Number         4  vision.o(.text.vision_init)
+    [Anonymous Symbol]                       0x00005ae8   Section        0  vision.o(.text.vision_receive_handler)
+    __arm_cp.5_0                             0x00005b8c   Number         4  vision.o(.text.vision_receive_handler)
+    __arm_cp.5_1                             0x00005b90   Number         4  vision.o(.text.vision_receive_handler)
+    __arm_cp.5_2                             0x00005b94   Number         4  vision.o(.text.vision_receive_handler)
+    __arm_cp.5_3                             0x00005b98   Number         4  vision.o(.text.vision_receive_handler)
+    i.__ARM_common_ll_muluu                  0x00005b9c   Section        0  btod.o(i.__ARM_common_ll_muluu)
+    i.__ARM_fpclassify                       0x00005bcc   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i._dgeq                                  0x00005bf8   Section        0  dcmp.o(i._dgeq)
+    i._dgr                                   0x00005c0e   Section        0  dcmp.o(i._dgr)
+    i._fgeq                                  0x00005c24   Section        0  fcmp.o(i._fgeq)
+    i._fgr                                   0x00005c3a   Section        0  fcmp.o(i._fgr)
+    i._fls                                   0x00005c50   Section        0  fcmp.o(i._fls)
+    i._is_digit                              0x00005c66   Section        0  __printf_wp.o(i._is_digit)
+    locale$$code                             0x00005c74   Section       44  lc_numeric_c.o(locale$$code)
+    locale$$code                             0x00005ca0   Section       44  lc_ctype_c.o(locale$$code)
+    x$fpl$dgeqf                              0x00005ccc   Section      100  dgef.o(x$fpl$dgeqf)
+    x$fpl$fadd                               0x00005d30   Section      140  faddsub.o(x$fpl$fadd)
+    _fadd1                                   0x00005d3d   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    x$fpl$fgeqf                              0x00005dbc   Section       84  fgef.o(x$fpl$fgeqf)
+    x$fpl$fleqf                              0x00005e10   Section       84  flef.o(x$fpl$fleqf)
+    x$fpl$fmul                               0x00005e64   Section      176  fmul.o(x$fpl$fmul)
+    x$fpl$fsub                               0x00005f14   Section      208  faddsub.o(x$fpl$fsub)
+    _fsub1                                   0x00005f21   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    x$fpl$printf1                            0x00005fe4   Section       16  printf1.o(x$fpl$printf1)
+    x$fpl$printf2                            0x00005ff4   Section       16  printf2.o(x$fpl$printf2)
+    initial_mbstate                          0x00006004   Data           8  _printf_wctomb.o(.constdata)
+    .constdata                               0x00006004   Section        8  _printf_wctomb.o(.constdata)
+    x$fpl$usenofp                            0x00006004   Section        0  usenofp.o(x$fpl$usenofp)
+    uc_hextab                                0x0000600c   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    .constdata                               0x0000600c   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
+    lc_hextab                                0x00006020   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    maptable                                 0x00006034   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .constdata                               0x00006034   Section       17  __printf_flags_ss_wp.o(.constdata)
+    lc_hextab                                0x00006045   Data          19  _printf_fp_hex.o(.constdata)
+    .constdata                               0x00006045   Section       38  _printf_fp_hex.o(.constdata)
+    uc_hextab                                0x00006058   Data          19  _printf_fp_hex.o(.constdata)
+    tenpwrs_x                                0x0000606c   Data          60  bigflt0.o(.constdata)
+    .constdata                               0x0000606c   Section      148  bigflt0.o(.constdata)
+    tenpwrs_i                                0x000060a8   Data          64  bigflt0.o(.constdata)
+    gPWM_MotorLClockConfig                   0x000078c0   Data           3  ti_msp_dl_config.o(.rodata.gPWM_MotorLClockConfig)
+    [Anonymous Symbol]                       0x000078c0   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorLClockConfig)
+    gPWM_MotorLConfig                        0x000078c4   Data           8  ti_msp_dl_config.o(.rodata.gPWM_MotorLConfig)
+    [Anonymous Symbol]                       0x000078c4   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorLConfig)
+    gPWM_MotorRClockConfig                   0x000078cc   Data           3  ti_msp_dl_config.o(.rodata.gPWM_MotorRClockConfig)
+    [Anonymous Symbol]                       0x000078cc   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorRClockConfig)
+    gPWM_MotorRConfig                        0x000078d0   Data           8  ti_msp_dl_config.o(.rodata.gPWM_MotorRConfig)
+    [Anonymous Symbol]                       0x000078d0   Section        0  ti_msp_dl_config.o(.rodata.gPWM_MotorRConfig)
+    gTIMER_classicClockConfig                0x000078d8   Data           3  ti_msp_dl_config.o(.rodata.gTIMER_classicClockConfig)
+    [Anonymous Symbol]                       0x000078d8   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_classicClockConfig)
+    gTIMER_classicTimerConfig                0x000078dc   Data          20  ti_msp_dl_config.o(.rodata.gTIMER_classicTimerConfig)
+    [Anonymous Symbol]                       0x000078dc   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_classicTimerConfig)
+    gTIMER_gimbalClockConfig                 0x000078f0   Data           3  ti_msp_dl_config.o(.rodata.gTIMER_gimbalClockConfig)
+    [Anonymous Symbol]                       0x000078f0   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_gimbalClockConfig)
+    gTIMER_gimbalTimerConfig                 0x000078f4   Data          20  ti_msp_dl_config.o(.rodata.gTIMER_gimbalTimerConfig)
+    [Anonymous Symbol]                       0x000078f4   Section        0  ti_msp_dl_config.o(.rodata.gTIMER_gimbalTimerConfig)
+    gUART_0ClockConfig                       0x00007908   Data           2  ti_msp_dl_config.o(.rodata.gUART_0ClockConfig)
+    [Anonymous Symbol]                       0x00007908   Section        0  ti_msp_dl_config.o(.rodata.gUART_0ClockConfig)
+    gUART_0Config                            0x0000790a   Data          10  ti_msp_dl_config.o(.rodata.gUART_0Config)
+    [Anonymous Symbol]                       0x0000790a   Section        0  ti_msp_dl_config.o(.rodata.gUART_0Config)
+    gUART_1ClockConfig                       0x00007914   Data           2  ti_msp_dl_config.o(.rodata.gUART_1ClockConfig)
+    [Anonymous Symbol]                       0x00007914   Section        0  ti_msp_dl_config.o(.rodata.gUART_1ClockConfig)
+    gUART_1Config                            0x00007916   Data          10  ti_msp_dl_config.o(.rodata.gUART_1Config)
+    [Anonymous Symbol]                       0x00007916   Section        0  ti_msp_dl_config.o(.rodata.gUART_1Config)
+    gUART_2ClockConfig                       0x00007920   Data           2  ti_msp_dl_config.o(.rodata.gUART_2ClockConfig)
+    [Anonymous Symbol]                       0x00007920   Section        0  ti_msp_dl_config.o(.rodata.gUART_2ClockConfig)
+    gUART_2Config                            0x00007922   Data          10  ti_msp_dl_config.o(.rodata.gUART_2Config)
+    [Anonymous Symbol]                       0x00007922   Section        0  ti_msp_dl_config.o(.rodata.gUART_2Config)
+    [Anonymous Symbol]                       0x0000792c   Section        0  task.o(.rodata.str1.1)
+    locale$$data                             0x00007968   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x0000796c   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x00007974   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x00007980   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x00007982   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x00007983   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x00007984   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x00007984   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x00007988   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x00007990   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x00007a94   Data           0  lc_ctype_c.o(locale$$data)
     a_angle_absolute.11                      0x20200000   Data           1  zdt_drive.o(.data.a_angle_absolute.11)
     [Anonymous Symbol]                       0x20200000   Section        0  zdt_drive.o(.data.a_angle_absolute.11)
     a_angle_absolute.12                      0x20200001   Data           1  zdt_drive.o(.data.a_angle_absolute.12)
@@ -2156,94 +2181,100 @@ Image Symbol Table
     DL_UART_setClockConfig                   0x00002781   Thumb Code    18  dl_uart.o(.text.DL_UART_setClockConfig)
     GROUP1_IRQHandler                        0x00002795   Thumb Code    64  encoder.o(.text.GROUP1_IRQHandler)
     Gray_CalError                            0x000027dd   Thumb Code    68  gray.o(.text.Gray_CalError)
-    Gray_DetectStartLine                     0x00002829   Thumb Code    56  gray.o(.text.Gray_DetectStartLine)
-    Gray_Read                                0x00002861   Thumb Code    48  gray.o(.text.Gray_Read)
-    HWT101_Angle_Get                         0x00002895   Thumb Code   144  hwt101.o(.text.HWT101_Angle_Get)
-    HWT101_Get_Data_Pointer                  0x00002935   Thumb Code     4  hwt101.o(.text.HWT101_Get_Data_Pointer)
-    HWT101_Init                              0x00002939   Thumb Code    20  hwt101.o(.text.HWT101_Init)
-    Key_Init                                 0x00002959   Thumb Code    24  key.o(.text.Key_Init)
-    Key_IsClicked                            0x00002971   Thumb Code    32  key.o(.text.Key_IsClicked)
-    Key_IsHold                               0x00002991   Thumb Code    32  key.o(.text.Key_IsHold)
-    Key_IsPressed                            0x000029b1   Thumb Code    24  key.o(.text.Key_IsPressed)
-    Key_Scan                                 0x000029c9   Thumb Code   240  key.o(.text.Key_Scan)
-    LED1_On                                  0x00002ac9   Thumb Code    12  led.o(.text.LED1_On)
-    LED2_On                                  0x00002ad5   Thumb Code    12  led.o(.text.LED2_On)
-    LED3_On                                  0x00002ae1   Thumb Code    12  led.o(.text.LED3_On)
-    Limit_Range                              0x00002af1   Thumb Code    26  max_min.o(.text.Limit_Range)
-    Motor_Get_Speed_Pointer                  0x00002b0d   Thumb Code     4  motordk.o(.text.Motor_Get_Speed_Pointer)
-    OLED_DrawBMP_logo                        0x00002b15   Thumb Code   200  oled.o(.text.OLED_DrawBMP_logo)
-    OLED_Init                                0x00002d09   Thumb Code  5038  oled.o(.text.OLED_Init)
-    OLED_Printf                              0x000040b9   Thumb Code   412  oled.o(.text.OLED_Printf)
-    OLED_Refresh_GRAM                        0x00004265   Thumb Code   544  oled.o(.text.OLED_Refresh_GRAM)
-    OLED_Set_Printfmt                        0x00004605   Thumb Code    40  oled.o(.text.OLED_Set_Printfmt)
-    OLED_ShowChar                            0x00004631   Thumb Code   404  oled.o(.text.OLED_ShowChar)
-    SYSCFG_DL_GPIO_init                      0x000047d9   Thumb Code   192  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
-    SYSCFG_DL_PWM_MotorL_init                0x000048c9   Thumb Code   120  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
-    SYSCFG_DL_PWM_MotorR_init                0x00004955   Thumb Code   120  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
-    SYSCFG_DL_SYSCTL_init                    0x000049e5   Thumb Code    64  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
-    SYSCFG_DL_SYSTICK_init                   0x00004a2d   Thumb Code    36  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
-    SYSCFG_DL_TIMER_classic_init             0x00004a5d   Thumb Code    48  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
-    SYSCFG_DL_TIMER_gimbal_init              0x00004aa5   Thumb Code    36  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
-    SYSCFG_DL_UART_0_init                    0x00004add   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
-    SYSCFG_DL_UART_1_init                    0x00004b49   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
-    SYSCFG_DL_UART_2_init                    0x00004bb5   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
-    SYSCFG_DL_init                           0x00004c25   Thumb Code    68  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
-    SYSCFG_DL_initPower                      0x00004c75   Thumb Code    80  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
-    SysTick_Handler                          0x00004cf1   Thumb Code    16  time.o(.text.SysTick_Handler)
-    TIMA1_IRQHandler                         0x00004d05   Thumb Code    96  gimbal.o(.text.TIMA1_IRQHandler)
-    TIMER_Init                               0x00004d71   Thumb Code    12  timer.o(.text.TIMER_Init)
-    TIMG8_IRQHandler                         0x00004d85   Thumb Code    44  chassis.o(.text.TIMG8_IRQHandler)
-    Task1                                    0x00004db9   Thumb Code    80  task.o(.text.Task1)
-    Task_Choose                              0x00004e09   Thumb Code   588  task.o(.text.Task_Choose)
-    Task_Init                                0x00005085   Thumb Code   240  task.o(.text.Task_Init)
-    Tracking_PID_Init                        0x00005191   Thumb Code    44  tracking.o(.text.Tracking_PID_Init)
-    Tracking_Update                          0x000051c9   Thumb Code    92  tracking.o(.text.Tracking_Update)
-    UART0_IRQHandler                         0x0000522d   Thumb Code    28  vision.o(.text.UART0_IRQHandler)
-    UART1_IRQHandler                         0x00005255   Thumb Code    20  empty.o(.text.UART1_IRQHandler)
-    UART3_IRQHandler                         0x00005275   Thumb Code    28  hwt101.o(.text.UART3_IRQHandler)
-    ZDT_a_angle_absolute                     0x0000529d   Thumb Code   556  zdt_drive.o(.text.ZDT_a_angle_absolute)
-    ZDT_init                                 0x000054f5   Thumb Code   180  zdt_drive.o(.text.ZDT_init)
-    delay_ms                                 0x000055ad   Thumb Code    32  time.o(.text.delay_ms)
-    encoder_init                             0x000055d1   Thumb Code    16  encoder.o(.text.encoder_init)
-    gimbal_init                              0x000055e1   Thumb Code    76  gimbal.o(.text.gimbal_init)
-    gimbal_set_position                      0x00005635   Thumb Code   232  gimbal.o(.text.gimbal_set_position)
-    main                                     0x00005749   Thumb Code    84  empty.o(.text.main)
-    motor_init                               0x000057a1   Thumb Code    12  motordk.o(.text.motor_init)
-    motor_setSpeed                           0x000057ad   Thumb Code   152  motordk.o(.text.motor_setSpeed)
-    pid_calc                                 0x00005851   Thumb Code   264  pid.o(.text.pid_calc)
-    pid_init                                 0x00005959   Thumb Code    52  pid.o(.text.pid_init)
-    vision_get_data                          0x0000598d   Thumb Code     4  vision.o(.text.vision_get_data)
-    vision_init                              0x00005991   Thumb Code    24  vision.o(.text.vision_init)
-    vision_receive_handler                   0x000059b1   Thumb Code   164  vision.o(.text.vision_receive_handler)
-    __ARM_common_ll_muluu                    0x00005a65   Thumb Code    48  btod.o(i.__ARM_common_ll_muluu)
-    __ARM_fpclassify                         0x00005a95   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
-    __aeabi_dcmpge                           0x00005ac1   Thumb Code     0  dcmp.o(i._dgeq)
-    _dgeq                                    0x00005ac1   Thumb Code    22  dcmp.o(i._dgeq)
-    __aeabi_dcmpgt                           0x00005ad7   Thumb Code     0  dcmp.o(i._dgr)
-    _dgr                                     0x00005ad7   Thumb Code    22  dcmp.o(i._dgr)
-    __aeabi_fcmplt                           0x00005aed   Thumb Code     0  fcmp.o(i._fls)
-    _fls                                     0x00005aed   Thumb Code    22  fcmp.o(i._fls)
-    _is_digit                                0x00005b03   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _get_lc_numeric                          0x00005b11   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _get_lc_ctype                            0x00005b3d   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    _dcmpge                                  0x00005b69   Thumb Code    94  dgef.o(x$fpl$dgeqf)
-    __aeabi_fadd                             0x00005bcd   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    _fadd                                    0x00005bcd   Thumb Code   134  faddsub.o(x$fpl$fadd)
-    __aeabi_cfcmple                          0x00005c59   Thumb Code     0  flef.o(x$fpl$fleqf)
-    _fcmple                                  0x00005c59   Thumb Code    78  flef.o(x$fpl$fleqf)
-    __aeabi_fmul                             0x00005cad   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x00005cad   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __aeabi_fsub                             0x00005d5d   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    _fsub                                    0x00005d5d   Thumb Code   204  faddsub.o(x$fpl$fsub)
-    _printf_fp_dec                           0x00005e2d   Thumb Code    16  printf1.o(x$fpl$printf1)
-    _printf_fp_hex                           0x00005e3d   Thumb Code    16  printf2.o(x$fpl$printf2)
-    __I$use$fp                               0x00005e4c   Number         0  usenofp.o(x$fpl$usenofp)
-    ASCII_1206                               0x00005f48   Data        1140  oled.o(.rodata.ASCII_1206)
-    ASCII_1608                               0x000063bc   Data        1520  oled.o(.rodata.ASCII_1608)
-    ASCII_2412                               0x000069ac   Data        3420  oled.o(.rodata.ASCII_2412)
-    Region$$Table$$Base                      0x00007790   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000077b0   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x000077d9   Data           0  lc_ctype_c.o(locale$$data)
+    Gray_DetectStartLine                     0x00002829   Thumb Code    40  gray.o(.text.Gray_DetectStartLine)
+    Gray_Read                                0x00002851   Thumb Code    48  gray.o(.text.Gray_Read)
+    HWT101_Angle_Get                         0x00002885   Thumb Code   144  hwt101.o(.text.HWT101_Angle_Get)
+    HWT101_Get_Data_Pointer                  0x00002925   Thumb Code     4  hwt101.o(.text.HWT101_Get_Data_Pointer)
+    HWT101_Init                              0x00002929   Thumb Code    20  hwt101.o(.text.HWT101_Init)
+    Key_Init                                 0x00002949   Thumb Code    24  key.o(.text.Key_Init)
+    Key_IsClicked                            0x00002961   Thumb Code    32  key.o(.text.Key_IsClicked)
+    Key_IsHold                               0x00002981   Thumb Code    32  key.o(.text.Key_IsHold)
+    Key_IsPressed                            0x000029a1   Thumb Code    24  key.o(.text.Key_IsPressed)
+    Key_Scan                                 0x000029b9   Thumb Code   240  key.o(.text.Key_Scan)
+    LED1_On                                  0x00002ab9   Thumb Code    12  led.o(.text.LED1_On)
+    LED2_On                                  0x00002ac5   Thumb Code    12  led.o(.text.LED2_On)
+    LED3_On                                  0x00002ad1   Thumb Code    12  led.o(.text.LED3_On)
+    Limit_Range                              0x00002ae1   Thumb Code    26  max_min.o(.text.Limit_Range)
+    Motor_Get_Speed_Pointer                  0x00002afd   Thumb Code     4  motordk.o(.text.Motor_Get_Speed_Pointer)
+    OLED_DrawBMP_logo                        0x00002b05   Thumb Code   200  oled.o(.text.OLED_DrawBMP_logo)
+    OLED_Init                                0x00002cf9   Thumb Code  5038  oled.o(.text.OLED_Init)
+    OLED_Printf                              0x000040a9   Thumb Code   412  oled.o(.text.OLED_Printf)
+    OLED_Refresh_GRAM                        0x00004255   Thumb Code   544  oled.o(.text.OLED_Refresh_GRAM)
+    OLED_Set_Printfmt                        0x000045f5   Thumb Code    40  oled.o(.text.OLED_Set_Printfmt)
+    OLED_ShowChar                            0x00004621   Thumb Code   404  oled.o(.text.OLED_ShowChar)
+    SYSCFG_DL_GPIO_init                      0x000047c9   Thumb Code   192  ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init)
+    SYSCFG_DL_PWM_MotorL_init                0x000048b9   Thumb Code   120  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorL_init)
+    SYSCFG_DL_PWM_MotorR_init                0x00004945   Thumb Code   120  ti_msp_dl_config.o(.text.SYSCFG_DL_PWM_MotorR_init)
+    SYSCFG_DL_SYSCTL_init                    0x000049d5   Thumb Code    64  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init)
+    SYSCFG_DL_SYSTICK_init                   0x00004a1d   Thumb Code    36  ti_msp_dl_config.o(.text.SYSCFG_DL_SYSTICK_init)
+    SYSCFG_DL_TIMER_classic_init             0x00004a4d   Thumb Code    48  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_classic_init)
+    SYSCFG_DL_TIMER_gimbal_init              0x00004a95   Thumb Code    36  ti_msp_dl_config.o(.text.SYSCFG_DL_TIMER_gimbal_init)
+    SYSCFG_DL_UART_0_init                    0x00004acd   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_0_init)
+    SYSCFG_DL_UART_1_init                    0x00004b39   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_1_init)
+    SYSCFG_DL_UART_2_init                    0x00004ba5   Thumb Code    88  ti_msp_dl_config.o(.text.SYSCFG_DL_UART_2_init)
+    SYSCFG_DL_init                           0x00004c15   Thumb Code    68  ti_msp_dl_config.o(.text.SYSCFG_DL_init)
+    SYSCFG_DL_initPower                      0x00004c65   Thumb Code    80  ti_msp_dl_config.o(.text.SYSCFG_DL_initPower)
+    SysTick_Handler                          0x00004ce1   Thumb Code    16  time.o(.text.SysTick_Handler)
+    TIMA1_IRQHandler                         0x00004cf5   Thumb Code    96  gimbal.o(.text.TIMA1_IRQHandler)
+    TIMER_Init                               0x00004d61   Thumb Code    12  timer.o(.text.TIMER_Init)
+    TIMG8_IRQHandler                         0x00004d75   Thumb Code    44  chassis.o(.text.TIMG8_IRQHandler)
+    Task1                                    0x00004da9   Thumb Code   288  task.o(.text.Task1)
+    Task_Choose                              0x00004edd   Thumb Code   672  task.o(.text.Task_Choose)
+    Task_Init                                0x0000519d   Thumb Code   240  task.o(.text.Task_Init)
+    Tracking_PID_Init                        0x000052a9   Thumb Code    44  tracking.o(.text.Tracking_PID_Init)
+    Tracking_Update                          0x000052e1   Thumb Code    92  tracking.o(.text.Tracking_Update)
+    UART0_IRQHandler                         0x00005345   Thumb Code    28  vision.o(.text.UART0_IRQHandler)
+    UART1_IRQHandler                         0x0000536d   Thumb Code    20  empty.o(.text.UART1_IRQHandler)
+    UART3_IRQHandler                         0x0000538d   Thumb Code    28  hwt101.o(.text.UART3_IRQHandler)
+    ZDT_a_angle_absolute                     0x000053b5   Thumb Code   556  zdt_drive.o(.text.ZDT_a_angle_absolute)
+    ZDT_init                                 0x0000560d   Thumb Code   180  zdt_drive.o(.text.ZDT_init)
+    delay_ms                                 0x000056c5   Thumb Code    32  time.o(.text.delay_ms)
+    encoder_init                             0x000056e9   Thumb Code    16  encoder.o(.text.encoder_init)
+    get_YAW_Angle                            0x000056f9   Thumb Code    20  chassis.o(.text.get_YAW_Angle)
+    gimbal_init                              0x00005711   Thumb Code    76  gimbal.o(.text.gimbal_init)
+    gimbal_set_position                      0x00005765   Thumb Code   232  gimbal.o(.text.gimbal_set_position)
+    main                                     0x00005879   Thumb Code    84  empty.o(.text.main)
+    motor_init                               0x000058d9   Thumb Code    12  motordk.o(.text.motor_init)
+    motor_setSpeed                           0x000058e5   Thumb Code   152  motordk.o(.text.motor_setSpeed)
+    pid_calc                                 0x00005989   Thumb Code   264  pid.o(.text.pid_calc)
+    pid_init                                 0x00005a91   Thumb Code    52  pid.o(.text.pid_init)
+    vision_get_data                          0x00005ac5   Thumb Code     4  vision.o(.text.vision_get_data)
+    vision_init                              0x00005ac9   Thumb Code    24  vision.o(.text.vision_init)
+    vision_receive_handler                   0x00005ae9   Thumb Code   164  vision.o(.text.vision_receive_handler)
+    __ARM_common_ll_muluu                    0x00005b9d   Thumb Code    48  btod.o(i.__ARM_common_ll_muluu)
+    __ARM_fpclassify                         0x00005bcd   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
+    __aeabi_dcmpge                           0x00005bf9   Thumb Code     0  dcmp.o(i._dgeq)
+    _dgeq                                    0x00005bf9   Thumb Code    22  dcmp.o(i._dgeq)
+    __aeabi_dcmpgt                           0x00005c0f   Thumb Code     0  dcmp.o(i._dgr)
+    _dgr                                     0x00005c0f   Thumb Code    22  dcmp.o(i._dgr)
+    __aeabi_fcmpge                           0x00005c25   Thumb Code     0  fcmp.o(i._fgeq)
+    _fgeq                                    0x00005c25   Thumb Code    22  fcmp.o(i._fgeq)
+    __aeabi_fcmpgt                           0x00005c3b   Thumb Code     0  fcmp.o(i._fgr)
+    _fgr                                     0x00005c3b   Thumb Code    22  fcmp.o(i._fgr)
+    __aeabi_fcmplt                           0x00005c51   Thumb Code     0  fcmp.o(i._fls)
+    _fls                                     0x00005c51   Thumb Code    22  fcmp.o(i._fls)
+    _is_digit                                0x00005c67   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _get_lc_numeric                          0x00005c75   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _get_lc_ctype                            0x00005ca1   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    _dcmpge                                  0x00005ccd   Thumb Code    94  dgef.o(x$fpl$dgeqf)
+    __aeabi_fadd                             0x00005d31   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    _fadd                                    0x00005d31   Thumb Code   134  faddsub.o(x$fpl$fadd)
+    _fcmpge                                  0x00005dbd   Thumb Code    78  fgef.o(x$fpl$fgeqf)
+    __aeabi_cfcmple                          0x00005e11   Thumb Code     0  flef.o(x$fpl$fleqf)
+    _fcmple                                  0x00005e11   Thumb Code    78  flef.o(x$fpl$fleqf)
+    __aeabi_fmul                             0x00005e65   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x00005e65   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __aeabi_fsub                             0x00005f15   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    _fsub                                    0x00005f15   Thumb Code   204  faddsub.o(x$fpl$fsub)
+    _printf_fp_dec                           0x00005fe5   Thumb Code    16  printf1.o(x$fpl$printf1)
+    _printf_fp_hex                           0x00005ff5   Thumb Code    16  printf2.o(x$fpl$printf2)
+    __I$use$fp                               0x00006004   Number         0  usenofp.o(x$fpl$usenofp)
+    ASCII_1206                               0x00006100   Data        1140  oled.o(.rodata.ASCII_1206)
+    ASCII_1608                               0x00006574   Data        1520  oled.o(.rodata.ASCII_1608)
+    ASCII_2412                               0x00006b64   Data        3420  oled.o(.rodata.ASCII_2412)
+    Region$$Table$$Base                      0x00007948   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00007968   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x00007991   Data           0  lc_ctype_c.o(locale$$data)
     bmp_logo                                 0x20200008   Data         512  oled.o(.data.bmp_logo)
     __libspace_start                         0x20200208   Data          96  libspace.o(.bss)
     Gray_data                                0x20200268   Data           5  gray.o(.bss.Gray_data)
@@ -2276,278 +2307,282 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00007ae8, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000079d0])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00007ca0, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00007b88])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000078dc, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00007a94, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x000000c0   Data   RO           16    RESET               startup_mspm0g350x_uvision.o
-    0x000000c0   0x000000c0   0x00000008   Code   RO          655  * !!!main             c_p.l(__main.o)
-    0x000000c8   0x000000c8   0x00000054   Code   RO         1060    !!!scatter          c_p.l(__scatter.o)
+    0x000000c0   0x000000c0   0x00000008   Code   RO          657  * !!!main             c_p.l(__main.o)
+    0x000000c8   0x000000c8   0x00000054   Code   RO         1062    !!!scatter          c_p.l(__scatter.o)
     0x0000011c   0x0000011c   0x00000004   PAD
-    0x00000120   0x00000120   0x00000002   Code   RO         1061    !!handler_null      c_p.l(__scatter.o)
+    0x00000120   0x00000120   0x00000002   Code   RO         1063    !!handler_null      c_p.l(__scatter.o)
     0x00000122   0x00000122   0x00000006   PAD
-    0x00000128   0x00000128   0x0000001c   Code   RO         1064    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x00000144   0x00000144   0x00000002   Code   RO          789    .ARM.Collect$$_printf_percent$$00000000  c_p.l(_printf_percent.o)
-    0x00000146   0x00000146   0x0000000a   Code   RO          778    .ARM.Collect$$_printf_percent$$00000001  c_p.l(_printf_n.o)
-    0x00000150   0x00000150   0x0000000a   Code   RO          780    .ARM.Collect$$_printf_percent$$00000002  c_p.l(_printf_p.o)
-    0x0000015a   0x0000015a   0x0000000a   Code   RO          785    .ARM.Collect$$_printf_percent$$00000003  c_p.l(_printf_f.o)
-    0x00000164   0x00000164   0x0000000a   Code   RO          786    .ARM.Collect$$_printf_percent$$00000004  c_p.l(_printf_e.o)
-    0x0000016e   0x0000016e   0x0000000a   Code   RO          787    .ARM.Collect$$_printf_percent$$00000005  c_p.l(_printf_g.o)
-    0x00000178   0x00000178   0x0000000a   Code   RO          788    .ARM.Collect$$_printf_percent$$00000006  c_p.l(_printf_a.o)
-    0x00000182   0x00000182   0x0000000a   Code   RO          793    .ARM.Collect$$_printf_percent$$00000007  c_p.l(_printf_ll.o)
-    0x0000018c   0x0000018c   0x0000000a   Code   RO          782    .ARM.Collect$$_printf_percent$$00000008  c_p.l(_printf_i.o)
-    0x00000196   0x00000196   0x0000000a   Code   RO          783    .ARM.Collect$$_printf_percent$$00000009  c_p.l(_printf_d.o)
-    0x000001a0   0x000001a0   0x0000000a   Code   RO          784    .ARM.Collect$$_printf_percent$$0000000A  c_p.l(_printf_u.o)
-    0x000001aa   0x000001aa   0x0000000a   Code   RO          781    .ARM.Collect$$_printf_percent$$0000000B  c_p.l(_printf_o.o)
-    0x000001b4   0x000001b4   0x0000000a   Code   RO          779    .ARM.Collect$$_printf_percent$$0000000C  c_p.l(_printf_x.o)
-    0x000001be   0x000001be   0x0000000a   Code   RO          790    .ARM.Collect$$_printf_percent$$0000000D  c_p.l(_printf_lli.o)
-    0x000001c8   0x000001c8   0x0000000a   Code   RO          791    .ARM.Collect$$_printf_percent$$0000000E  c_p.l(_printf_lld.o)
-    0x000001d2   0x000001d2   0x0000000a   Code   RO          792    .ARM.Collect$$_printf_percent$$0000000F  c_p.l(_printf_llu.o)
-    0x000001dc   0x000001dc   0x0000000a   Code   RO          797    .ARM.Collect$$_printf_percent$$00000010  c_p.l(_printf_llo.o)
-    0x000001e6   0x000001e6   0x0000000a   Code   RO          798    .ARM.Collect$$_printf_percent$$00000011  c_p.l(_printf_llx.o)
-    0x000001f0   0x000001f0   0x0000000a   Code   RO          794    .ARM.Collect$$_printf_percent$$00000012  c_p.l(_printf_l.o)
-    0x000001fa   0x000001fa   0x0000000a   Code   RO          776    .ARM.Collect$$_printf_percent$$00000013  c_p.l(_printf_c.o)
-    0x00000204   0x00000204   0x0000000a   Code   RO          777    .ARM.Collect$$_printf_percent$$00000014  c_p.l(_printf_s.o)
-    0x0000020e   0x0000020e   0x0000000a   Code   RO          795    .ARM.Collect$$_printf_percent$$00000015  c_p.l(_printf_lc.o)
-    0x00000218   0x00000218   0x0000000a   Code   RO          796    .ARM.Collect$$_printf_percent$$00000016  c_p.l(_printf_ls.o)
-    0x00000222   0x00000222   0x00000004   Code   RO          854    .ARM.Collect$$_printf_percent$$00000017  c_p.l(_printf_percent_end.o)
-    0x00000226   0x00000226   0x00000002   Code   RO          898    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          929    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          931    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          933    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          936    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          938    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000000   Code   RO          940    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
-    0x00000228   0x00000228   0x00000006   Code   RO          941    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x0000022e   0x0000022e   0x00000000   Code   RO          943    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x0000022e   0x0000022e   0x0000000c   Code   RO          944    .ARM.Collect$$libinit$$00000014  c_p.l(libinit2.o)
-    0x0000023a   0x0000023a   0x00000000   Code   RO          945    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x0000023a   0x0000023a   0x00000000   Code   RO          947    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x0000023a   0x0000023a   0x0000000a   Code   RO          948    .ARM.Collect$$libinit$$00000018  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          949    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          951    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          953    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          955    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          957    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          959    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          961    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          963    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          967    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          969    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          971    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000000   Code   RO          973    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
-    0x00000244   0x00000244   0x00000002   Code   RO          974    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
-    0x00000246   0x00000246   0x00000002   Code   RO         1013    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1041    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1043    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1046    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1049    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1051    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000000   Code   RO         1054    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x00000248   0x00000248   0x00000002   Code   RO         1055    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x0000024a   0x0000024a   0x00000000   Code   RO          703    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x0000024a   0x0000024a   0x00000000   Code   RO          821    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x0000024a   0x0000024a   0x00000006   Code   RO          833    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x00000250   0x00000250   0x00000000   Code   RO          823    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x00000250   0x00000250   0x00000004   Code   RO          824    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x00000254   0x00000254   0x00000000   Code   RO          826    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x00000254   0x00000254   0x00000008   Code   RO          827    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0000025c   0x0000025c   0x00000002   Code   RO          913    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0000025e   0x0000025e   0x00000000   Code   RO          982    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0000025e   0x0000025e   0x00000004   Code   RO          983    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x00000262   0x00000262   0x00000006   Code   RO          984    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x00000128   0x00000128   0x0000001c   Code   RO         1066    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x00000144   0x00000144   0x00000002   Code   RO          791    .ARM.Collect$$_printf_percent$$00000000  c_p.l(_printf_percent.o)
+    0x00000146   0x00000146   0x0000000a   Code   RO          780    .ARM.Collect$$_printf_percent$$00000001  c_p.l(_printf_n.o)
+    0x00000150   0x00000150   0x0000000a   Code   RO          782    .ARM.Collect$$_printf_percent$$00000002  c_p.l(_printf_p.o)
+    0x0000015a   0x0000015a   0x0000000a   Code   RO          787    .ARM.Collect$$_printf_percent$$00000003  c_p.l(_printf_f.o)
+    0x00000164   0x00000164   0x0000000a   Code   RO          788    .ARM.Collect$$_printf_percent$$00000004  c_p.l(_printf_e.o)
+    0x0000016e   0x0000016e   0x0000000a   Code   RO          789    .ARM.Collect$$_printf_percent$$00000005  c_p.l(_printf_g.o)
+    0x00000178   0x00000178   0x0000000a   Code   RO          790    .ARM.Collect$$_printf_percent$$00000006  c_p.l(_printf_a.o)
+    0x00000182   0x00000182   0x0000000a   Code   RO          795    .ARM.Collect$$_printf_percent$$00000007  c_p.l(_printf_ll.o)
+    0x0000018c   0x0000018c   0x0000000a   Code   RO          784    .ARM.Collect$$_printf_percent$$00000008  c_p.l(_printf_i.o)
+    0x00000196   0x00000196   0x0000000a   Code   RO          785    .ARM.Collect$$_printf_percent$$00000009  c_p.l(_printf_d.o)
+    0x000001a0   0x000001a0   0x0000000a   Code   RO          786    .ARM.Collect$$_printf_percent$$0000000A  c_p.l(_printf_u.o)
+    0x000001aa   0x000001aa   0x0000000a   Code   RO          783    .ARM.Collect$$_printf_percent$$0000000B  c_p.l(_printf_o.o)
+    0x000001b4   0x000001b4   0x0000000a   Code   RO          781    .ARM.Collect$$_printf_percent$$0000000C  c_p.l(_printf_x.o)
+    0x000001be   0x000001be   0x0000000a   Code   RO          792    .ARM.Collect$$_printf_percent$$0000000D  c_p.l(_printf_lli.o)
+    0x000001c8   0x000001c8   0x0000000a   Code   RO          793    .ARM.Collect$$_printf_percent$$0000000E  c_p.l(_printf_lld.o)
+    0x000001d2   0x000001d2   0x0000000a   Code   RO          794    .ARM.Collect$$_printf_percent$$0000000F  c_p.l(_printf_llu.o)
+    0x000001dc   0x000001dc   0x0000000a   Code   RO          799    .ARM.Collect$$_printf_percent$$00000010  c_p.l(_printf_llo.o)
+    0x000001e6   0x000001e6   0x0000000a   Code   RO          800    .ARM.Collect$$_printf_percent$$00000011  c_p.l(_printf_llx.o)
+    0x000001f0   0x000001f0   0x0000000a   Code   RO          796    .ARM.Collect$$_printf_percent$$00000012  c_p.l(_printf_l.o)
+    0x000001fa   0x000001fa   0x0000000a   Code   RO          778    .ARM.Collect$$_printf_percent$$00000013  c_p.l(_printf_c.o)
+    0x00000204   0x00000204   0x0000000a   Code   RO          779    .ARM.Collect$$_printf_percent$$00000014  c_p.l(_printf_s.o)
+    0x0000020e   0x0000020e   0x0000000a   Code   RO          797    .ARM.Collect$$_printf_percent$$00000015  c_p.l(_printf_lc.o)
+    0x00000218   0x00000218   0x0000000a   Code   RO          798    .ARM.Collect$$_printf_percent$$00000016  c_p.l(_printf_ls.o)
+    0x00000222   0x00000222   0x00000004   Code   RO          856    .ARM.Collect$$_printf_percent$$00000017  c_p.l(_printf_percent_end.o)
+    0x00000226   0x00000226   0x00000002   Code   RO          900    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          931    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          933    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          935    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          938    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          940    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000000   Code   RO          942    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
+    0x00000228   0x00000228   0x00000006   Code   RO          943    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x0000022e   0x0000022e   0x00000000   Code   RO          945    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0000022e   0x0000022e   0x0000000c   Code   RO          946    .ARM.Collect$$libinit$$00000014  c_p.l(libinit2.o)
+    0x0000023a   0x0000023a   0x00000000   Code   RO          947    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0000023a   0x0000023a   0x00000000   Code   RO          949    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0000023a   0x0000023a   0x0000000a   Code   RO          950    .ARM.Collect$$libinit$$00000018  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          951    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          953    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          955    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          957    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          959    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          961    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          963    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          965    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          969    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          971    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          973    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000000   Code   RO          975    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
+    0x00000244   0x00000244   0x00000002   Code   RO          976    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
+    0x00000246   0x00000246   0x00000002   Code   RO         1015    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1043    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1045    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1048    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1051    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1053    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000000   Code   RO         1056    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00000248   0x00000248   0x00000002   Code   RO         1057    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x0000024a   0x0000024a   0x00000000   Code   RO          705    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x0000024a   0x0000024a   0x00000000   Code   RO          823    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x0000024a   0x0000024a   0x00000006   Code   RO          835    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x00000250   0x00000250   0x00000000   Code   RO          825    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x00000250   0x00000250   0x00000004   Code   RO          826    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x00000254   0x00000254   0x00000000   Code   RO          828    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x00000254   0x00000254   0x00000008   Code   RO          829    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x0000025c   0x0000025c   0x00000002   Code   RO          915    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0000025e   0x0000025e   0x00000000   Code   RO          984    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0000025e   0x0000025e   0x00000004   Code   RO          985    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x00000262   0x00000262   0x00000006   Code   RO          986    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x00000268   0x00000268   0x0000002c   Code   RO           17    .text               startup_mspm0g350x_uvision.o
-    0x00000294   0x00000294   0x00000024   Code   RO          643    .text               c_p.l(vsprintf.o)
-    0x000002b8   0x000002b8   0x000001f8   Code   RO          645    .text               c_p.l(aeabi_sdivfast.o)
-    0x000004b0   0x000004b0   0x00000006   Code   RO          653    .text               c_p.l(heapauxi.o)
+    0x00000294   0x00000294   0x00000024   Code   RO          645    .text               c_p.l(vsprintf.o)
+    0x000002b8   0x000002b8   0x000001f8   Code   RO          647    .text               c_p.l(aeabi_sdivfast.o)
+    0x000004b0   0x000004b0   0x00000006   Code   RO          655    .text               c_p.l(heapauxi.o)
     0x000004b6   0x000004b6   0x00000002   PAD
-    0x000004b8   0x000004b8   0x0000007c   Code   RO          657    .text               fz_ps.l(d2f.o)
-    0x00000534   0x00000534   0x00000358   Code   RO          659    .text               fz_ps.l(daddsub.o)
-    0x0000088c   0x0000088c   0x0000006c   Code   RO          673    .text               fz_ps.l(dfixi.o)
-    0x000008f8   0x000008f8   0x00000058   Code   RO          675    .text               fz_ps.l(dflti.o)
-    0x00000950   0x00000950   0x00000248   Code   RO          677    .text               fz_ps.l(dmul.o)
-    0x00000b98   0x00000b98   0x0000004c   Code   RO          697    .text               fz_ps.l(ffixi.o)
-    0x00000be4   0x00000be4   0x0000005e   Code   RO          699    .text               fz_ps.l(fflti.o)
-    0x00000c42   0x00000c42   0x0000004e   Code   RO          710    .text               c_p.l(_printf_pad.o)
-    0x00000c90   0x00000c90   0x00000024   Code   RO          712    .text               c_p.l(_printf_truncate.o)
-    0x00000cb4   0x00000cb4   0x00000052   Code   RO          714    .text               c_p.l(_printf_str.o)
+    0x000004b8   0x000004b8   0x0000007c   Code   RO          659    .text               fz_ps.l(d2f.o)
+    0x00000534   0x00000534   0x00000358   Code   RO          661    .text               fz_ps.l(daddsub.o)
+    0x0000088c   0x0000088c   0x0000006c   Code   RO          675    .text               fz_ps.l(dfixi.o)
+    0x000008f8   0x000008f8   0x00000058   Code   RO          677    .text               fz_ps.l(dflti.o)
+    0x00000950   0x00000950   0x00000248   Code   RO          679    .text               fz_ps.l(dmul.o)
+    0x00000b98   0x00000b98   0x0000004c   Code   RO          699    .text               fz_ps.l(ffixi.o)
+    0x00000be4   0x00000be4   0x0000005e   Code   RO          701    .text               fz_ps.l(fflti.o)
+    0x00000c42   0x00000c42   0x0000004e   Code   RO          712    .text               c_p.l(_printf_pad.o)
+    0x00000c90   0x00000c90   0x00000024   Code   RO          714    .text               c_p.l(_printf_truncate.o)
+    0x00000cb4   0x00000cb4   0x00000052   Code   RO          716    .text               c_p.l(_printf_str.o)
     0x00000d06   0x00000d06   0x00000002   PAD
-    0x00000d08   0x00000d08   0x0000006c   Code   RO          716    .text               c_p.l(_printf_dec.o)
-    0x00000d74   0x00000d74   0x00000026   Code   RO          718    .text               c_p.l(_printf_charcount.o)
+    0x00000d08   0x00000d08   0x0000006c   Code   RO          718    .text               c_p.l(_printf_dec.o)
+    0x00000d74   0x00000d74   0x00000026   Code   RO          720    .text               c_p.l(_printf_charcount.o)
     0x00000d9a   0x00000d9a   0x00000002   PAD
-    0x00000d9c   0x00000d9c   0x00000030   Code   RO          720    .text               c_p.l(_printf_char_common.o)
-    0x00000dcc   0x00000dcc   0x0000000a   Code   RO          722    .text               c_p.l(_sputc.o)
+    0x00000d9c   0x00000d9c   0x00000030   Code   RO          722    .text               c_p.l(_printf_char_common.o)
+    0x00000dcc   0x00000dcc   0x0000000a   Code   RO          724    .text               c_p.l(_sputc.o)
     0x00000dd6   0x00000dd6   0x00000002   PAD
-    0x00000dd8   0x00000dd8   0x000000bc   Code   RO          724    .text               c_p.l(_printf_wctomb.o)
-    0x00000e94   0x00000e94   0x00000070   Code   RO          727    .text               c_p.l(_printf_longlong_dec.o)
-    0x00000f04   0x00000f04   0x00000070   Code   RO          733    .text               c_p.l(_printf_oct_int_ll.o)
-    0x00000f74   0x00000f74   0x00000098   Code   RO          753    .text               c_p.l(_printf_hex_int_ll_ptr.o)
-    0x0000100c   0x0000100c   0x00000188   Code   RO          773    .text               c_p.l(__printf_flags_ss_wp.o)
-    0x00001194   0x00001194   0x0000007a   Code   RO          837    .text               c_p.l(lludiv10.o)
-    0x0000120e   0x0000120e   0x000000b0   Code   RO          839    .text               c_p.l(_printf_intcommon.o)
+    0x00000dd8   0x00000dd8   0x000000bc   Code   RO          726    .text               c_p.l(_printf_wctomb.o)
+    0x00000e94   0x00000e94   0x00000070   Code   RO          729    .text               c_p.l(_printf_longlong_dec.o)
+    0x00000f04   0x00000f04   0x00000070   Code   RO          735    .text               c_p.l(_printf_oct_int_ll.o)
+    0x00000f74   0x00000f74   0x00000098   Code   RO          755    .text               c_p.l(_printf_hex_int_ll_ptr.o)
+    0x0000100c   0x0000100c   0x00000188   Code   RO          775    .text               c_p.l(__printf_flags_ss_wp.o)
+    0x00001194   0x00001194   0x0000007a   Code   RO          839    .text               c_p.l(lludiv10.o)
+    0x0000120e   0x0000120e   0x000000b0   Code   RO          841    .text               c_p.l(_printf_intcommon.o)
     0x000012be   0x000012be   0x00000002   PAD
-    0x000012c0   0x000012c0   0x00000414   Code   RO          841    .text               c_p.l(_printf_fp_dec.o)
-    0x000016d4   0x000016d4   0x000002d8   Code   RO          845    .text               c_p.l(_printf_fp_hex.o)
-    0x000019ac   0x000019ac   0x0000002e   Code   RO          850    .text               c_p.l(_printf_char.o)
-    0x000019da   0x000019da   0x0000002e   Code   RO          852    .text               c_p.l(_printf_wchar.o)
-    0x00001a08   0x00001a08   0x00000042   Code   RO          855    .text               c_p.l(_c16rtomb.o)
-    0x00001a4a   0x00001a4a   0x00000028   Code   RO          857    .text               c_p.l(rtudiv10.o)
+    0x000012c0   0x000012c0   0x00000414   Code   RO          843    .text               c_p.l(_printf_fp_dec.o)
+    0x000016d4   0x000016d4   0x000002d8   Code   RO          847    .text               c_p.l(_printf_fp_hex.o)
+    0x000019ac   0x000019ac   0x0000002e   Code   RO          852    .text               c_p.l(_printf_char.o)
+    0x000019da   0x000019da   0x0000002e   Code   RO          854    .text               c_p.l(_printf_wchar.o)
+    0x00001a08   0x00001a08   0x00000042   Code   RO          857    .text               c_p.l(_c16rtomb.o)
+    0x00001a4a   0x00001a4a   0x00000028   Code   RO          859    .text               c_p.l(rtudiv10.o)
     0x00001a72   0x00001a72   0x00000002   PAD
-    0x00001a74   0x00001a74   0x000000a0   Code   RO          859    .text               fz_ps.l(dcmpin.o)
-    0x00001b14   0x00001b14   0x00000064   Code   RO          861    .text               fz_ps.l(fcmpin.o)
-    0x00001b78   0x00001b78   0x0000003e   Code   RO          863    .text               c_p.l(sys_stackheap_outer.o)
+    0x00001a74   0x00001a74   0x000000a0   Code   RO          861    .text               fz_ps.l(dcmpin.o)
+    0x00001b14   0x00001b14   0x00000064   Code   RO          863    .text               fz_ps.l(fcmpin.o)
+    0x00001b78   0x00001b78   0x0000003e   Code   RO          865    .text               c_p.l(sys_stackheap_outer.o)
     0x00001bb6   0x00001bb6   0x00000002   PAD
-    0x00001bb8   0x00001bb8   0x00000010   Code   RO          866    .text               c_p.l(rt_ctype_table.o)
-    0x00001bc8   0x00001bc8   0x00000008   Code   RO          871    .text               c_p.l(rt_locale_intlibspace.o)
-    0x00001bd0   0x00001bd0   0x00000088   Code   RO          873    .text               c_p.l(_printf_fp_infnan.o)
-    0x00001c58   0x00001c58   0x000000d8   Code   RO          875    .text               c_p.l(bigflt0.o)
-    0x00001d30   0x00001d30   0x00000580   Code   RO          878    .text               c_p.l(btod.o)
-    0x000022b0   0x000022b0   0x00000010   Code   RO          887    .text               c_p.l(exit.o)
-    0x000022c0   0x000022c0   0x0000002e   Code   RO          899    .text               fz_ps.l(cmpret.o)
+    0x00001bb8   0x00001bb8   0x00000010   Code   RO          868    .text               c_p.l(rt_ctype_table.o)
+    0x00001bc8   0x00001bc8   0x00000008   Code   RO          873    .text               c_p.l(rt_locale_intlibspace.o)
+    0x00001bd0   0x00001bd0   0x00000088   Code   RO          875    .text               c_p.l(_printf_fp_infnan.o)
+    0x00001c58   0x00001c58   0x000000d8   Code   RO          877    .text               c_p.l(bigflt0.o)
+    0x00001d30   0x00001d30   0x00000580   Code   RO          880    .text               c_p.l(btod.o)
+    0x000022b0   0x000022b0   0x00000010   Code   RO          889    .text               c_p.l(exit.o)
+    0x000022c0   0x000022c0   0x0000002e   Code   RO          901    .text               fz_ps.l(cmpret.o)
     0x000022ee   0x000022ee   0x00000002   PAD
-    0x000022f0   0x000022f0   0x00000014   Code   RO          901    .text               fz_ps.l(dnan2.o)
-    0x00002304   0x00002304   0x00000010   Code   RO          903    .text               fz_ps.l(fnan2.o)
-    0x00002314   0x00002314   0x00000008   Code   RO          909    .text               c_p.l(libspace.o)
-    0x0000231c   0x0000231c   0x000000b0   Code   RO          926    .text               c_p.l(strcmpv6m.o)
-    0x000023cc   0x000023cc   0x0000005e   Code   RO          975    .text               fz_ps.l(retnan.o)
+    0x000022f0   0x000022f0   0x00000014   Code   RO          903    .text               fz_ps.l(dnan2.o)
+    0x00002304   0x00002304   0x00000010   Code   RO          905    .text               fz_ps.l(fnan2.o)
+    0x00002314   0x00002314   0x00000008   Code   RO          911    .text               c_p.l(libspace.o)
+    0x0000231c   0x0000231c   0x000000b0   Code   RO          928    .text               c_p.l(strcmpv6m.o)
+    0x000023cc   0x000023cc   0x0000005e   Code   RO          977    .text               fz_ps.l(retnan.o)
     0x0000242a   0x0000242a   0x00000002   PAD
-    0x0000242c   0x0000242c   0x0000000c   Code   RO          977    .text               c_p.l(sys_exit.o)
-    0x00002438   0x00002438   0x00000002   Code   RO         1002    .text               c_p.l(use_no_semi.o)
-    0x0000243a   0x0000243a   0x00000000   Code   RO         1004    .text               c_p.l(indicate_semi.o)
-    0x0000243a   0x0000243a   0x0000003a   Code   RO         1058    .text               c_p.l(__dczerorl.o)
-    0x00002474   0x00002474   0x00000008   Code   RO          442    .text.Buzzer_Beep   buzzer.o
-    0x0000247c   0x0000247c   0x0000001c   Code   RO          440    .text.Buzzer_on     buzzer.o
+    0x0000242c   0x0000242c   0x0000000c   Code   RO          979    .text               c_p.l(sys_exit.o)
+    0x00002438   0x00002438   0x00000002   Code   RO         1004    .text               c_p.l(use_no_semi.o)
+    0x0000243a   0x0000243a   0x00000000   Code   RO         1006    .text               c_p.l(indicate_semi.o)
+    0x0000243a   0x0000243a   0x0000003a   Code   RO         1060    .text               c_p.l(__dczerorl.o)
+    0x00002474   0x00002474   0x00000008   Code   RO          444    .text.Buzzer_Beep   buzzer.o
+    0x0000247c   0x0000247c   0x0000001c   Code   RO          442    .text.Buzzer_on     buzzer.o
     0x00002498   0x00002498   0x0000002c   Code   RO          276    .text.Chassis_Init  chassis.o
     0x000024c4   0x000024c4   0x00000010   Code   RO          282    .text.Chassis_setSpeed  chassis.o
-    0x000024d4   0x000024d4   0x0000000a   Code   RO          492    .text.DL_Common_delayCycles  driverlib.a(dl_common.o)
+    0x000024d4   0x000024d4   0x0000000a   Code   RO          494    .text.DL_Common_delayCycles  driverlib.a(dl_common.o)
     0x000024de   0x000024de   0x00000002   PAD
-    0x000024e0   0x000024e0   0x00000108   Code   RO          581    .text.DL_Timer_initFourCCPWMMode  driverlib.a(dl_timer.o)
-    0x000025e8   0x000025e8   0x000000f0   Code   RO          505    .text.DL_Timer_initTimerMode  driverlib.a(dl_timer.o)
-    0x000026d8   0x000026d8   0x0000001c   Code   RO          547    .text.DL_Timer_setCaptCompUpdateMethod  driverlib.a(dl_timer.o)
-    0x000026f4   0x000026f4   0x00000018   Code   RO          555    .text.DL_Timer_setCaptureCompareOutCtl  driverlib.a(dl_timer.o)
-    0x0000270c   0x0000270c   0x00000010   Code   RO          507    .text.DL_Timer_setCaptureCompareValue  driverlib.a(dl_timer.o)
-    0x0000271c   0x0000271c   0x0000001c   Code   RO          501    .text.DL_Timer_setClockConfig  driverlib.a(dl_timer.o)
-    0x00002738   0x00002738   0x00000048   Code   RO          602    .text.DL_UART_init  driverlib.a(dl_uart.o)
-    0x00002780   0x00002780   0x00000012   Code   RO          604    .text.DL_UART_setClockConfig  driverlib.a(dl_uart.o)
+    0x000024e0   0x000024e0   0x00000108   Code   RO          583    .text.DL_Timer_initFourCCPWMMode  driverlib.a(dl_timer.o)
+    0x000025e8   0x000025e8   0x000000f0   Code   RO          507    .text.DL_Timer_initTimerMode  driverlib.a(dl_timer.o)
+    0x000026d8   0x000026d8   0x0000001c   Code   RO          549    .text.DL_Timer_setCaptCompUpdateMethod  driverlib.a(dl_timer.o)
+    0x000026f4   0x000026f4   0x00000018   Code   RO          557    .text.DL_Timer_setCaptureCompareOutCtl  driverlib.a(dl_timer.o)
+    0x0000270c   0x0000270c   0x00000010   Code   RO          509    .text.DL_Timer_setCaptureCompareValue  driverlib.a(dl_timer.o)
+    0x0000271c   0x0000271c   0x0000001c   Code   RO          503    .text.DL_Timer_setClockConfig  driverlib.a(dl_timer.o)
+    0x00002738   0x00002738   0x00000048   Code   RO          604    .text.DL_UART_init  driverlib.a(dl_uart.o)
+    0x00002780   0x00002780   0x00000012   Code   RO          606    .text.DL_UART_setClockConfig  driverlib.a(dl_uart.o)
     0x00002792   0x00002792   0x00000002   PAD
     0x00002794   0x00002794   0x00000048   Code   RO          220    .text.GROUP1_IRQHandler  encoder.o
     0x000027dc   0x000027dc   0x0000004c   Code   RO          233    .text.Gray_CalError  gray.o
-    0x00002828   0x00002828   0x00000038   Code   RO          235    .text.Gray_DetectStartLine  gray.o
-    0x00002860   0x00002860   0x00000034   Code   RO          231    .text.Gray_Read     gray.o
-    0x00002894   0x00002894   0x000000a0   Code   RO          197    .text.HWT101_Angle_Get  hwt101.o
-    0x00002934   0x00002934   0x00000004   Code   RO          199    .text.HWT101_Get_Data_Pointer  hwt101.o
-    0x00002938   0x00002938   0x00000020   Code   RO          193    .text.HWT101_Init   hwt101.o
-    0x00002958   0x00002958   0x00000018   Code   RO          352    .text.Key_Init      key.o
-    0x00002970   0x00002970   0x00000020   Code   RO          356    .text.Key_IsClicked  key.o
-    0x00002990   0x00002990   0x00000020   Code   RO          358    .text.Key_IsHold    key.o
-    0x000029b0   0x000029b0   0x00000018   Code   RO          362    .text.Key_IsPressed  key.o
-    0x000029c8   0x000029c8   0x00000100   Code   RO          354    .text.Key_Scan      key.o
-    0x00002ac8   0x00002ac8   0x0000000c   Code   RO          385    .text.LED1_On       led.o
-    0x00002ad4   0x00002ad4   0x0000000c   Code   RO          387    .text.LED2_On       led.o
-    0x00002ae0   0x00002ae0   0x00000010   Code   RO          389    .text.LED3_On       led.o
-    0x00002af0   0x00002af0   0x0000001a   Code   RO          460    .text.Limit_Range   max_min.o
-    0x00002b0a   0x00002b0a   0x00000002   PAD
-    0x00002b0c   0x00002b0c   0x00000008   Code   RO          251    .text.Motor_Get_Speed_Pointer  motordk.o
-    0x00002b14   0x00002b14   0x000000cc   Code   RO          324    .text.OLED_DrawBMP_logo  oled.o
-    0x00002be0   0x00002be0   0x00000128   Code   RO          334    .text.OLED_IIC_WriteByte  oled.o
-    0x00002d08   0x00002d08   0x000013ae   Code   RO          332    .text.OLED_Init     oled.o
-    0x000040b6   0x000040b6   0x00000002   PAD
-    0x000040b8   0x000040b8   0x000001ac   Code   RO          312    .text.OLED_Printf   oled.o
-    0x00004264   0x00004264   0x00000224   Code   RO          296    .text.OLED_Refresh_GRAM  oled.o
-    0x00004488   0x00004488   0x0000017c   Code   RO          322    .text.OLED_Set_Pos  oled.o
-    0x00004604   0x00004604   0x0000002c   Code   RO          310    .text.OLED_Set_Printfmt  oled.o
-    0x00004630   0x00004630   0x000001a8   Code   RO          308    .text.OLED_ShowChar  oled.o
-    0x000047d8   0x000047d8   0x000000f0   Code   RO           28    .text.SYSCFG_DL_GPIO_init  ti_msp_dl_config.o
-    0x000048c8   0x000048c8   0x0000008c   Code   RO           32    .text.SYSCFG_DL_PWM_MotorL_init  ti_msp_dl_config.o
-    0x00004954   0x00004954   0x00000090   Code   RO           34    .text.SYSCFG_DL_PWM_MotorR_init  ti_msp_dl_config.o
-    0x000049e4   0x000049e4   0x00000048   Code   RO           30    .text.SYSCFG_DL_SYSCTL_init  ti_msp_dl_config.o
-    0x00004a2c   0x00004a2c   0x00000030   Code   RO           46    .text.SYSCFG_DL_SYSTICK_init  ti_msp_dl_config.o
-    0x00004a5c   0x00004a5c   0x00000048   Code   RO           38    .text.SYSCFG_DL_TIMER_classic_init  ti_msp_dl_config.o
-    0x00004aa4   0x00004aa4   0x00000038   Code   RO           36    .text.SYSCFG_DL_TIMER_gimbal_init  ti_msp_dl_config.o
-    0x00004adc   0x00004adc   0x0000006c   Code   RO           42    .text.SYSCFG_DL_UART_0_init  ti_msp_dl_config.o
-    0x00004b48   0x00004b48   0x0000006c   Code   RO           40    .text.SYSCFG_DL_UART_1_init  ti_msp_dl_config.o
-    0x00004bb4   0x00004bb4   0x00000070   Code   RO           44    .text.SYSCFG_DL_UART_2_init  ti_msp_dl_config.o
-    0x00004c24   0x00004c24   0x00000050   Code   RO           24    .text.SYSCFG_DL_init  ti_msp_dl_config.o
-    0x00004c74   0x00004c74   0x0000007c   Code   RO           26    .text.SYSCFG_DL_initPower  ti_msp_dl_config.o
-    0x00004cf0   0x00004cf0   0x00000014   Code   RO          182    .text.SysTick_Handler  time.o
-    0x00004d04   0x00004d04   0x0000006c   Code   RO           83    .text.TIMA1_IRQHandler  gimbal.o
-    0x00004d70   0x00004d70   0x00000014   Code   RO          483    .text.TIMER_Init    timer.o
-    0x00004d84   0x00004d84   0x00000034   Code   RO          280    .text.TIMG8_IRQHandler  chassis.o
-    0x00004db8   0x00004db8   0x00000050   Code   RO          408    .text.Task1         task.o
-    0x00004e08   0x00004e08   0x0000027c   Code   RO          410    .text.Task_Choose   task.o
-    0x00005084   0x00005084   0x0000010c   Code   RO          406    .text.Task_Init     task.o
-    0x00005190   0x00005190   0x00000038   Code   RO          261    .text.Tracking_PID_Init  tracking.o
-    0x000051c8   0x000051c8   0x00000064   Code   RO          263    .text.Tracking_Update  tracking.o
-    0x0000522c   0x0000522c   0x00000028   Code   RO          153    .text.UART0_IRQHandler  vision.o
-    0x00005254   0x00005254   0x00000020   Code   RO            4    .text.UART1_IRQHandler  empty.o
-    0x00005274   0x00005274   0x00000028   Code   RO          195    .text.UART3_IRQHandler  hwt101.o
-    0x0000529c   0x0000529c   0x00000258   Code   RO          108    .text.ZDT_a_angle_absolute  zdt_drive.o
-    0x000054f4   0x000054f4   0x000000b8   Code   RO           98    .text.ZDT_init      zdt_drive.o
-    0x000055ac   0x000055ac   0x00000024   Code   RO          180    .text.delay_ms      time.o
-    0x000055d0   0x000055d0   0x00000010   Code   RO          214    .text.encoder_init  encoder.o
-    0x000055e0   0x000055e0   0x00000054   Code   RO           77    .text.gimbal_init   gimbal.o
-    0x00005634   0x00005634   0x00000114   Code   RO           79    .text.gimbal_set_position  gimbal.o
-    0x00005748   0x00005748   0x00000058   Code   RO            2    .text.main          empty.o
-    0x000057a0   0x000057a0   0x0000000c   Code   RO          247    .text.motor_init    motordk.o
-    0x000057ac   0x000057ac   0x000000a4   Code   RO          249    .text.motor_setSpeed  motordk.o
-    0x00005850   0x00005850   0x00000108   Code   RO          472    .text.pid_calc      pid.o
-    0x00005958   0x00005958   0x00000034   Code   RO          470    .text.pid_init      pid.o
-    0x0000598c   0x0000598c   0x00000004   Code   RO          165    .text.vision_get_data  vision.o
-    0x00005990   0x00005990   0x00000020   Code   RO          145    .text.vision_init   vision.o
-    0x000059b0   0x000059b0   0x000000b4   Code   RO          155    .text.vision_receive_handler  vision.o
-    0x00005a64   0x00005a64   0x00000030   Code   RO          880    i.__ARM_common_ll_muluu  c_p.l(btod.o)
-    0x00005a94   0x00005a94   0x0000002c   Code   RO          907    i.__ARM_fpclassify  m_ps.l(fpclassify.o)
-    0x00005ac0   0x00005ac0   0x00000016   Code   RO          662    i._dgeq             fz_ps.l(dcmp.o)
-    0x00005ad6   0x00005ad6   0x00000016   Code   RO          663    i._dgr              fz_ps.l(dcmp.o)
-    0x00005aec   0x00005aec   0x00000016   Code   RO          689    i._fls              fz_ps.l(fcmp.o)
-    0x00005b02   0x00005b02   0x0000000e   Code   RO          766    i._is_digit         c_p.l(__printf_wp.o)
-    0x00005b10   0x00005b10   0x0000002c   Code   RO          885    locale$$code        c_p.l(lc_numeric_c.o)
-    0x00005b3c   0x00005b3c   0x0000002c   Code   RO          920    locale$$code        c_p.l(lc_ctype_c.o)
-    0x00005b68   0x00005b68   0x00000064   Code   RO          801    x$fpl$dgeqf         fz_ps.l(dgef.o)
-    0x00005bcc   0x00005bcc   0x0000008c   Code   RO          679    x$fpl$fadd          fz_ps.l(faddsub.o)
-    0x00005c58   0x00005c58   0x00000054   Code   RO          809    x$fpl$fleqf         fz_ps.l(flef.o)
-    0x00005cac   0x00005cac   0x000000b0   Code   RO          701    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x00005d5c   0x00005d5c   0x000000d0   Code   RO          681    x$fpl$fsub          fz_ps.l(faddsub.o)
-    0x00005e2c   0x00005e2c   0x00000010   Code   RO          811    x$fpl$printf1       fz_ps.l(printf1.o)
-    0x00005e3c   0x00005e3c   0x00000010   Code   RO          813    x$fpl$printf2       fz_ps.l(printf2.o)
-    0x00005e4c   0x00005e4c   0x00000000   Code   RO          819    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x00005e4c   0x00005e4c   0x00000008   Data   RO          725    .constdata          c_p.l(_printf_wctomb.o)
-    0x00005e54   0x00005e54   0x00000028   Data   RO          754    .constdata          c_p.l(_printf_hex_int_ll_ptr.o)
-    0x00005e7c   0x00005e7c   0x00000011   Data   RO          774    .constdata          c_p.l(__printf_flags_ss_wp.o)
-    0x00005e8d   0x00005e8d   0x00000026   Data   RO          846    .constdata          c_p.l(_printf_fp_hex.o)
-    0x00005eb3   0x00005eb3   0x00000001   PAD
-    0x00005eb4   0x00005eb4   0x00000094   Data   RO          876    .constdata          c_p.l(bigflt0.o)
-    0x00005f48   0x00005f48   0x00000474   Data   RO          336    .rodata.ASCII_1206  oled.o
-    0x000063bc   0x000063bc   0x000005f0   Data   RO          337    .rodata.ASCII_1608  oled.o
-    0x000069ac   0x000069ac   0x00000d5c   Data   RO          338    .rodata.ASCII_2412  oled.o
-    0x00007708   0x00007708   0x00000003   Data   RO           55    .rodata.gPWM_MotorLClockConfig  ti_msp_dl_config.o
-    0x0000770b   0x0000770b   0x00000001   PAD
-    0x0000770c   0x0000770c   0x00000008   Data   RO           56    .rodata.gPWM_MotorLConfig  ti_msp_dl_config.o
-    0x00007714   0x00007714   0x00000003   Data   RO           57    .rodata.gPWM_MotorRClockConfig  ti_msp_dl_config.o
-    0x00007717   0x00007717   0x00000001   PAD
-    0x00007718   0x00007718   0x00000008   Data   RO           58    .rodata.gPWM_MotorRConfig  ti_msp_dl_config.o
-    0x00007720   0x00007720   0x00000003   Data   RO           61    .rodata.gTIMER_classicClockConfig  ti_msp_dl_config.o
-    0x00007723   0x00007723   0x00000001   PAD
-    0x00007724   0x00007724   0x00000014   Data   RO           62    .rodata.gTIMER_classicTimerConfig  ti_msp_dl_config.o
-    0x00007738   0x00007738   0x00000003   Data   RO           59    .rodata.gTIMER_gimbalClockConfig  ti_msp_dl_config.o
-    0x0000773b   0x0000773b   0x00000001   PAD
-    0x0000773c   0x0000773c   0x00000014   Data   RO           60    .rodata.gTIMER_gimbalTimerConfig  ti_msp_dl_config.o
-    0x00007750   0x00007750   0x00000002   Data   RO           65    .rodata.gUART_0ClockConfig  ti_msp_dl_config.o
-    0x00007752   0x00007752   0x0000000a   Data   RO           66    .rodata.gUART_0Config  ti_msp_dl_config.o
-    0x0000775c   0x0000775c   0x00000002   Data   RO           63    .rodata.gUART_1ClockConfig  ti_msp_dl_config.o
-    0x0000775e   0x0000775e   0x0000000a   Data   RO           64    .rodata.gUART_1Config  ti_msp_dl_config.o
-    0x00007768   0x00007768   0x00000002   Data   RO           67    .rodata.gUART_2ClockConfig  ti_msp_dl_config.o
-    0x0000776a   0x0000776a   0x0000000a   Data   RO           68    .rodata.gUART_2Config  ti_msp_dl_config.o
-    0x00007774   0x00007774   0x0000001a   Data   RO          431    .rodata.str1.1      task.o
-    0x0000778e   0x0000778e   0x00000002   PAD
-    0x00007790   0x00007790   0x00000020   Data   RO         1057    Region$$Table       anon$$obj.o
-    0x000077b0   0x000077b0   0x0000001c   Data   RO          884    locale$$data        c_p.l(lc_numeric_c.o)
-    0x000077cc   0x000077cc   0x00000110   Data   RO          919    locale$$data        c_p.l(lc_ctype_c.o)
+    0x00002828   0x00002828   0x00000028   Code   RO          235    .text.Gray_DetectStartLine  gray.o
+    0x00002850   0x00002850   0x00000034   Code   RO          231    .text.Gray_Read     gray.o
+    0x00002884   0x00002884   0x000000a0   Code   RO          197    .text.HWT101_Angle_Get  hwt101.o
+    0x00002924   0x00002924   0x00000004   Code   RO          199    .text.HWT101_Get_Data_Pointer  hwt101.o
+    0x00002928   0x00002928   0x00000020   Code   RO          193    .text.HWT101_Init   hwt101.o
+    0x00002948   0x00002948   0x00000018   Code   RO          354    .text.Key_Init      key.o
+    0x00002960   0x00002960   0x00000020   Code   RO          358    .text.Key_IsClicked  key.o
+    0x00002980   0x00002980   0x00000020   Code   RO          360    .text.Key_IsHold    key.o
+    0x000029a0   0x000029a0   0x00000018   Code   RO          364    .text.Key_IsPressed  key.o
+    0x000029b8   0x000029b8   0x00000100   Code   RO          356    .text.Key_Scan      key.o
+    0x00002ab8   0x00002ab8   0x0000000c   Code   RO          387    .text.LED1_On       led.o
+    0x00002ac4   0x00002ac4   0x0000000c   Code   RO          389    .text.LED2_On       led.o
+    0x00002ad0   0x00002ad0   0x00000010   Code   RO          391    .text.LED3_On       led.o
+    0x00002ae0   0x00002ae0   0x0000001a   Code   RO          462    .text.Limit_Range   max_min.o
+    0x00002afa   0x00002afa   0x00000002   PAD
+    0x00002afc   0x00002afc   0x00000008   Code   RO          251    .text.Motor_Get_Speed_Pointer  motordk.o
+    0x00002b04   0x00002b04   0x000000cc   Code   RO          326    .text.OLED_DrawBMP_logo  oled.o
+    0x00002bd0   0x00002bd0   0x00000128   Code   RO          336    .text.OLED_IIC_WriteByte  oled.o
+    0x00002cf8   0x00002cf8   0x000013ae   Code   RO          334    .text.OLED_Init     oled.o
+    0x000040a6   0x000040a6   0x00000002   PAD
+    0x000040a8   0x000040a8   0x000001ac   Code   RO          314    .text.OLED_Printf   oled.o
+    0x00004254   0x00004254   0x00000224   Code   RO          298    .text.OLED_Refresh_GRAM  oled.o
+    0x00004478   0x00004478   0x0000017c   Code   RO          324    .text.OLED_Set_Pos  oled.o
+    0x000045f4   0x000045f4   0x0000002c   Code   RO          312    .text.OLED_Set_Printfmt  oled.o
+    0x00004620   0x00004620   0x000001a8   Code   RO          310    .text.OLED_ShowChar  oled.o
+    0x000047c8   0x000047c8   0x000000f0   Code   RO           28    .text.SYSCFG_DL_GPIO_init  ti_msp_dl_config.o
+    0x000048b8   0x000048b8   0x0000008c   Code   RO           32    .text.SYSCFG_DL_PWM_MotorL_init  ti_msp_dl_config.o
+    0x00004944   0x00004944   0x00000090   Code   RO           34    .text.SYSCFG_DL_PWM_MotorR_init  ti_msp_dl_config.o
+    0x000049d4   0x000049d4   0x00000048   Code   RO           30    .text.SYSCFG_DL_SYSCTL_init  ti_msp_dl_config.o
+    0x00004a1c   0x00004a1c   0x00000030   Code   RO           46    .text.SYSCFG_DL_SYSTICK_init  ti_msp_dl_config.o
+    0x00004a4c   0x00004a4c   0x00000048   Code   RO           38    .text.SYSCFG_DL_TIMER_classic_init  ti_msp_dl_config.o
+    0x00004a94   0x00004a94   0x00000038   Code   RO           36    .text.SYSCFG_DL_TIMER_gimbal_init  ti_msp_dl_config.o
+    0x00004acc   0x00004acc   0x0000006c   Code   RO           42    .text.SYSCFG_DL_UART_0_init  ti_msp_dl_config.o
+    0x00004b38   0x00004b38   0x0000006c   Code   RO           40    .text.SYSCFG_DL_UART_1_init  ti_msp_dl_config.o
+    0x00004ba4   0x00004ba4   0x00000070   Code   RO           44    .text.SYSCFG_DL_UART_2_init  ti_msp_dl_config.o
+    0x00004c14   0x00004c14   0x00000050   Code   RO           24    .text.SYSCFG_DL_init  ti_msp_dl_config.o
+    0x00004c64   0x00004c64   0x0000007c   Code   RO           26    .text.SYSCFG_DL_initPower  ti_msp_dl_config.o
+    0x00004ce0   0x00004ce0   0x00000014   Code   RO          182    .text.SysTick_Handler  time.o
+    0x00004cf4   0x00004cf4   0x0000006c   Code   RO           83    .text.TIMA1_IRQHandler  gimbal.o
+    0x00004d60   0x00004d60   0x00000014   Code   RO          485    .text.TIMER_Init    timer.o
+    0x00004d74   0x00004d74   0x00000034   Code   RO          280    .text.TIMG8_IRQHandler  chassis.o
+    0x00004da8   0x00004da8   0x00000134   Code   RO          410    .text.Task1         task.o
+    0x00004edc   0x00004edc   0x000002c0   Code   RO          412    .text.Task_Choose   task.o
+    0x0000519c   0x0000519c   0x0000010c   Code   RO          408    .text.Task_Init     task.o
+    0x000052a8   0x000052a8   0x00000038   Code   RO          261    .text.Tracking_PID_Init  tracking.o
+    0x000052e0   0x000052e0   0x00000064   Code   RO          263    .text.Tracking_Update  tracking.o
+    0x00005344   0x00005344   0x00000028   Code   RO          153    .text.UART0_IRQHandler  vision.o
+    0x0000536c   0x0000536c   0x00000020   Code   RO            4    .text.UART1_IRQHandler  empty.o
+    0x0000538c   0x0000538c   0x00000028   Code   RO          195    .text.UART3_IRQHandler  hwt101.o
+    0x000053b4   0x000053b4   0x00000258   Code   RO          108    .text.ZDT_a_angle_absolute  zdt_drive.o
+    0x0000560c   0x0000560c   0x000000b8   Code   RO           98    .text.ZDT_init      zdt_drive.o
+    0x000056c4   0x000056c4   0x00000024   Code   RO          180    .text.delay_ms      time.o
+    0x000056e8   0x000056e8   0x00000010   Code   RO          214    .text.encoder_init  encoder.o
+    0x000056f8   0x000056f8   0x00000018   Code   RO          284    .text.get_YAW_Angle  chassis.o
+    0x00005710   0x00005710   0x00000054   Code   RO           77    .text.gimbal_init   gimbal.o
+    0x00005764   0x00005764   0x00000114   Code   RO           79    .text.gimbal_set_position  gimbal.o
+    0x00005878   0x00005878   0x00000060   Code   RO            2    .text.main          empty.o
+    0x000058d8   0x000058d8   0x0000000c   Code   RO          247    .text.motor_init    motordk.o
+    0x000058e4   0x000058e4   0x000000a4   Code   RO          249    .text.motor_setSpeed  motordk.o
+    0x00005988   0x00005988   0x00000108   Code   RO          474    .text.pid_calc      pid.o
+    0x00005a90   0x00005a90   0x00000034   Code   RO          472    .text.pid_init      pid.o
+    0x00005ac4   0x00005ac4   0x00000004   Code   RO          165    .text.vision_get_data  vision.o
+    0x00005ac8   0x00005ac8   0x00000020   Code   RO          145    .text.vision_init   vision.o
+    0x00005ae8   0x00005ae8   0x000000b4   Code   RO          155    .text.vision_receive_handler  vision.o
+    0x00005b9c   0x00005b9c   0x00000030   Code   RO          882    i.__ARM_common_ll_muluu  c_p.l(btod.o)
+    0x00005bcc   0x00005bcc   0x0000002c   Code   RO          909    i.__ARM_fpclassify  m_ps.l(fpclassify.o)
+    0x00005bf8   0x00005bf8   0x00000016   Code   RO          664    i._dgeq             fz_ps.l(dcmp.o)
+    0x00005c0e   0x00005c0e   0x00000016   Code   RO          665    i._dgr              fz_ps.l(dcmp.o)
+    0x00005c24   0x00005c24   0x00000016   Code   RO          688    i._fgeq             fz_ps.l(fcmp.o)
+    0x00005c3a   0x00005c3a   0x00000016   Code   RO          689    i._fgr              fz_ps.l(fcmp.o)
+    0x00005c50   0x00005c50   0x00000016   Code   RO          691    i._fls              fz_ps.l(fcmp.o)
+    0x00005c66   0x00005c66   0x0000000e   Code   RO          768    i._is_digit         c_p.l(__printf_wp.o)
+    0x00005c74   0x00005c74   0x0000002c   Code   RO          887    locale$$code        c_p.l(lc_numeric_c.o)
+    0x00005ca0   0x00005ca0   0x0000002c   Code   RO          922    locale$$code        c_p.l(lc_ctype_c.o)
+    0x00005ccc   0x00005ccc   0x00000064   Code   RO          803    x$fpl$dgeqf         fz_ps.l(dgef.o)
+    0x00005d30   0x00005d30   0x0000008c   Code   RO          681    x$fpl$fadd          fz_ps.l(faddsub.o)
+    0x00005dbc   0x00005dbc   0x00000054   Code   RO          809    x$fpl$fgeqf         fz_ps.l(fgef.o)
+    0x00005e10   0x00005e10   0x00000054   Code   RO          811    x$fpl$fleqf         fz_ps.l(flef.o)
+    0x00005e64   0x00005e64   0x000000b0   Code   RO          703    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x00005f14   0x00005f14   0x000000d0   Code   RO          683    x$fpl$fsub          fz_ps.l(faddsub.o)
+    0x00005fe4   0x00005fe4   0x00000010   Code   RO          813    x$fpl$printf1       fz_ps.l(printf1.o)
+    0x00005ff4   0x00005ff4   0x00000010   Code   RO          815    x$fpl$printf2       fz_ps.l(printf2.o)
+    0x00006004   0x00006004   0x00000000   Code   RO          821    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x00006004   0x00006004   0x00000008   Data   RO          727    .constdata          c_p.l(_printf_wctomb.o)
+    0x0000600c   0x0000600c   0x00000028   Data   RO          756    .constdata          c_p.l(_printf_hex_int_ll_ptr.o)
+    0x00006034   0x00006034   0x00000011   Data   RO          776    .constdata          c_p.l(__printf_flags_ss_wp.o)
+    0x00006045   0x00006045   0x00000026   Data   RO          848    .constdata          c_p.l(_printf_fp_hex.o)
+    0x0000606b   0x0000606b   0x00000001   PAD
+    0x0000606c   0x0000606c   0x00000094   Data   RO          878    .constdata          c_p.l(bigflt0.o)
+    0x00006100   0x00006100   0x00000474   Data   RO          338    .rodata.ASCII_1206  oled.o
+    0x00006574   0x00006574   0x000005f0   Data   RO          339    .rodata.ASCII_1608  oled.o
+    0x00006b64   0x00006b64   0x00000d5c   Data   RO          340    .rodata.ASCII_2412  oled.o
+    0x000078c0   0x000078c0   0x00000003   Data   RO           55    .rodata.gPWM_MotorLClockConfig  ti_msp_dl_config.o
+    0x000078c3   0x000078c3   0x00000001   PAD
+    0x000078c4   0x000078c4   0x00000008   Data   RO           56    .rodata.gPWM_MotorLConfig  ti_msp_dl_config.o
+    0x000078cc   0x000078cc   0x00000003   Data   RO           57    .rodata.gPWM_MotorRClockConfig  ti_msp_dl_config.o
+    0x000078cf   0x000078cf   0x00000001   PAD
+    0x000078d0   0x000078d0   0x00000008   Data   RO           58    .rodata.gPWM_MotorRConfig  ti_msp_dl_config.o
+    0x000078d8   0x000078d8   0x00000003   Data   RO           61    .rodata.gTIMER_classicClockConfig  ti_msp_dl_config.o
+    0x000078db   0x000078db   0x00000001   PAD
+    0x000078dc   0x000078dc   0x00000014   Data   RO           62    .rodata.gTIMER_classicTimerConfig  ti_msp_dl_config.o
+    0x000078f0   0x000078f0   0x00000003   Data   RO           59    .rodata.gTIMER_gimbalClockConfig  ti_msp_dl_config.o
+    0x000078f3   0x000078f3   0x00000001   PAD
+    0x000078f4   0x000078f4   0x00000014   Data   RO           60    .rodata.gTIMER_gimbalTimerConfig  ti_msp_dl_config.o
+    0x00007908   0x00007908   0x00000002   Data   RO           65    .rodata.gUART_0ClockConfig  ti_msp_dl_config.o
+    0x0000790a   0x0000790a   0x0000000a   Data   RO           66    .rodata.gUART_0Config  ti_msp_dl_config.o
+    0x00007914   0x00007914   0x00000002   Data   RO           63    .rodata.gUART_1ClockConfig  ti_msp_dl_config.o
+    0x00007916   0x00007916   0x0000000a   Data   RO           64    .rodata.gUART_1Config  ti_msp_dl_config.o
+    0x00007920   0x00007920   0x00000002   Data   RO           67    .rodata.gUART_2ClockConfig  ti_msp_dl_config.o
+    0x00007922   0x00007922   0x0000000a   Data   RO           68    .rodata.gUART_2Config  ti_msp_dl_config.o
+    0x0000792c   0x0000792c   0x0000001a   Data   RO          433    .rodata.str1.1      task.o
+    0x00007946   0x00007946   0x00000002   PAD
+    0x00007948   0x00007948   0x00000020   Data   RO         1059    Region$$Table       anon$$obj.o
+    0x00007968   0x00007968   0x0000001c   Data   RO          886    locale$$data        c_p.l(lc_numeric_c.o)
+    0x00007984   0x00007984   0x00000110   Data   RO          921    locale$$data        c_p.l(lc_ctype_c.o)
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x000078e0, Size: 0x00000b40, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x000000f0])
+    Execution Region RW_IRAM2 (Exec base: 0x20200000, Load base: 0x00007a98, Size: 0x00000b40, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x000000f0])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2559,16 +2594,16 @@ Memory Map of the image
     0x20200005   COMPRESSED   0x00000001   Data   RW          130    .data.a_angle_absolute.6  zdt_drive.o
     0x20200006   COMPRESSED   0x00000001   Data   RW          131    .data.a_angle_absolute.7  zdt_drive.o
     0x20200007   COMPRESSED   0x00000001   Data   RW          132    .data.a_angle_absolute.8  zdt_drive.o
-    0x20200008   COMPRESSED   0x00000200   Data   RW          340    .data.bmp_logo      oled.o
-    0x20200208        -       0x00000060   Zero   RW          910    .bss                c_p.l(libspace.o)
+    0x20200008   COMPRESSED   0x00000200   Data   RW          342    .data.bmp_logo      oled.o
+    0x20200208        -       0x00000060   Zero   RW          912    .bss                c_p.l(libspace.o)
     0x20200268        -       0x00000005   Zero   RW          237    .bss.Gray_data      gray.o
     0x2020026d        -       0x0000000b   Zero   RW          203    .bss.HWT101_Angle_Get.rx_buffer  hwt101.o
     0x20200278        -       0x00000001   Zero   RW          204    .bss.HWT101_Angle_Get.rx_index  hwt101.o
     0x20200279        -       0x00000001   Zero   RW          205    .bss.HWT101_Angle_Get.rx_state  hwt101.o
     0x2020027a        -       0x00000002   Zero   RW          253    .bss.MotorSpeed     motordk.o
-    0x2020027c        -       0x00000100   Zero   RW          343    .bss.OLED_Display_Buffer  oled.o
-    0x2020037c        -       0x00000400   Zero   RW          341    .bss.OLED_GRAM      oled.o
-    0x2020077c        -       0x00000004   Zero   RW          342    .bss.OLED_STATUS    oled.o
+    0x2020027c        -       0x00000100   Zero   RW          345    .bss.OLED_Display_Buffer  oled.o
+    0x2020037c        -       0x00000400   Zero   RW          343    .bss.OLED_GRAM      oled.o
+    0x2020077c        -       0x00000004   Zero   RW          344    .bss.OLED_STATUS    oled.o
     0x20200780        -       0x00000001   Zero   RW           90    .bss.TIMA1_IRQHandler.send_mode  gimbal.o
     0x20200781   COMPRESSED   0x00000007   PAD
     0x20200788        -       0x00000008   Zero   RW          265    .bss.Tracking_Error  tracking.o
@@ -2576,14 +2611,14 @@ Memory Map of the image
     0x20200791        -       0x00000001   Zero   RW          127    .bss.a_angle_absolute.3  zdt_drive.o
     0x20200792        -       0x00000001   Zero   RW          133    .bss.a_angle_absolute.9  zdt_drive.o
     0x20200793   COMPRESSED   0x00000005   PAD
-    0x20200798        -       0x00000020   Zero   RW          284    .bss.chassis        chassis.o
+    0x20200798        -       0x00000020   Zero   RW          286    .bss.chassis        chassis.o
     0x202007b8        -       0x00000004   Zero   RW          184    .bss.delay_times    time.o
     0x202007bc        -       0x000000a0   Zero   RW           52    .bss.gPWM_MotorRBackup  ti_msp_dl_config.o
     0x2020085c        -       0x000000bc   Zero   RW           53    .bss.gTIMER_gimbalBackup  ti_msp_dl_config.o
     0x20200918        -       0x00000030   Zero   RW           54    .bss.gUART_2Backup  ti_msp_dl_config.o
     0x20200948        -       0x00000028   Zero   RW           89    .bss.gimbal         gimbal.o
     0x20200970        -       0x00000008   Zero   RW          202    .bss.hwt101_data    hwt101.o
-    0x20200978        -       0x00000020   Zero   RW          370    .bss.keys           key.o
+    0x20200978        -       0x00000020   Zero   RW          372    .bss.keys           key.o
     0x20200998        -       0x00000018   Zero   RW          222    .bss.motor_encoder  encoder.o
     0x202009b0        -       0x00000004   Zero   RW           87    .bss.new_pitch      gimbal.o
     0x202009b4        -       0x00000004   Zero   RW           88    .bss.new_yaw        gimbal.o
@@ -2591,7 +2626,7 @@ Memory Map of the image
     0x20200a18        -       0x00000006   Zero   RW          170    .bss.rx_buffer      vision.o
     0x20200a1e        -       0x00000001   Zero   RW          171    .bss.rx_index       vision.o
     0x20200a1f        -       0x00000001   Zero   RW          169    .bss.rx_state       vision.o
-    0x20200a20        -       0x00000010   Zero   RW          430    .bss.task           task.o
+    0x20200a20        -       0x00000010   Zero   RW          432    .bss.task           task.o
     0x20200a30        -       0x00000001   Zero   RW          167    .bss.uart0_data     vision.o
     0x20200a31        -       0x00000001   Zero   RW            6    .bss.uart1_data     empty.o
     0x20200a32        -       0x00000001   Zero   RW          201    .bss.uart2_data     hwt101.o
@@ -2626,11 +2661,11 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         36          0          0          0          0        871   buzzer.o
-       112         20          0          0         32       6318   chassis.o
-       120         16          0          0          1       5138   empty.o
+       136         24          0          0         32       6448   chassis.o
+       128         24          0          0          1       5138   empty.o
         88          8          0          0         24       5982   encoder.o
        468         64          0          0         49       6629   gimbal.o
-       184         12          0          0          5       4390   gray.o
+       168         12          0          0          5       4343   gray.o
        236         40          0          0         22       5869   hwt101.o
        368         38          0          0         32       5933   key.o
         40          4          0          0          0       4699   led.o
@@ -2639,16 +2674,16 @@ Image component sizes
       7362         72       6080        512       1284      22201   oled.o
        316          0          0          0          0       1439   pid.o
         44         18        192          0        256        676   startup_mspm0g350x_uvision.o
-       984         76         26          0         16       3465   task.o
+      1280         80         26          0         16       3736   task.o
       1304        276        104          0        396      28932   ti_msp_dl_config.o
         56          8          0          0          4        660   time.o
         20          8          0          0          0       2175   timer.o
-       156         20          0          0        104       1444   tracking.o
+       156         20          0          0        104       1424   tracking.o
        256         36          0          0         15      10700   vision.o
        784         48          0          8          3      18437   zdt_drive.o
 
     ----------------------------------------------------------------------
-     13148        780       6440        520       2264     141037   Object Totals
+     13460        796       6440        520       2264     141371   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          6          0         19          0   (incl. Padding)
 
@@ -2745,10 +2780,11 @@ Image component sizes
        584         26          0          0          0         84   dmul.o
         20          6          0          0          0         68   dnan2.o
        348          8          0          0          0        160   faddsub.o
-        22          0          0          0          0         68   fcmp.o
+        66          0          0          0          0        204   fcmp.o
        100          4          0          0          0         68   fcmpin.o
         76          0          0          0          0         68   ffixi.o
         94          0          0          0          0         92   fflti.o
+        84          4          0          0          0         76   fgef.o
         84          4          0          0          0         76   flef.o
        176          4          0          0          0         80   fmul.o
         16          6          0          0          0         68   fnan2.o
@@ -2759,7 +2795,7 @@ Image component sizes
         44          4          0          0          0         60   fpclassify.o
 
     ----------------------------------------------------------------------
-     10800        518        552          0         96      61794   Library Totals
+     10928        522        552          0         96      62006   Library Totals
         32          4          1          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -2768,11 +2804,11 @@ Image component sizes
 
       6852        200        551          0         96       3352   c_p.l
        700        200          0          0          0      56522   driverlib.a
-      3172        110          0          0          0       1860   fz_ps.l
+      3300        114          0          0          0       2072   fz_ps.l
         44          4          0          0          0         60   m_ps.l
 
     ----------------------------------------------------------------------
-     10800        518        552          0         96      61794   Library Totals
+     10928        522        552          0         96      62006   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2781,15 +2817,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     23948       1298       6992        520       2360     199803   Grand Totals
-     23948       1298       6992        240       2360     199803   ELF Image Totals (compressed)
-     23948       1298       6992        240          0          0   ROM Totals
+     24388       1318       6992        520       2360     200209   Grand Totals
+     24388       1318       6992        240       2360     200209   ELF Image Totals (compressed)
+     24388       1318       6992        240          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                30940 (  30.21kB)
+    Total RO  Size (Code + RO Data)                31380 (  30.64kB)
     Total RW  Size (RW Data + ZI Data)              2880 (   2.81kB)
-    Total ROM Size (Code + RO Data + RW Data)      31180 (  30.45kB)
+    Total ROM Size (Code + RO Data + RW Data)      31620 (  30.88kB)
 
 ==============================================================================
 
