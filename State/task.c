@@ -50,15 +50,15 @@ void Task_Init(void)
     OLED_Printf("Task:");
     // 使用临时变量避免直接访问task结构体
     uint8_t temp_task = task.current_task;
-    OLED_ShowChar(40, 0, '0' + temp_task, 12, 0);
+    OLED_ShowChar(40, 0, '0' + temp_task, 16, 0);
     OLED_Set_Printfmt(0, 16 , 16, 0);
-    OLED_Printf("Circles:");
+    OLED_Printf("Circle:");
     uint8_t temp_circle = task.circle_count;
-    OLED_ShowChar(72, 16, '0' + temp_circle, 12, 0);
+    OLED_ShowChar(64, 16, '0' + temp_circle, 16, 0);
     OLED_Set_Printfmt(0, 32, 16, 0);
     OLED_Printf("Speed:");
     uint8_t temp_speed = task.speed_level;
-    OLED_ShowChar(48, 32, '0' + temp_speed, 12, 0);
+    OLED_ShowChar(48, 32, '0' + temp_speed, 16, 0);
 }
 // 任务1的具体实现 - 基础循迹行驶
 void Task1(void)
@@ -104,7 +104,7 @@ void Task_Choose(void)
             OLED_Set_Printfmt(0, 0, 16, 0);
             OLED_Printf("Task:");
             uint8_t temp_task = task.current_task;
-            OLED_ShowChar(40, 0, '0' + temp_task, 12, 0);
+            OLED_ShowChar(40, 0, '0' + temp_task, 16, 0);
         }
     }
     // 根据任务类型处理KEY_2和KEY_3
@@ -118,9 +118,9 @@ void Task_Choose(void)
                 }
                 // 显示圈数
                 OLED_Set_Printfmt(0, 16 , 16, 0);
-                OLED_Printf("Circles:");
+                OLED_Printf("Circle:");
                 uint8_t temp_circle_display = task.circle_count;
-                OLED_ShowChar(72, 16, '0' + temp_circle_display, 12, 0);
+                OLED_ShowChar(64, 16, '0' + temp_circle_display, 16, 0);
             }
         }
     }
@@ -136,7 +136,7 @@ void Task_Choose(void)
                 OLED_Set_Printfmt(0, 32, 16, 0);
                 OLED_Printf("Speed:");
                 uint8_t temp_speed_display = task.speed_level;
-                OLED_ShowChar(48, 32, '0' + temp_speed_display, 12, 0);
+                OLED_ShowChar(48, 32, '0' + temp_speed_display, 16, 0);
             }
         }
     }
@@ -191,22 +191,22 @@ void Task_Choose(void)
         OLED_Set_Printfmt(80, 0, 16, 0);
         OLED_Printf("     ");
         OLED_Set_Printfmt(80, 0, 16, 0);
-        OLED_Printf("ready");
+        OLED_Printf("Stop");
         // 显示当前任务
         OLED_Set_Printfmt(0, 0, 16, 0);
         OLED_Printf("Task:");
         uint8_t temp_task_display = task.current_task;
-        OLED_ShowChar(40, 0, '0' + temp_task_display, 12, 0);
+        OLED_ShowChar(40, 0, '0' + temp_task_display, 16, 0);
         // 显示圈数
         OLED_Set_Printfmt(0, 16 , 16, 0);
-        OLED_Printf("Circles:");
+        OLED_Printf("Circle:");
         uint8_t temp_circle_stop = task.circle_count;
-        OLED_ShowChar(72, 16, '0' + temp_circle_stop, 12, 0);
+        OLED_ShowChar(64, 16, '0' + temp_circle_stop, 16, 0);
         // 显示速度档位
         OLED_Set_Printfmt(0, 32, 16, 0);
         OLED_Printf("Speed:");
         uint8_t temp_speed_stop = task.speed_level;
-        OLED_ShowChar(48, 32, '0' + temp_speed_stop, 12, 0);
+        OLED_ShowChar(48, 32, '0' + temp_speed_stop, 16, 0);
         
         // 蜂鸣器报警提示
         Buzzer_Beep(2000); // 超长响表示紧急停止
