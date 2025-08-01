@@ -125,7 +125,7 @@ extern "C" {
 #define TIMER_classic_INST                                               (TIMG8)
 #define TIMER_classic_INST_IRQHandler                           TIMG8_IRQHandler
 #define TIMER_classic_INST_INT_IRQN                             (TIMG8_INT_IRQn)
-#define TIMER_classic_INST_LOAD_VALUE                                    (3199U)
+#define TIMER_classic_INST_LOAD_VALUE                                    (1599U)
 
 
 
