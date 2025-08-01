@@ -1,11 +1,11 @@
 #include "../ti_msp_dl_config.h"
 
-#define P_Error1 6.0
-#define P_Error2 6.0
-#define P_Error3 5.7
-#define P_Error4 5.7
-#define P_Error5 5.5
-#define P_Error6 5.5
+#define P_Error1 5.75
+#define P_Error2 5.75
+#define P_Error3 5.5
+#define P_Error4 5.5
+#define P_Error5 5.25
+#define P_Error6 5.25
 #define P_Error7 5.0
 #define P_Error8 5.0
 
