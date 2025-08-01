@@ -64,7 +64,7 @@ void Task_Init(void)
 void Task1(void)
 {
     task.tracking_flag = 1; // 设置为已开始跟踪
-    if(Tracking_Error>=85)//到达拐角
+    if(Gray_DetectStartLine() == true)//到达拐角
     {
         task.corner_flag = 1; // 检测到角落
         task.tracking_flag = 0; // 停止跟踪

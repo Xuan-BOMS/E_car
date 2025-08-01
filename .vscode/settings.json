@@ -16,6 +16,7 @@
         "motor_tb.h": "c",
         "stdbool.h": "c",
         "encoder.h": "c",
-        "key.h": "c"
+        "key.h": "c",
+        "time.h": "c"
     }
 }

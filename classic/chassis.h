@@ -25,4 +25,5 @@ typedef struct {
 void Chassis_Init(void);
 void Chassis_update(void);
 void TIMER_classic_INST_IRQHandler(void);
+void Chassis_setSpeed(int8_t left_speed, int8_t right_speed);
 #endif // !__CHASSIS_H__

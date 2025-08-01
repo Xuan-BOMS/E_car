@@ -51,3 +51,8 @@ void TIMER_classic_INST_IRQHandler(void)
             break;
     }
 }
+void Chassis_setSpeed(int8_t left_speed, int8_t right_speed)
+{
+	chassis.motor_speed->Motor_Left_Speed = left_speed;
+	chassis.motor_speed->Motor_Right_Speed = right_speed;
+}

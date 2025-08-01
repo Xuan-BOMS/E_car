@@ -66,7 +66,7 @@ bool Gray_DetectStartLine(void)
     
     // 统计检测到黑线的传感器数量
     for (int i = 0; i < 5; i++) {
-        if (Gray_data[i] == 0) {  // 假设0表示检测到黑线
+        if (Gray_data[i] == 1) {  // 假设0表示检测到黑线
             black_count++;
         }
     }

@@ -1,9 +1,11 @@
 #include "Tracking.h"
-#include "Motor_tb.h"
+#include "Gray.h"
+#include "motorDK.h"
 #include "PID.h"
 #include "max_min.h"
+#include "chassis.h"
 //外部变量
-extern uint8_t Gray[16];
+extern uint8_t Gray[5];
 //全局变量
 double Tracking_Error= 0.0f;       // 灰度传感器误差值
 static PID pid_line_follow;  
@@ -20,16 +22,16 @@ void Tracking_Update(void)
 
     // 基础速度
     uint16_t base_speed = MOTOR_Target_Speed1;
-    int16_t motor_Speed[2];
+    int8_t motor_Speed[2];
+    Tracking_Error = Gray_CalError(); // 获取灰度传感器误差值
     // 根据PID输出调整左右电机速度
-    motor_Speed[0] = base_speed - (int16_t)pid_line_follow.output;
-    motor_Speed[1] = base_speed + (int16_t)pid_line_follow.output;
+    motor_Speed[0] = base_speed + (int8_t)pid_line_follow.output;
+    motor_Speed[1] = base_speed - (int8_t)pid_line_follow.output;
     // 限制速度范围
     motor_Speed[0] = Limit_Range(motor_Speed[0], MOTOR_MIN_SPEED, MOTOR_MAX_SPEED);
     motor_Speed[1] = Limit_Range(motor_Speed[1], MOTOR_MIN_SPEED, MOTOR_MAX_SPEED);
 	
-	Motor_Speed[0] = motor_Speed[0];
-	Motor_Speed[1] = motor_Speed[1];
+	Chassis_setSpeed(motor_Speed[0], motor_Speed[1]);
 	
 	// 控制电机
     // Motor_Control(MOTOR_A, MOTOR_DIR_FORWARD, Motor_Speed[0]);
