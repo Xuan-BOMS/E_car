@@ -66,9 +66,26 @@ void Task_Init(void)
 // 任务1的具体实现 - 基础循迹行驶
 void Task1(void)
 {
+    static uint8_t corner_count = 0;
+    static bool task_initialized = false;
+    static uint32_t line_time = 0;
+    static uint32_t first_line_time = 0;
+    static bool first_line_time_initialized = false;
+    // 任务启动时初始化
+    if(!task_initialized && task.task_running) {
+        corner_count = 4 * task.circle_count;
+        task.corner_cnt = 0;
+        task_initialized = true;
+    }
+    // 任务停止时重置初始化标志
+    if(!task.task_running) {
+        task_initialized = false;
+        return;
+    }
     task.tracking_flag = 1; // 设置为已开始跟踪
     if(Gray_DetectStartLine() == true)//到达拐角
     {
+        first_line_time_initialized = true;
         task.corner_flag = 1; // 检测到角落
         task.tracking_flag = 0; // 停止跟踪
         task.corner_cnt++;
@@ -79,10 +96,30 @@ void Task1(void)
         delay_ms(900);
         task.corner_flag = 0; // 重置角落标志
         task.tracking_flag = 1; // 开始跟踪
+        corner_count--;
+        if(corner_count == 0) {
+            task.corner_cnt = 0; // 重置角落计数
+            while(first_line_time <line_time){
+            Tracking_Update();
+            delay_ms(10);
+            first_line_time++; // 延时10ms，模拟任务间隔
+            }
+            task.task_running = false; // 任务完成，停止任务
+            first_line_time_initialized = false;
+            first_line_time = 0; // 重置第一次跟踪时间
+            Chassis_setSpeed(0, 0); // 停止电机
+            return; // 任务完成，退出
+        }else {
+            line_time= 0; // 重置计时
+        }
     }
     if(task.tracking_flag == 1) {
         // 如果正在跟踪
         Tracking_Update();
+        line_time++;
+        if(first_line_time_initialized == false) {
+            first_line_time++; // 记录第一次跟踪的时间
+        }
         delay_ms(10); // 延时10ms，模拟任务间隔
     }
 	
