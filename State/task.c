@@ -70,10 +70,10 @@ void Task1(void)
     if(corner_flag ==1){
 		
 		Motor_MoveForward(1000);//直行
-		Delay_ms(250); // 等待转向完成
+		Delay_ms(150); // 等待转向完成
         Motor_Spin_Left(800); // 左转
         Buzzer_on(1);
-        Delay_ms(350); // 等待转向完成
+        Delay_ms(230); // 等待转向完成
         corner_flag = 0; // 重置角落标志
         tracking_flag = 1; // 开始跟踪
     }
