@@ -37,6 +37,9 @@ const UART3   = UART.addInstance();
 const gate7  = system.clockTree["MFCLKGATE"];
 gate7.enable = true;
 
+const pinFunction4       = system.clockTree["HFXT"];
+pinFunction4.HFXTStartup = 20;
+
 GPIO1.$name                          = "GPIO_LED";
 GPIO1.associatedPins.create(3);
 GPIO1.associatedPins[0].$name        = "LED1";

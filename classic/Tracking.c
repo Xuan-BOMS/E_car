@@ -5,7 +5,7 @@
 //外部变量
 extern uint8_t Gray[16];
 //全局变量
-double Tracking_Error= 0.0f;       // 灰度传感器误差值
+double Tracking_Error= 0.0f;       // 灰度传感器值
 static PID pid_line_follow;  
 int16_t Motor_Speed[2];
 

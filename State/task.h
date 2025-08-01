@@ -11,8 +11,8 @@
 #include "OLED.h"
 #include "Laser.h"
 // 函数声明
-void Task_Init(void);           // 任务系统初始化
-void Task_Choose(void);         // 任务选择和参数设置
+void Task_Init(void);          // 任务系统初始化
+void Task_Choose(void);        // 任务选择和参数设置
 void Task1(void);              // 任务1实现
 void Task2(void);              // 任务2实现
 void Task3(void);              // 任务3实现
