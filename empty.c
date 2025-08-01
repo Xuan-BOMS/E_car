@@ -1,8 +1,7 @@
 #include "ti_msp_dl_config.h"
 #include "gimbal.h"
-#include "time.h"
 #include "vision.h"
-#include "motor_tb.h"
+#include "Motor.h"
 #include "hwt101.h"
 #include "Key.h"
 #include "Gray.h"
@@ -12,6 +11,7 @@
 #include "LED.h"
 #include "OLED.h"
 #include "task.h"
+#include "Delay.h"
 volatile unsigned char uart1_data = 0;
 int main(void)
 {
@@ -35,18 +35,15 @@ int main(void)
     LED3_On();
 	LED1_On();
 	LED2_On();
-	OLED_Init();
-	OLED_Set_Printfmt(0,0,16,0);
-    OLED_Printf("Beginning\n");
     while (1)
     {
-        delay_ms(10);
+		Task_Choose();
+//        Delay_ms(10);
         //motor_setSpeed();
         //发送字符串
         //gimbal_motor_move(); // 控制云台电机移动
     }
 }
-
 
 //串口的中断服务函数
 void UART_1_INST_IRQHandler(void)

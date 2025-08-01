@@ -2,15 +2,7 @@
   ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdint.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdbool.h \
   ..\..\source\third_party\CMSIS\Core\Include\core_cm0plus.h \
-  D:\Code_sourse\mspm0_sdk_2_05_01_00\source\third_party\CMSIS\Core\Include\cmsis_version.h \
-  D:\Code_sourse\mspm0_sdk_2_05_01_00\source\third_party\CMSIS\Core\Include\cmsis_compiler.h \
-  D:\Code_sourse\mspm0_sdk_2_05_01_00\source\third_party\CMSIS\Core\Include\cmsis_armclang.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\arm_compat.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\arm_acle.h \
-  D:\Code_sourse\mspm0_sdk_2_05_01_00\source\third_party\CMSIS\Core\Include\mpu_armv7.h \
   ..\..\source\ti\devices\msp\peripherals\hw_adc12.h \
   ..\..\source\ti\devices\msp\peripherals\hw_aes.h \
   ..\..\source\ti\devices\msp\peripherals\hw_comp.h \
@@ -39,12 +31,10 @@
   ..\..\source\ti\devices\msp\peripherals\m0p\sysctl\hw_sysctl_mspm0g1x0x_g3x0x.h \
   ..\..\source\ti\driverlib\driverlib.h \
   ..\..\source\ti\driverlib\dl_adc12.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\math.h \
   ..\..\source\ti\driverlib\dl_common.h \
   ..\..\source\ti\driverlib\m0p\dl_factoryregion.h \
   ..\..\source\ti\driverlib\m0p\dl_core.h \
   ..\..\source\ti\driverlib\dl_aes.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stddef.h \
   ..\..\source\ti\driverlib\dl_aesadv.h \
   ..\..\source\ti\driverlib\dl_comp.h ..\..\source\ti\driverlib\dl_crc.h \
   ..\..\source\ti\driverlib\dl_crcp.h \
@@ -80,13 +70,11 @@
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
   ..\..\source\ti\driverlib\m0p\dl_systick.h ..\gimbal\gimbal.h \
   ..\gimbal\..\ti_msp_dl_config.h ..\gimbal\ZDT_drive.h \
-  ..\vision\vision.h ..\vision\..\ti_msp_dl_config.h ..\time\time.h \
-  ..\time\..\ti_msp_dl_config.h ..\classic\motor_tb.h \
-  ..\classic\..\ti_msp_dl_config.h ..\HWT101\hwt101.h \
+  ..\vision\vision.h ..\vision\..\ti_msp_dl_config.h ..\classic\Motor.h \
+  ..\..\E_car\ti_msp_dl_config.h ..\HWT101\hwt101.h \
   ..\HWT101\..\ti_msp_dl_config.h ..\State\Key.h \
-  ..\State\..\ti_msp_dl_config.h ..\classic\Gray.h ..\classic\Encoder.h \
-  ..\classic\Tracking.h ..\State\LED.h ..\OLED\OLED.h \
-  ..\OLED\..\ti_msp_dl_config.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\task.h \
-  ..\system\Timer.h ..\system\..\ti_msp_dl_config.h
+  ..\State\..\ti_msp_dl_config.h ..\classic\Gray.h \
+  ..\classic\..\ti_msp_dl_config.h ..\classic\Encoder.h \
+  ..\classic\Tracking.h ..\State\LED.h ..\OLED\OLED.h ..\State\task.h \
+  ..\State\Buzzer.h ..\system\Timer.h ..\system\..\ti_msp_dl_config.h \
+  ..\system\Delay.h ..\State\Laser.h

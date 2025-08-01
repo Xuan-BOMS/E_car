@@ -1,7 +1,7 @@
 #include "time.h"
 #include "Timer.h"
 #include "Encoder.h"
-#include "Motor_tb.h"
+#include "Motor.h"
 #include "Gray.h"
 #include "Tracking.h"
 #include "Key.h"

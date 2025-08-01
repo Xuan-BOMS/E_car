@@ -9,7 +9,7 @@
 #ifndef	__OLED_H__
 #define	__OLED_H__
 
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -182,7 +182,7 @@ void OLED_DrawBMP(uint8_t X0,uint8_t Y0,uint8_t X1,uint8_t Y1,const char BMP[]);
 
 /*×Ö·û*/
 bool OLED_ShowChar(uint8_t X,uint8_t Y,uint8_t Char,uint8_t Size,bool OP);
-bool OLED_ShowChinese(uint8_t X,uint8_t Y,uint8_t *s,uint8_t Sizey,bool OP);
+//bool OLED_ShowChinese(uint8_t X,uint8_t Y,uint8_t *s,uint8_t Sizey,bool OP);
 void OLED_Set_Printfmt(uint16_t x,uint16_t y,uint8_t sizey,bool mode);
 void OLED_Printf(const char *fmt,...);
 

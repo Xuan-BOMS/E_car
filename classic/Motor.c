@@ -1,12 +1,13 @@
-#include "Motor_tb.h"
+#include "Motor.h"
 #include <stdlib.h>
-// 电机状态数组
+// ���״̬����
 static MotorState_t motor_states[MOTOR_COUNT];
 bool motor_enabled = false;
+
 /**
- * @brief  设置电机A的PWM比较值
- * @param  dat: PWM比较值
- * @retval 无
+ * @brief  ���õ��A��PWM�Ƚ�ֵ
+ * @param  dat: PWM�Ƚ�ֵ
+ * @retval ��
  */
 static void set_motor_a_pwm(uint16_t dat)
 {
@@ -14,9 +15,9 @@ static void set_motor_a_pwm(uint16_t dat)
 }
 
 /**
- * @brief  设置电机B的PWM比较值
- * @param  dat: PWM比较值
- * @retval 无
+ * @brief  ���õ��B��PWM�Ƚ�ֵ
+ * @param  dat: PWM�Ƚ�ֵ
+ * @retval ��
  */
 static void set_motor_b_pwm(uint16_t dat)
 {
@@ -24,9 +25,9 @@ static void set_motor_b_pwm(uint16_t dat)
 }
 
 /**
- * @brief  限制PWM最大值
- * @param  value: 指向PWM值的指针
- * @retval 无
+ * @brief  ����PWM���ֵ
+ * @param  value: ָ��PWMֵ��ָ��
+ * @retval ��
  */
 static void restrict_pwm_max_value(uint16_t* value)
 {
@@ -36,9 +37,9 @@ static void restrict_pwm_max_value(uint16_t* value)
 }
 
 /**
- * @brief  设置电机A的方向控制引脚
- * @param  direction: 转动方向
- * @retval 无
+ * @brief  ���õ��A�ķ����������
+ * @param  direction: �������
+ * @retval ��
  */
 static void set_motor_a_direction_pins(MotorDirection_t direction)
 {
@@ -67,9 +68,9 @@ static void set_motor_a_direction_pins(MotorDirection_t direction)
 }
 
 /**
- * @brief  设置电机B的方向控制引脚
- * @param  direction: 转动方向
- * @retval 无
+ * @brief  ���õ��B�ķ����������
+ * @param  direction: �������
+ * @retval ��
  */
 static void set_motor_b_direction_pins(MotorDirection_t direction)
 {
@@ -117,9 +118,9 @@ void Motor_Init(void)
 }
 
 /**
- * @brief  使能电机驱动
- * @param  无
- * @retval 无
+ * @brief  ʹ�ܵ������
+ * @param  ��
+ * @retval ��
  */
 void Motor_Enable(void)
 {
@@ -128,9 +129,9 @@ void Motor_Enable(void)
 }
 
 /**
- * @brief  禁用电机驱动
- * @param  无
- * @retval 无
+ * @brief  ���õ������
+ * @param  ��
+ * @retval ��
  */
 void Motor_Disable(void)
 {
@@ -150,10 +151,10 @@ void Motor_Stop_All(void)
 }
 
 /**
- * @brief  设置电机转动速度
- * @param  motor_id: 电机ID (MOTOR_A 或 MOTOR_B)
- * @param  speed: 速度值 (0-MOTOR_PWM_MAX)
- * @retval 无
+ * @brief  ���õ�������ٶ�
+ * @param  motor_id: ���ID (MOTOR_A �� MOTOR_B)
+ * @param  speed: �ٶ�ֵ (0-MOTOR_PWM_MAX)
+ * @retval ��
  */
 void Motor_SetSpeed(uint8_t motor_id, uint16_t speed)
 {
@@ -170,10 +171,10 @@ void Motor_SetSpeed(uint8_t motor_id, uint16_t speed)
 }
 
 /**
- * @brief  设置电机转动方向
- * @param  motor_id: 电机ID
- * @param  direction: 转动方向
- * @retval 无
+ * @brief  ���õ����������
+ * @param  motor_id: ���ID
+ * @param  direction: �������
+ * @retval ��
  */
 void Motor_SetDirection(uint8_t motor_id, MotorDirection_t direction)
 {
@@ -189,11 +190,11 @@ void Motor_SetDirection(uint8_t motor_id, MotorDirection_t direction)
 }
 
 /**
- * @brief  控制电机运转(方向+速度)
- * @param  motor_id: 电机ID
- * @param  direction: 转动方向
- * @param  speed: 速度值
- * @retval 无
+ * @brief  ���Ƶ������(����+�ٶ�)
+ * @param  motor_id: ���ID
+ * @param  direction: �������
+ * @param  speed: �ٶ�ֵ
+ * @retval ��
  */
 void Motor_Control(uint8_t motor_id, MotorDirection_t direction, uint16_t speed)
 {
@@ -228,9 +229,9 @@ void Motor_Stop(uint8_t motor_id)
 }
 
 /**
- * @brief  刹车停止电机
- * @param  motor_id: 电机ID
- * @retval 无
+ * @brief  ɲ���������
+ * @param  motor_id: ���ID
+ * @retval ��
  */
 void Motor_Brake(uint8_t motor_id)
 {
@@ -242,10 +243,10 @@ void Motor_Brake(uint8_t motor_id)
 }
 
 /**
- * @brief  设置双电机速度
- * @param  speed_a: 电机A速度
- * @param  speed_b: 电机B速度
- * @retval 无
+ * @brief  ����˫����ٶ�
+ * @param  speed_a: ���A�ٶ�
+ * @param  speed_b: ���B�ٶ�
+ * @retval ��
  */
 void Motor_SetBothSpeed(uint16_t speed_a, uint16_t speed_b)
 {
@@ -254,10 +255,10 @@ void Motor_SetBothSpeed(uint16_t speed_a, uint16_t speed_b)
 }
 
 /**
- * @brief  设置双电机方向
- * @param  dir_a: 电机A方向
- * @param  dir_b: 电机B方向
- * @retval 无
+ * @brief  ����˫�������
+ * @param  dir_a: ���A����
+ * @param  dir_b: ���B����
+ * @retval ��
  */
 void Motor_SetBothDirection(MotorDirection_t dir_a, MotorDirection_t dir_b)
 {
@@ -274,27 +275,27 @@ void Motor_SetBothDirAndSpeed(MotorDirection_t dir_a, uint16_t speed_a, MotorDir
 }
 
 /**
- * @brief  直接设置左右电机速度（正向循迹控制）
- * @param  left_speed: 左侧速度
- * @param  right_speed: 右侧速度
- * @retval 无
- * @note   默认电机A为左侧，电机B为右侧
+ * @brief  ֱ���������ҵ���ٶȣ�����ѭ�����ƣ�
+ * @param  left_speed: �����ٶ�
+ * @param  right_speed: �ҵ���ٶ�
+ * @retval ��
+ * @note   ������AΪ���������BΪ�ҵ��
  */
 void Motor_Set_Speed(uint16_t left_speed, uint16_t right_speed)
 {
-    // 设置电机方向为前进
+    // ���õ������Ϊǰ��
     Motor_SetDirection(MOTOR_A, MOTOR_DIR_FORWARD);
     Motor_SetDirection(MOTOR_B, MOTOR_DIR_FORWARD);
     
-    // 设置速度
+    // �����ٶ�
     Motor_SetSpeed(MOTOR_A, left_speed);
     Motor_SetSpeed(MOTOR_B, right_speed);
 }
 
 /**
- * @brief  前进
- * @param  speed: 速度值
- * @retval 无
+ * @brief  ǰ��
+ * @param  speed: �ٶ�ֵ
+ * @retval ��
  */
 void Motor_MoveForward(uint16_t speed)
 {
@@ -303,9 +304,9 @@ void Motor_MoveForward(uint16_t speed)
 }
 
 /**
- * @brief  后退
- * @param  speed: 速度值
- * @retval 无
+ * @brief  ����
+ * @param  speed: �ٶ�ֵ
+ * @retval ��
  */
 void Motor_MoveBackward(uint16_t speed)
 {
@@ -314,9 +315,9 @@ void Motor_MoveBackward(uint16_t speed)
 }
 
 /**
- * @brief  左转 (电机A减速，电机B正常)
- * @param  speed: 基准速度值
- * @retval 无
+ * @brief  ��ת (���A�������B��)
+ * @param  speed: �����ٶ�ֵ
+ * @retval ��
  */
 void Motor_TurnLeft(uint16_t speed)
 {
@@ -325,9 +326,9 @@ void Motor_TurnLeft(uint16_t speed)
 }
 
 /**
- * @brief  右转 (电机A正常，电机B减速)
- * @param  speed: 基准速度值
- * @retval 无
+ * @brief  ��ת (���A�죬���B��)
+ * @param  speed: �����ٶ�ֵ
+ * @retval ��
  */
 void Motor_TurnRight(uint16_t speed)
 {
@@ -336,9 +337,9 @@ void Motor_TurnRight(uint16_t speed)
 }
 
 /**
- * @brief  原地左转 (电机A正转，电机B反转)
- * @param  speed: 速度值
- * @retval 无
+ * @brief  ԭ����ת (���A��ת�����B��ת)
+ * @param  speed: �ٶ�ֵ
+ * @retval ��
  */
 void Motor_Spin_Left(uint16_t speed)
 {
@@ -347,9 +348,9 @@ void Motor_Spin_Left(uint16_t speed)
 }
 
 /**
- * @brief  原地右转 (电机A反转，电机B正转)
- * @param  speed: 速度值
- * @retval 无
+ * @brief  ԭ����ת (���A��ת�����B��ת)
+ * @param  speed: �ٶ�ֵ
+ * @retval ��
  */
 void Motor_Spin_Right(uint16_t speed)
 {
@@ -359,9 +360,9 @@ void Motor_Spin_Right(uint16_t speed)
 
 
 /**
- * @brief  获取电机状态
- * @param  motor_id: 电机ID
- * @retval 电机状态结构体
+ * @brief  ��ȡ���״̬
+ * @param  motor_id: ���ID
+ * @retval ���״̬�ṹ��
  */
 MotorState_t Motor_GetState(uint8_t motor_id)
 {
@@ -375,9 +376,9 @@ MotorState_t Motor_GetState(uint8_t motor_id)
 }
 
 /**
- * @brief  检测电机驱动是否使能
- * @param  无
- * @retval true: 使能, false: 禁用
+ * @brief  ����������Ƿ�ʹ��
+ * @param  ��
+ * @retval true: ʹ��, false: ����
  */
 bool Motor_IsEnabled(void)
 {
@@ -385,13 +386,13 @@ bool Motor_IsEnabled(void)
 }
 
 // ===========================================
-// 保留原有接口的函数
+// ����ԭ�нӿڵĺ���
 // ===========================================
 
 /**
- * @brief  设置fi通道的PWM比较值(保留原接口)
- * @param  dat: PWM比较值
- * @retval 无
+ * @brief  ����fi���ŵ�PWM�Ƚ�ֵ(����ԭ�ӿ�)
+ * @param  dat: PWM�Ƚ�ֵ
+ * @retval ��
  */
 static void set_fi(uint16_t dat)
 {
@@ -399,9 +400,9 @@ static void set_fi(uint16_t dat)
 }
 
 /**
- * @brief  设置bi通道的PWM比较值(保留原接口)
- * @param  dat: PWM比较值
- * @retval 无
+ * @brief  ����bi���ŵ�PWM�Ƚ�ֵ(����ԭ�ӿ�)
+ * @param  dat: PWM�Ƚ�ֵ
+ * @retval ��
  */
 static void set_bi(uint16_t dat)
 {
@@ -409,10 +410,10 @@ static void set_bi(uint16_t dat)
 }
 
 /**
- * @brief  设置电机(保留原接口)
- * @param  fi_value: 电机A的PWM值
- * @param  bi_value: 电机B的PWM值
- * @retval 无
+ * @brief  ���õ��(����ԭ�ӿ�)
+ * @param  fi_value: ���A��PWMֵ
+ * @param  bi_value: ���B��PWMֵ
+ * @retval ��
  */
 void set_motor(uint16_t fi_value, uint16_t bi_value)
 {
@@ -422,7 +423,7 @@ void set_motor(uint16_t fi_value, uint16_t bi_value)
     set_fi(fi_value);
     set_bi(bi_value);
     
-    // 更新状态
+    // ����״̬
     motor_states[MOTOR_A].speed = fi_value;
     motor_states[MOTOR_B].speed = bi_value;
 }

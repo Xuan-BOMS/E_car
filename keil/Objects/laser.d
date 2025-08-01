@@ -1,5 +1,5 @@
-./objects/key.o: ..\State\Key.c ..\State\Key.h \
-  ..\State\..\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
+./objects/laser.o: ..\State\Laser.c ..\State\Laser.h \
+  ..\..\E_car\ti_msp_dl_config.h ..\..\source\ti\devices\msp\msp.h \
   ..\..\source\ti\devices\DeviceFamily.h \
   ..\..\source\ti\devices\msp\m0p\mspm0g350x.h \
   ..\..\source\third_party\CMSIS\Core\Include\core_cm0plus.h \
