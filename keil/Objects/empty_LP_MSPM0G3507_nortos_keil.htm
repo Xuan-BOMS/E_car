@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\empty_LP_MSPM0G3507_nortos_keil.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\empty_LP_MSPM0G3507_nortos_keil.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Fri Aug  1 07:53:38 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Fri Aug  1 08:15:43 2025
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -412,8 +412,8 @@ Global Symbols
 <P><STRONG><a name="[113]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[55]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Task_Choose &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Task_Init &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -1308,6 +1308,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_GRAM
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
 <P><STRONG><a name="[ba]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 192 bytes, Stack size 20 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
@@ -1456,7 +1458,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
-<P><STRONG><a name="[c7]"></a>Task_Choose</STRONG> (Thumb, 484 bytes, Stack size 24 bytes, task.o(.text.Task_Choose))
+<P><STRONG><a name="[c7]"></a>Task_Choose</STRONG> (Thumb, 596 bytes, Stack size 24 bytes, task.o(.text.Task_Choose))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = Task_Choose &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
 </UL>
@@ -1467,12 +1469,13 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_IsClicked
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cc]"></a>Task_Init</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, task.o(.text.Task_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<P><STRONG><a name="[cc]"></a>Task_Init</STRONG> (Thumb, 244 bytes, Stack size 32 bytes, task.o(.text.Task_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
 <LI>Call Chain = Task_Init &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer_on
@@ -1482,6 +1485,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawBMP_logo
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_PID_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_init
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
@@ -1570,8 +1574,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[56]"></a>main</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, empty.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = main &rArr; Task_Choose &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<LI>Call Chain = main &rArr; Task_Init &rArr; OLED_Printf &rArr; OLED_ShowChar &rArr; OLED_Refresh_GRAM &rArr; OLED_IIC_WriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms

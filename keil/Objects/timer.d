@@ -85,4 +85,5 @@
   ..\State\..\ti_msp_dl_config.h ..\State\task.h ..\classic\motorDK.h \
   ..\OLED\OLED.h ..\OLED\..\ti_msp_dl_config.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h

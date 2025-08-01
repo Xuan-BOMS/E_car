@@ -86,4 +86,5 @@
   ..\State\task.h ..\classic\Encoder.h ..\OLED\OLED.h \
   ..\OLED\..\ti_msp_dl_config.h \
   D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdio.h \
-  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\stdarg.h ..\State\Buzzer.h \
+  D:\Programs\Keil_v5\ARM\ARMCLANG\include\string.h
