@@ -37,7 +37,7 @@ int main(void)
 		LED2_On();
     while (1)
     {
-        delay_ms(2000);
+        delay_ms(1);
         Task_Choose();
     }
 }

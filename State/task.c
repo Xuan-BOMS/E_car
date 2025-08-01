@@ -223,7 +223,7 @@ void Task_Choose(void)
     task.speed_table[0] = 1500;
     task.speed_table[1] = 2000;
     task.speed_table[2] = 2500;
-    Software_Reset(); 
+    __RESET_AIRCR();
 
         // 系统复位标志
         // SystemReset();
