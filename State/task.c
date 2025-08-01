@@ -19,7 +19,7 @@ void Task_Init(void)
     OLED_Init(); 
     OLED_Set_Printfmt(0,0,16,0);
     OLED_DrawBMP_logo(32, 0);
-    delay_ms(1000);
+    delay_ms(500);
     
     // 使用memset清零整个结构体
     memset((void*)&task, 0, sizeof(Task_t));
