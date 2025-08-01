@@ -1,6 +1,5 @@
 #include "Gray.h"
 #include "time.h"
-//uint8_t Infr_data[16];
 uint8_t Gray_data[16];
 void Gray_Read(void)
 {
