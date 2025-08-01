@@ -59,8 +59,9 @@ void Task_Init(void)
     OLED_ShowChar(64, 16, '0' + temp_circle, 16, 0);
     OLED_Set_Printfmt(0, 32, 16, 0);
     OLED_Printf("Speed:");
-    uint8_t temp_speed = task.speed_level;
-    OLED_ShowChar(48, 32, '0' + temp_speed, 16, 0);
+    OLED_ShowChar(48, 32, '0' + ((int)get_YAW_Angle() / 100) % 10, 16, 0);  // 百位
+    OLED_ShowChar(56, 32, '0' + ((int)get_YAW_Angle() / 10) % 10, 16, 0);   // 十位
+    OLED_ShowChar(64, 32, '0' + ((int)get_YAW_Angle()) % 10, 16, 0);          // 个位
 }
 // 任务1的具体实现 - 基础循迹行驶
 void Task1(void)
@@ -73,26 +74,33 @@ void Task1(void)
         task.corner_cnt++;
     }
     if(task.corner_flag == 1){
-		Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
-        delay_ms(350);
-		Chassis_setSpeed(-15,15); 
         float last_yaw_angle = get_YAW_Angle();
+		Chassis_setSpeed(Basic_Speed, Basic_Speed); // 停止电机
+        delay_ms(230);
+        Chassis_setSpeed(0, 0); // 停止电机
+        delay_ms(1000);
+		Chassis_setSpeed(-20,20); 
 		delay_ms(5); // 等待转向完成
         while(1)
         {
             float angle_diff = get_YAW_Angle() - last_yaw_angle;
+            static uint16_t timeout = 0;
+            timeout++;
             // 处理跨界
             if (angle_diff > 180.0f) angle_diff -= 360.0f;
             if (angle_diff < -180.0f) angle_diff += 360.0f;
             // 判断是否达到90度
-            if (fabs(angle_diff) >= 85.0f) break;
+            if (fabs(angle_diff) >= 85.0f || timeout >= 500) break;
             delay_ms(1);
         }
+        Chassis_setSpeed(0, 0); // 停止电机
+        delay_ms(1000);
         task.corner_flag = 0; // 重置角落标志
         task.tracking_flag = 1; // 开始跟踪
     }
     if(task.tracking_flag == 1) {
         // 如果正在跟踪
+        //Chassis_setSpeed(-20,20); 
         Tracking_Update();
         delay_ms(10); // 延时10ms，模拟任务间隔
     }
@@ -104,6 +112,9 @@ void Task1(void)
 // 选择任务
 void Task_Choose(void)
 {
+    OLED_ShowChar(48, 32, '0' + ((int)get_YAW_Angle() / 100) % 10, 16, 0);  // 百位
+    OLED_ShowChar(56, 32, '0' + ((int)get_YAW_Angle() / 10) % 10, 16, 0);   // 十位
+    OLED_ShowChar(64, 32, '0' + ((int)get_YAW_Angle()) % 10, 16, 0);          // 个位
     // KEY_1: 任务选择 (1->2->3->4->5->6->1...)
     if (Key_IsClicked(KEY_1)) {
         if (!task.task_running) {  // 只有在任务未运行时才能切换

@@ -9,7 +9,7 @@
 #include "Tracking.h"
 #include "Key.h"
 #include "task.h"
-#define Basic_Speed 20 // 基础速度
+#define Basic_Speed 25 // 基础速度
 #define AIRCR                     ((uint32_t *)0xE000ED0C)
 #define __RESET_AIRCR()           (*AIRCR = (0x000005FA<<16)|(1<<2))
 typedef enum {
