@@ -70,7 +70,7 @@
   ..\..\source\ti\driverlib\m0p\dl_interrupt.h \
   ..\..\source\ti\driverlib\m0p\dl_systick.h ..\State\Key.h \
   ..\State\..\ti_msp_dl_config.h ..\State\Buzzer.h ..\system\Timer.h \
-  ..\system\..\ti_msp_dl_config.h ..\classic\Gray.h \
-  ..\classic\..\ti_msp_dl_config.h ..\classic\Motor.h \
-  ..\classic\Encoder.h ..\classic\Tracking.h ..\system\Delay.h \
+  ..\system\..\ti_msp_dl_config.h ..\classic\Motor.h \
+  ..\classic\Encoder.h ..\classic\..\ti_msp_dl_config.h \
+  ..\classic\Gray.h ..\classic\Tracking.h ..\system\Delay.h \
   ..\OLED\OLED.h ..\State\Laser.h

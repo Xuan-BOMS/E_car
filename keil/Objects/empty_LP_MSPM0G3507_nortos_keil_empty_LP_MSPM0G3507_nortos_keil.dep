@@ -85,13 +85,13 @@ I (..\..\E_car\ti_msp_dl_config.h)(0x688D36CB)
 I (..\HWT101\hwt101.h)(0x688D3CFB)
 I (..\State\Key.h)(0x688C9B30)
 I (..\State\..\ti_msp_dl_config.h)(0x688D36CB)
-I (..\classic\Gray.h)(0x688D424B)
+I (..\classic\Gray.h)(0x688D452E)
 I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\classic\Encoder.h)(0x688C9B30)
 I (..\classic\Tracking.h)(0x688D3C84)
 I (..\State\LED.h)(0x688C9B30)
 I (..\OLED\OLED.h)(0x688D36CB)
-I (..\State\task.h)(0x688D36CB)
+I (..\State\task.h)(0x688D4471)
 I (..\State\Buzzer.h)(0x688D36CB)
 I (..\system\Timer.h)(0x688C9B30)
 I (..\system\..\ti_msp_dl_config.h)(0x688D36CB)
@@ -486,7 +486,7 @@ I (..\..\source\ti\driverlib\dl_wwdt.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x66D136B8)
 F (..\classic\Gray.c)(0x688D36CB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../HWT101 -I ../classic -I ../OLED -I ../State -I ../system -I ../../E_car-D__UVISION_VERSION="542" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/gray.o -MMD)
-I (..\classic\Gray.h)(0x688D424B)
+I (..\classic\Gray.h)(0x688D452E)
 I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\..\source\ti\devices\msp\msp.h)(0x66D136B8)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x66D136B8)
@@ -563,7 +563,7 @@ I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x66D136B8)
 I (..\time\time.h)(0x688CC98E)
 I (..\time\..\ti_msp_dl_config.h)(0x688D36CB)
-F (..\classic\Tracking.c)(0x688D42EF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../HWT101 -I ../classic -I ../OLED -I ../State -I ../system -I ../../E_car-D__UVISION_VERSION="542" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/tracking.o -MMD)
+F (..\classic\Tracking.c)(0x688D4368)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../HWT101 -I ../classic -I ../OLED -I ../State -I ../system -I ../../E_car-D__UVISION_VERSION="542" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/tracking.o -MMD)
 I (..\classic\Tracking.h)(0x688D3C84)
 I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\..\source\ti\devices\msp\msp.h)(0x66D136B8)
@@ -949,8 +949,8 @@ I (..\..\source\ti\driverlib\dl_vref.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\dl_wwdt.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\m0p\dl_interrupt.h)(0x66D136B8)
 I (..\..\source\ti\driverlib\m0p\dl_systick.h)(0x66D136B8)
-F (..\State\task.c)(0x688D41DC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../HWT101 -I ../classic -I ../OLED -I ../State -I ../system -I ../../E_car-D__UVISION_VERSION="542" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/task.o -MMD)
-I (..\State\task.h)(0x688D36CB)
+F (..\State\task.c)(0x688D452E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../../source/third_party/CMSIS/Core/Include -I ../../source -I ../gimbal -I ../vision -I ../time -I ../HWT101 -I ../classic -I ../OLED -I ../State -I ../system -I ../../E_car-D__UVISION_VERSION="542" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/task.o -MMD)
+I (..\State\task.h)(0x688D4471)
 I (..\..\E_car\ti_msp_dl_config.h)(0x688D36CB)
 I (..\..\source\ti\devices\msp\msp.h)(0x66D136B8)
 I (..\..\source\ti\devices\DeviceFamily.h)(0x66D136B8)
@@ -1030,10 +1030,10 @@ I (..\State\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\State\Buzzer.h)(0x688D36CB)
 I (..\system\Timer.h)(0x688C9B30)
 I (..\system\..\ti_msp_dl_config.h)(0x688D36CB)
-I (..\classic\Gray.h)(0x688D424B)
-I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\classic\Motor.h)(0x688D36CB)
 I (..\classic\Encoder.h)(0x688C9B30)
+I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
+I (..\classic\Gray.h)(0x688D452E)
 I (..\classic\Tracking.h)(0x688D3C84)
 I (..\system\Delay.h)(0x688D36CB)
 I (..\OLED\OLED.h)(0x688D36CB)
@@ -1501,11 +1501,11 @@ I (..\classic\Encoder.h)(0x688C9B30)
 I (..\classic\..\ti_msp_dl_config.h)(0x688D36CB)
 I (..\classic\Motor.h)(0x688D36CB)
 I (..\..\E_car\ti_msp_dl_config.h)(0x688D36CB)
-I (..\classic\Gray.h)(0x688D424B)
+I (..\classic\Gray.h)(0x688D452E)
 I (..\classic\Tracking.h)(0x688D3C84)
 I (..\State\Key.h)(0x688C9B30)
 I (..\State\..\ti_msp_dl_config.h)(0x688D36CB)
-I (..\State\task.h)(0x688D36CB)
+I (..\State\task.h)(0x688D4471)
 I (..\State\Buzzer.h)(0x688D36CB)
 I (..\system\Delay.h)(0x688D36CB)
 I (..\OLED\OLED.h)(0x688D36CB)

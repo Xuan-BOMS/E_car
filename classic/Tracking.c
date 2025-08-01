@@ -19,7 +19,7 @@ void Tracking_Update(void)
     pid_line_follow.output = pid_calc(&pid_line_follow, 0.0f, Tracking_Error);
 
     // 基础速度
-    uint16_t base_speed = MOTOR_Target_Speed1;
+    uint16_t base_speed = 1100;
     int16_t motor_Speed[2];
     // 根据PID输出调整左右电机速度
     motor_Speed[0] = base_speed - (int16_t)pid_line_follow.output;

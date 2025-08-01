@@ -2,7 +2,6 @@
 #include "Key.h"
 #include "Buzzer.h"
 #include "Timer.h"
-#include "Gray.h"
 #include "Motor.h"
 #include "Encoder.h"
 #include "Gray.h"
