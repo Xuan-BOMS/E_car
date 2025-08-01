@@ -13,7 +13,7 @@ void Buzzer_on(uint8_t cnt)
 
 void Buzzer_Beep(uint16_t ms)
 {
-	DL_GPIO_setPins(GPIO_Buzzer_PORT, GPIO_Buzzer_PIN_A27_PIN);
+	//DL_GPIO_setPins(GPIO_Buzzer_PORT, GPIO_Buzzer_PIN_A27_PIN);
 	delay_ms(ms);
-	DL_GPIO_clearPins(GPIO_Buzzer_PORT, GPIO_Buzzer_PIN_A27_PIN);
+	//DL_GPIO_clearPins(GPIO_Buzzer_PORT, GPIO_Buzzer_PIN_A27_PIN);
 }
