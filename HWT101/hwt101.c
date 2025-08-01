@@ -17,9 +17,9 @@ void UART_2_INST_IRQHandler(void)
     {
         case DL_UART_IIDX_RX://如果是接收中断
             //接发送过来的数据保存在变量中
-            uart2_data = DL_UART_Main_receiveData(UART_2_INST);
+            //uart2_data = DL_UART_Main_receiveData(UART_2_INST);
             // 处理接收状态机
-            HWT101_Angle_Get(uart2_data);
+            //HWT101_Angle_Get(uart2_data);
             break;
 
         default://其他的串口中断

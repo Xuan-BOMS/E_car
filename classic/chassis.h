@@ -10,6 +10,7 @@
 #include "Key.h"
 #include "task.h"
 #define Basic_Speed 20 // 基础速度
+#define Turn_Speed 40 // 转向速度
 #define AIRCR                     ((uint32_t *)0xE000ED0C)
 #define __RESET_AIRCR()           (*AIRCR = (0x000005FA<<16)|(1<<2))
 typedef enum {

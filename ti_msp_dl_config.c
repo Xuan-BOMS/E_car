@@ -428,7 +428,7 @@ static const DL_TimerG_ClockConfig gTIMER_classicClockConfig = {
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * TIMER_classic_INST_LOAD_VALUE = (10 ms * 320000 Hz) - 1
+ * TIMER_classic_INST_LOAD_VALUE = (0.005 * 320000 Hz) - 1
  */
 static const DL_TimerG_TimerConfig gTIMER_classicTimerConfig = {
     .period     = TIMER_classic_INST_LOAD_VALUE,

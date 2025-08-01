@@ -1,7 +1,7 @@
 #include "../ti_msp_dl_config.h"
 
 #define P_Error1 30.0
-#define P_Error2 15.0
+#define P_Error2 20.0
 
 //#define SH_L() DL_GPIO_clearPins(GPIO_Gray_SH_PORT, GPIO_Gray_SH_PIN)
 //#define SH_H() DL_GPIO_setPins(GPIO_Gray_SH_PORT, GPIO_Gray_SH_PIN)
