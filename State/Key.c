@@ -1,7 +1,7 @@
 #include "Key.h"
 
 // 按键状态数组
-static Key_t keys[KEY_COUNT];
+Key_t keys[KEY_COUNT];
 
 /**
  * @brief  读取按键硬件状态

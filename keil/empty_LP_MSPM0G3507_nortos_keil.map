@@ -346,23 +346,23 @@ Section Cross References
     oled.o(.text.OLED_Init) refers to oled.o(.text.OLED_Refresh_GRAM) for OLED_Refresh_GRAM
     oled.o(.ARM.exidx.text.OLED_Init) refers to oled.o(.text.OLED_Init) for [Anonymous Symbol]
     oled.o(.ARM.exidx.text.OLED_IIC_WriteByte) refers to oled.o(.text.OLED_IIC_WriteByte) for [Anonymous Symbol]
-    key.o(.text.Key_Init) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_Init) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_Init) refers to key.o(.text.Key_Init) for [Anonymous Symbol]
-    key.o(.text.Key_Scan) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_Scan) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_Scan) refers to key.o(.text.Key_Scan) for [Anonymous Symbol]
-    key.o(.text.Key_IsClicked) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_IsClicked) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_IsClicked) refers to key.o(.text.Key_IsClicked) for [Anonymous Symbol]
-    key.o(.text.Key_IsHold) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_IsHold) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_IsHold) refers to key.o(.text.Key_IsHold) for [Anonymous Symbol]
-    key.o(.text.Key_IsReleased) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_IsReleased) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_IsReleased) refers to key.o(.text.Key_IsReleased) for [Anonymous Symbol]
-    key.o(.text.Key_IsPressed) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_IsPressed) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_IsPressed) refers to key.o(.text.Key_IsPressed) for [Anonymous Symbol]
-    key.o(.text.Key_ClearEvent) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_ClearEvent) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_ClearEvent) refers to key.o(.text.Key_ClearEvent) for [Anonymous Symbol]
-    key.o(.text.Key_ClearAllEvents) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_ClearAllEvents) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_ClearAllEvents) refers to key.o(.text.Key_ClearAllEvents) for [Anonymous Symbol]
-    key.o(.text.Key_GetEvent) refers to key.o(.bss.keys) for [Anonymous Symbol]
+    key.o(.text.Key_GetEvent) refers to key.o(.bss.keys) for keys
     key.o(.ARM.exidx.text.Key_GetEvent) refers to key.o(.text.Key_GetEvent) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED1_Toggle) refers to led.o(.text.LED1_Toggle) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED2_Toggle) refers to led.o(.text.LED2_Toggle) for [Anonymous Symbol]
@@ -1935,8 +1935,6 @@ Image Symbol Table
     [Anonymous Symbol]                       0x202005a9   Section        0  zdt_drive.o(.bss.a_angle_absolute.3)
     a_angle_absolute.9                       0x202005aa   Data           1  zdt_drive.o(.bss.a_angle_absolute.9)
     [Anonymous Symbol]                       0x202005aa   Section        0  zdt_drive.o(.bss.a_angle_absolute.9)
-    keys                                     0x20200788   Data          32  key.o(.bss.keys)
-    [Anonymous Symbol]                       0x20200788   Section        0  key.o(.bss.keys)
     motor_encoder                            0x202007ac   Data          24  encoder.o(.bss.motor_encoder)
     [Anonymous Symbol]                       0x202007ac   Section        0  encoder.o(.bss.motor_encoder)
     motor_states                             0x202007c4   Data          12  motor_tb.o(.bss.motor_states)
@@ -2279,6 +2277,7 @@ Image Symbol Table
     gUART_2Backup                            0x20200728   Data          48  ti_msp_dl_config.o(.bss.gUART_2Backup)
     gimbal                                   0x20200758   Data          40  gimbal.o(.bss.gimbal)
     hwt101_data                              0x20200780   Data           8  hwt101.o(.bss.hwt101_data)
+    keys                                     0x20200788   Data          32  key.o(.bss.keys)
     motor_enabled                            0x202007a8   Data           1  motor_tb.o(.bss.motor_enabled)
     new_pitch                                0x202007d0   Data           4  gimbal.o(.bss.new_pitch)
     new_yaw                                  0x202007d4   Data           4  gimbal.o(.bss.new_yaw)
@@ -2628,7 +2627,7 @@ Image component sizes
        468         64          0          0         49       6629   gimbal.o
        384         24          0          0         16       5396   gray.o
        232         40          0          0         22       5869   hwt101.o
-       280         38          0          0         32       5931   key.o
+       280         38          0          0         32       5933   key.o
         36          0          0          0          0       4699   led.o
        196         24          0          0         13      27000   motor_tb.o
       6778         64       6080          0       1284      21392   oled.o
@@ -2643,7 +2642,7 @@ Image component sizes
        784         48          0          8          3      18437   zdt_drive.o
 
     ----------------------------------------------------------------------
-     11200        720       6400         12       2276     157087   Object Totals
+     11200        720       6400         12       2276     157089   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          3          1         20          0   (incl. Padding)
 
@@ -2771,8 +2770,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21540       1212       6952         12       2372     215737   Grand Totals
-     21540       1212       6952         12       2372     215737   ELF Image Totals
+     21540       1212       6952         12       2372     215739   Grand Totals
+     21540       1212       6952         12       2372     215739   ELF Image Totals
      21540       1212       6952         12          0          0   ROM Totals
 
 ==============================================================================
