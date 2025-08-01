@@ -223,27 +223,7 @@ void Task_Choose(void)
     task.speed_table[0] = 1500;
     task.speed_table[1] = 2000;
     task.speed_table[2] = 2500;
-    OLED_Init(); 
-    OLED_Set_Printfmt(0,0,16,0);
-    // 添加调试输出验证初始化
-    delay_ms(100);  // 确保初始化完成
-        
-    // 显示初始化后的值
-    OLED_Set_Printfmt(80, 0, 16, 0);
-    OLED_Printf("stop");
-    OLED_Set_Printfmt(0, 0, 16, 0);
-    OLED_Printf("Task:");
-    // 使用临时变量避免直接访问task结构体
-    uint8_t temp_task = task.current_task;
-    OLED_ShowChar(40, 0, '0' + temp_task, 16, 0);
-    OLED_Set_Printfmt(0, 16 , 16, 0);
-    OLED_Printf("Circle:");
-    uint8_t temp_circle = task.circle_count;
-    OLED_ShowChar(64, 16, '0' + temp_circle, 16, 0);
-    OLED_Set_Printfmt(0, 32, 16, 0);
-    OLED_Printf("Speed:");
-    uint8_t temp_speed = task.speed_level;
-    OLED_ShowChar(48, 32, '0' + temp_speed, 16, 0);
+    Software_Reset(); 
 
         // 系统复位标志
         // SystemReset();

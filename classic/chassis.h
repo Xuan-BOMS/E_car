@@ -10,6 +10,8 @@
 #include "Key.h"
 #include "task.h"
 #define Basic_Speed 20 // 基础速度
+#define AIRCR                     ((uint32_t *)0xE000ED0C)
+#define __RESET_AIRCR()           (*AIRCR = (0x000005FA<<16)|(1<<2))
 typedef enum {
     MOVE_FORWARD = 0,  // 前进
     MOVE_BACKWARD,     // 后退
@@ -29,4 +31,5 @@ void Chassis_update(void);
 void TIMER_classic_INST_IRQHandler(void);
 void Chassis_setSpeed(int8_t left_speed, int8_t right_speed);
 float get_YAW_Angle(void);
+void Software_Reset(void);
 #endif // !__CHASSIS_H__

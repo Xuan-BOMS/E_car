@@ -44,7 +44,15 @@ void TIMER_classic_INST_IRQHandler(void)
 			{
 				//Motor_Stop_All();
 			}
-            
+                // 四键组合：系统完全复位
+    if (Key_IsPressed(KEY_1) && Key_IsPressed(KEY_2) && 
+        Key_IsPressed(KEY_3) && Key_IsPressed(KEY_4)) {
+        
+    	Software_Reset(); 
+
+        // 系统复位标志
+        // SystemReset();
+    }
 		}
 			break;
         default:  // 其他定时器中断
@@ -63,4 +71,16 @@ float get_YAW_Angle(void)
 		return chassis.hwt_data->YAW; // 返回偏航角度
 	}
 	return 0.0f; // 数据无效时返回0
+}
+// 软件复位函数
+void Software_Reset(void)
+{
+    // 停止所有电机
+    Chassis_setSpeed(0, 0);
+    
+    // 延时确保操作完成
+    delay_ms(100);
+
+    __RESET_AIRCR();
+
 }

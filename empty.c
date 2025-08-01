@@ -37,11 +37,8 @@ int main(void)
 		LED2_On();
     while (1)
     {
-        delay_ms(1);
+        delay_ms(2000);
         Task_Choose();
-        //motor_setSpeed();
-        //发送字符串
-        //gimbal_motor_move(); // 控制云台电机移动
     }
 }
 
