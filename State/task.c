@@ -163,7 +163,7 @@ void Task_Choose(void)
     }
     if (task.current_task == 1 || task.current_task == 4 || task.current_task == 5 || task.current_task == 6) {
         // KEY_3: 速度档位控制 (1->2->3->1)
-        if (Key_IsClicked(KEY_3)) {
+        if (Key_IsClicked(KEY_4)) {
             if (!task.task_running) {
                 task.speed_level++;
                 if (task.speed_level > 3) {
@@ -179,7 +179,7 @@ void Task_Choose(void)
     }
     // KEY_4单击：启动/停止当前任务
     // 改进显示逻辑，确保清除旧内容
-    if (Key_IsClicked(KEY_4)) {
+    if (Key_IsClicked(KEY_3)) {
         task.task_running = !task.task_running;
         
         // 先清除显示区域
