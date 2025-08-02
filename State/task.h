@@ -1,7 +1,7 @@
 #ifndef __TASK_H__
 #define __TASK_H__
 
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #include "Key.h"
 #include "Timer.h"
 #include "Gray.h"

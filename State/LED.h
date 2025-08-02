@@ -1,4 +1,4 @@
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 
 void LED1_Toggle(void);
 void LED2_Toggle(void);

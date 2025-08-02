@@ -1,6 +1,6 @@
 #ifndef __HWT101_H__
 #define __HWT101_H__
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 typedef struct
 {
     uint8_t type_mode; // 数据有效标志，0=无效，1=有效

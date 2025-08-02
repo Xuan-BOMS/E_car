@@ -1,6 +1,6 @@
 #ifndef VISION_H
 #define VISION_H
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 typedef struct
 {
     uint8_t vision_on;

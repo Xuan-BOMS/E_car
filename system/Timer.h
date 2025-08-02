@@ -1,7 +1,7 @@
 #ifndef __TIMER_H
 #define __TIMER_H
 
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #include <stdint.h>
 
 // 定时器配置

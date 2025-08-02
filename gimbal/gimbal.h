@@ -1,6 +1,6 @@
 #ifndef GIMBAL_H
 #define GIMBAL_H
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #include "ZDT_drive.h"
 #include "vision.h"
 //像素计算

@@ -1,7 +1,7 @@
 //zdt电机驱动相关，经测试问题不大，无需更改（
 #ifndef __ZDT_drive_H__
 #define __ZDT_drive_H__
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #define usart1_mode 0
 #define usart2_mode 1
 #define can1_mode 2

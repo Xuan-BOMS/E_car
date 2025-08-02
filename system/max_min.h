@@ -1,4 +1,4 @@
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 
 int16_t Get_Max(int16_t a, int16_t b);
 int16_t Get_Min(int16_t a, int16_t b);

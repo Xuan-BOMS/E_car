@@ -1,11 +1,10 @@
 #include "time.h"
 #include "Timer.h"
-#include "Encoder.h"
-#include "Motor_tb.h"
-#include "Gray.h"
-#include "Tracking.h"
-#include "Key.h"
-#include "task.h"
+#include "../Classic/Motor_tb.h"
+#include "../Classic/Gray.h"
+#include "../Classic/Tracking.h"
+#include "../State/Key.h"
+#include "../State/task.h"
 
 //外部变量
 extern double Tracking_Error;

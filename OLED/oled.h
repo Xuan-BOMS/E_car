@@ -9,7 +9,7 @@
 #ifndef	__OLED_H__
 #define	__OLED_H__
 
-#include "../ti_msp_dl_config.h"
+#include "ti_msp_dl_config.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdarg.h>

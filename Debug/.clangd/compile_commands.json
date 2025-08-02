@@ -1,0 +1,117 @@
+[
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/empty.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug/ti_msp_dl_config.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/HWT101/hwt101.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/OLED/oled.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/State/Buzzer.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/State/Key.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/State/LED.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/State/task.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/Gray.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/Motor_tb.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/Tracking.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/chassis.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/motorDK.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/gimbal/ZDT_drive.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/gimbal/gimbal.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/iar/startup_mspm0g350x_iar.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/system/PID.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/system/PWM.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/system/Timer.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/system/max_min.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/time/time.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/vision/vision.c"
+   },
+   {
+      "directory" : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/Debug\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"D:/Code_sourse/mspm0_sdk_2_05_01_00/source\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"D:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "D:/Code_sourse/mspm0_sdk_2_05_01_00/examples/rtos/LP_MSPM0G3507/drivers/empty_freertos/Fuckti/classic/Encoder.c"
+   }
+]
