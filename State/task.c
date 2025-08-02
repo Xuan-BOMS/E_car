@@ -26,39 +26,31 @@ extern int16_t Motor_Speed[2];
 // 任务1的具体实现 - 基础循迹行驶
 void Task1(void)
 {
-    completed_circles = corner_cnt / 4; // 更新已完成的圈数
-    // 检查是否达到目标圈数 (每圈4个角)
-    if(corner_cnt >= circle_count_target * 4) {
-        // 到达目标圈数，停止任务
-        task_running = false;
-        Motor_Stop_All();
-        
-        // 重置相关变量
-        corner_cnt = 0;
-        corner_flag = 0;
-        tracking_flag = 0;
-        completed_circles = circle_count_target;
-        
-        // 蜂鸣器提示任务完成
-        Buzzer_on(2);
-        
-//        // 显示任务完成信息
-//        OLED_Set_Printfmt(80, 0, 16, 0);
-//        OLED_Printf("     ");
-//        OLED_Set_Printfmt(80, 0, 16, 0);
-//        OLED_Printf("Done!");
-        
-        // 显示完成的圈数
-        OLED_Set_Printfmt(0, 48, 16, 0);
-        OLED_Printf("Finished:%d", completed_circles);
-        
-        return; // 退出任务函数
-    }
+    // 计时用变量
+    static uint8_t corner_count = 0;
+    static bool task_initialized = false;
+    static uint32_t line_time = 0;
+    static uint32_t first_line_time = 0;
+    static bool first_line_time_initialized = false;
     
+    // 任务启动时初始化
+    if(!task_initialized && task_running) {
+        corner_count = 4 * circle_count_target;
+        corner_cnt = 0;
+        task_initialized = true;
+    }
+
+    // 任务停止时重置初始化标志
+    if(!task_running) {
+        task_initialized = false;
+        return;
+    }
+
     tracking_flag =1; // 设置为已开始跟踪
 
     if(Tracking_Error>=(P_Error1+P_Error2+P_Error3+P_Error4+P_Error5+P_Error6))//到达拐角
     {
+        first_line_time_initialized = true;
         corner_flag = 1; // 检测到角落
         tracking_flag =0; // 停止跟踪
         corner_cnt++;
@@ -67,6 +59,7 @@ void Task1(void)
 //        OLED_Set_Printfmt(0, 48, 16, 0);
 //        OLED_Printf("Progress:%d/%d", corner_cnt/4, circle_count_target);
     }
+
     if(corner_flag ==1){
 		
 		Motor_MoveForward(1000);//直行
@@ -76,13 +69,61 @@ void Task1(void)
         Delay_ms(200); // 等待转向完成
         corner_flag = 0; // 重置角落标志
         tracking_flag = 1; // 开始跟踪
+        corner_count--;
+        if(corner_count == 0) {
+            corner_cnt = 0; // 重置角落计数
+            while(first_line_time <line_time){
+            Tracking_Update();
+            Delay_ms(10);
+            first_line_time++; // 延时10ms，模拟任务间隔
+            }
+            task_running = false; // 任务完成，停止任务
+            first_line_time_initialized = false;
+            first_line_time = 0; // 重置第一次跟踪时间
+            Motor_Stop_All(); // 停止电机
+            return; // 任务完成，退出
+        }else {
+            line_time= 0; // 重置计时
+        }
     }
+
     if(tracking_flag == 1) {
         // 如果正在跟踪
         Tracking_Update();
+        if(first_line_time_initialized == false) {
+            first_line_time++; // 记录第一次跟踪的时间
+        }
         Delay_ms(10); // 延时10ms，模拟任务间隔
     }
-	
+
+//     // 检查是否达到目标圈数 (每圈4个角)
+//     if(corner_cnt >= circle_count_target * 4) {
+//         // 到达目标圈数，停止任务
+//         task_running = false;
+//         Motor_Stop_All();
+        
+//         // 重置相关变量
+//         corner_cnt = 0;
+//         corner_flag = 0;
+//         tracking_flag = 0;
+//         completed_circles = circle_count_target;
+        
+//         // 蜂鸣器提示任务完成
+//         Buzzer_on(2);
+        
+// //        // 显示任务完成信息
+// //        OLED_Set_Printfmt(80, 0, 16, 0);
+// //        OLED_Printf("     ");
+// //        OLED_Set_Printfmt(80, 0, 16, 0);
+// //        OLED_Printf("Done!");
+        
+//         // 显示完成的圈数
+//         OLED_Set_Printfmt(0, 48, 16, 0);
+//         OLED_Printf("Finished:%d", completed_circles);
+        
+//         return; // 退出任务函数
+//     }
+    completed_circles = corner_cnt / 4; // 更新已完成的圈数
 }
 
 // 初始化任务

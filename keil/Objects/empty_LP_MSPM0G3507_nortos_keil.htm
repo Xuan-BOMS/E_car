@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\empty_LP_MSPM0G3507_nortos_keil.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\empty_LP_MSPM0G3507_nortos_keil.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6230001: Last Updated: Sat Aug  2 07:54:56 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6230001: Last Updated: Sat Aug  2 09:46:22 2025
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -418,7 +418,7 @@ Global Symbols
 <P><STRONG><a name="[164]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[56]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; Task_Choose &rArr; Task1 &rArr; Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -611,7 +611,7 @@ Global Symbols
 <P><STRONG><a name="[116]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, dfixi.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_d2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
 </UL>
 
 <P><STRONG><a name="[170]"></a>_dfix</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, dfixi.o(.text), UNUSED)
@@ -1087,7 +1087,7 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_GPIO_setPins
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[98]"></a>Buzzer_on</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, buzzer.o(.text.Buzzer_on))
@@ -1201,16 +1201,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
-<P><STRONG><a name="[109]"></a>Key_IsClicked</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, key.o(.text.Key_IsClicked))
+<P><STRONG><a name="[108]"></a>Key_IsClicked</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, key.o(.text.Key_IsClicked))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Key_IsClicked
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[10a]"></a>Key_IsPressed</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, key.o(.text.Key_IsPressed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Key_IsPressed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[a7]"></a>Key_Scan</STRONG> (Thumb, 524 bytes, Stack size 24 bytes, key.o(.text.Key_Scan))
@@ -1248,7 +1248,7 @@ Global Symbols
 <P><STRONG><a name="[117]"></a>Limit_Range</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, max_min.o(.text.Limit_Range))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Limit_Range
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
 </UL>
 
 <P><STRONG><a name="[ac]"></a>Motor_Control</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, motor.o(.text.Motor_Control))
@@ -1268,7 +1268,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_GPIO_clearPins
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[b1]"></a>Motor_Enable</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, motor.o(.text.Motor_Enable))
@@ -1276,7 +1276,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_GPIO_setPins
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
@@ -1324,7 +1324,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetDirection
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
 </UL>
 
 <P><STRONG><a name="[bc]"></a>Motor_Spin_Left</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, motor.o(.text.Motor_Spin_Left))
@@ -1350,7 +1350,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMG8_IRQHandler
 </UL>
 
@@ -1386,8 +1386,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh_GRAM
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
@@ -1401,11 +1400,10 @@ Global Symbols
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_AllScreen_Clear
 </UL>
 
-<P><STRONG><a name="[105]"></a>OLED_Set_Printfmt</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, oled.o(.text.OLED_Set_Printfmt))
+<P><STRONG><a name="[109]"></a>OLED_Set_Printfmt</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, oled.o(.text.OLED_Set_Printfmt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OLED_Set_Printfmt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
@@ -1547,7 +1545,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_GPIO_init
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_initPower
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1591,55 +1589,52 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>TIMG8_IRQHandler</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, timer.o(.text.TIMG8_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = TIMG8_IRQHandler &rArr; Gray_CalError &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_getPendingInterrupt
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop_All
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gray_CalError
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gray_Read
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_update
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_encoder_count
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DL_Timer_getPendingInterrupt
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mspm0g350x_uvision.o(RESET)
 </UL>
-<P><STRONG><a name="[104]"></a>Task1</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, task.o(.text.Task1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 240 + Unknown Stack Size
-<LI>Call Chain = Task1 &rArr; Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
+<P><STRONG><a name="[104]"></a>Task1</STRONG> (Thumb, 328 bytes, Stack size 16 bytes, task.o(.text.Task1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = Task1 &rArr; Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer_on
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer_on
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Spin_Left
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_MoveForward
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop_All
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmplt
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmplt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[10c]"></a>Task2</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text.Task2))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[10d]"></a>Task3</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text.Task3))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[10e]"></a>Task4</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text.Task4))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[10f]"></a>Task5</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text.Task5))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
 <P><STRONG><a name="[110]"></a>Task6</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text.Task6))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 </UL>
 
-<P><STRONG><a name="[108]"></a>Task_Choose</STRONG> (Thumb, 604 bytes, Stack size 24 bytes, task.o(.text.Task_Choose))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
+<P><STRONG><a name="[107]"></a>Task_Choose</STRONG> (Thumb, 604 bytes, Stack size 24 bytes, task.o(.text.Task_Choose))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = Task_Choose &rArr; Task1 &rArr; Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task6
@@ -1650,9 +1645,9 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer_Beep
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_IsPressed
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_IsClicked
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_IsClicked
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Disable
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop_All
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
@@ -1670,13 +1665,13 @@ Global Symbols
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Printfmt
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Enable
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_PID_Init
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1688,7 +1683,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Init
 </UL>
 
-<P><STRONG><a name="[107]"></a>Tracking_Update</STRONG> (Thumb, 160 bytes, Stack size 56 bytes, tracking.o(.text.Tracking_Update))
+<P><STRONG><a name="[106]"></a>Tracking_Update</STRONG> (Thumb, 160 bytes, Stack size 56 bytes, tracking.o(.text.Tracking_Update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Enable
@@ -1770,22 +1765,22 @@ Global Symbols
 <P><STRONG><a name="[fa]"></a>gimbal_set_position</STRONG> (Thumb, 468 bytes, Stack size 64 bytes, gimbal.o(.text.gimbal_set_position))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = gimbal_set_position &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fcmple
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fcmpge
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMA1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[57]"></a>main</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, empty.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = main &rArr; Task_Choose &rArr; Task1 &rArr; Tracking_Update &rArr; pid_calc &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Choose
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED2_On
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED1_On
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED3_On
@@ -1809,7 +1804,7 @@ Global Symbols
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking_Update
 </UL>
 
 <P><STRONG><a name="[114]"></a>pid_init</STRONG> (Thumb, 128 bytes, Stack size 80 bytes, pid.o(.text.pid_init))
@@ -1888,7 +1883,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmple
 </UL>
 
-<P><STRONG><a name="[106]"></a>__aeabi_dcmplt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(i._dls))
+<P><STRONG><a name="[105]"></a>__aeabi_dcmplt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(i._dls))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dcmplt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1
